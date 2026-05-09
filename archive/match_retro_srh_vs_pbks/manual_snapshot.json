@@ -1,0 +1,16 @@
+{
+  "source": "manual_snapshot",
+  "team1": {
+    "name": "Sunrisers Hyderabad",
+    "implied_probability": 0.58
+  },
+  "team2": {
+    "name": "Punjab Kings",
+    "implied_probability": 0.42
+  },
+  "volume_usd": null,
+  "bid_ask_spread_pct": null,
+  "liquidity_flag": null,
+  "notes": "Retrospective estimate based on team standings (SRH 1st, 12pts; PBKS 5th, 12pts), home advantage at Hyderabad, and H2H dominance (17-8). No live Polymarket data available for this past match.",
+  "frozen_at": "2026-05-09T14:56:51.458248+00:00"
+}

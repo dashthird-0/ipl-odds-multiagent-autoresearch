@@ -1,0 +1,23 @@
+# Cricsheet raw data (large, downloadable)
+tools/cricsheet/data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+*.env
+
+# Cron logs (snapshots themselves are committed)
+market_snapshots/cron_stdout.log
+market_snapshots/capture_log.jsonl

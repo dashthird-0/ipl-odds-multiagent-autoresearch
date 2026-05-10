@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-05-09T17:30:01.960752+00:00",
+  "game_start_time": "2026-05-09 14:00:00+00",
+  "event_title": "Indian Premier League: Rajasthan Royals vs Gujarat Titans",
+  "market_id": "2149038",
+  "condition_id": "0x167c2ac303824aec3730d04a255b7f58b475e7684e6891bdbc698ada7e323da2",
+  "clob_token_ids": "[\"95201503588901376700557001384916629573573314278817549426839496117555993856041\", \"93817536249819923608526160015398859961777875345060817968432884744423189729394\"]",
+  "outcomes": "[\"Rajasthan Royals\", \"Gujarat Titans\"]",
+  "outcome_prices": "[\"0.0025\", \"0.9975\"]",
+  "volume": 2019269.8325679984,
+  "last_trade_price": 0.002,
+  "best_bid": 0.002,
+  "best_ask": 0.003,
+  "spread": 0.001
+}

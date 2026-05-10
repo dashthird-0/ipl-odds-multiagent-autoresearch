@@ -1,0 +1,25 @@
+{
+  "match": "Rajasthan Royals vs Gujarat Titans",
+  "venue": "Sawai Mansingh Stadium",
+  "date": "2026-05-10",
+  "snapshot_timestamp": "2026-05-09T14:18:40.187564+00:00",
+  "source": "polymarket",
+  "market_id": "2149038",
+  "condition_id": "0x167c2ac303824aec3730d04a255b7f58b475e7684e6891bdbc698ada7e323da2",
+  "team1": {
+    "name": "Rajasthan Royals",
+    "implied_probability": 0.485
+  },
+  "team2": {
+    "name": "Gujarat Titans",
+    "implied_probability": 0.515
+  },
+  "volume_usd": 112267.6,
+  "liquidity_flag": "deep",
+  "last_trade_prices": [
+    0.55,
+    0.55
+  ],
+  "bid_ask_spread_pct": 0.0,
+  "notes": "Live API fetch successful"
+}

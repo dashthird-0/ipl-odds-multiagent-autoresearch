@@ -37,13 +37,13 @@ def extract_prediction_from_memo(case_dir: Path, ref_team: str, team1: str, team
     """Parse the memo to extract prediction and band for the reference team."""
     memo = (case_dir / "memo.md").read_text()
 
-    band_match = re.search(r"\*\*Model band:\*\*\s*(.+?)(\d+)-(\d+)%", memo)
+    band_match = re.search(r"\*\*Model band:\*\*\s*(\d+)[\-–—](\d+)%\s*\(([^)]+)\)", memo)
     if not band_match:
         raise ValueError("Could not parse model band from memo")
 
-    band_team_fragment = band_match.group(1).strip()
-    band_low = int(band_match.group(2)) / 100
-    band_high = int(band_match.group(3)) / 100
+    band_low = int(band_match.group(1)) / 100
+    band_high = int(band_match.group(2)) / 100
+    band_team_fragment = band_match.group(3).strip()
     midpoint = (band_low + band_high) / 2
 
     if ref_team.split()[-1].lower() in band_team_fragment.lower() or ref_team.split()[0].lower() in band_team_fragment.lower():

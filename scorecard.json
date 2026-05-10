@@ -1,4 +1,31 @@
 {
-  "matches": [],
-  "aggregates": {}
+  "matches": [
+    {
+      "case_id": "exp_001_rr_vs_gt",
+      "date": "2026-05-09",
+      "teams": [
+        "Rajasthan Royals",
+        "Gujarat Titans"
+      ],
+      "active_rules": [],
+      "reference_team": "Gujarat Titans",
+      "other_team": "Rajasthan Royals",
+      "prediction": 0.5,
+      "band": [
+        0.45,
+        0.55
+      ],
+      "outcome": 1,
+      "winner": "Gujarat Titans",
+      "brier_score": 0.25,
+      "band_coverage": true
+    }
+  ],
+  "aggregates": {
+    "n_matches": 1,
+    "mean_brier": 0.25,
+    "rolling_brier_5": 0.25,
+    "band_coverage_rate": 1.0,
+    "vs_coinflip": 0.0
+  }
 }

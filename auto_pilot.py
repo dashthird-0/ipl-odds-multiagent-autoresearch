@@ -427,6 +427,7 @@ def trigger_pipeline(team1: str, team2: str, venue: str, date: str,
         log(f"  evidence build FAILED: {r.stderr[:400]}")
         return False
     log("  evidence packet ready")
+    send_telegram(f"Pipeline triggered: {team1} vs {team2}. Agents running, expect ~30 min.")
 
     # Invoke Claude Code agents
     case_dir = CASE_STUDIES_DIR / case_id

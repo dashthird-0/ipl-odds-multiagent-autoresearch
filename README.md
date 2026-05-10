@@ -1,6 +1,6 @@
-# Cricket Pricing Room
+# ipl-odds-multiagent-autoresearch
 
-Cricket Pricing Room is a self-improving forecasting system. It produces a probability-band memo before each IPL match, grades the memo against the actual outcome, and rewrites its own reasoning rules across the season. No human decides which rules to keep or discard. The rule library mutates based on Brier score performance alone.
+A self-improving forecasting system. It produces a probability-band memo before each IPL match, grades the memo against the actual outcome, and rewrites its own reasoning rules across the season. No human decides which rules to keep or discard. The rule library mutates based on Brier score performance alone.
 
 It's built on [Claude Code](https://claude.ai/code) with seven specialist subagents. The multi-agent part is table stakes at this point; the interesting piece is the autoresearch loop on top.
 
@@ -113,7 +113,7 @@ Every case study is a self-contained evidence packet:
 - `sources_fetched.md` - every external source, with URL and date
 - Full agent outputs (news, source quality, skeptic review, memo, grade)
 
-No hindsight is demonstrable, not just claimed. See [docs/evidence_discipline.md](docs/evidence_discipline.md).
+Evidence packets are built once, before first ball, and never modified after that. The agents run against the frozen packet, not against live web search at memo-generation time. Anyone reading the case study folder can verify exactly what the agents could and couldn't see. See [docs/evidence_discipline.md](docs/evidence_discipline.md).
 
 ## Status
 
@@ -122,6 +122,8 @@ No hindsight is demonstrable, not just claimed. See [docs/evidence_discipline.md
 | [RR vs GT](case_studies/exp_001_rr_vs_gt/) | 2026-05-09 | GT 48-56% (coin flip) | GT won by 77 runs | 0.25 | C+ |
 
 **Running Brier: 0.25** (1 match, baseline is 0.25 which is a coin flip)
+
+The memo was directionally right (leaned GT) but under-confident. It called a coin flip when GT turned out to be a clear favorite, winning by 77 runs. The Skeptic's rule ("never claim more than 5pp from 50%") was too cautious and prevented the Synthesizer from following its own evidence. That's now a tentative rule in the Reflection Log, and the next consolidation will test whether loosening it improves calibration.
 
 Live through IPL 2026 second half. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
 
@@ -142,7 +144,7 @@ No agent and no consolidation step can change this file.
 
 - **[Cricsheet](https://cricsheet.org/)** - 1,219 IPL matches, ball-by-ball, CC0 license
 - **[Polymarket](https://polymarket.com/)** - public Gamma API for market-implied probabilities (no auth)
-- **Web search** - team news, pitch reports, weather (frozen query protocol in `program.md`)
+- **Web search** - team news, pitch reports, weather. The search queries are frozen in `program.md`, but the returned source set varies per match. The Source Quality Clerk audits each source's reliability and timestamp after the fact.
 
 ## Why Claude Code, Not Managed Agents
 

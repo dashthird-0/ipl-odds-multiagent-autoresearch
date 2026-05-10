@@ -1,6 +1,6 @@
 # ipl-odds-multiagent-autoresearch
 
-A self-improving forecasting system. It produces a probability-band memo before each IPL match, grades the memo against the actual outcome, and rewrites its own reasoning rules across the season. No human decides which rules to keep or discard. The rule library mutates based on Brier score performance alone.
+ipl-odds-multiagent-autoresearch is a self-updating IPL forecasting research system. It produces a pre-match forecast before each IPL match, grades the forecast against the actual outcome, and rewrites its own reasoning rules across the season without any human intervention. The rule library mutates based on Brier score performance alone. Whether that mutation improves calibration over the season is the experiment.
 
 It's built on [Claude Code](https://claude.ai/code) with seven specialist subagents. The multi-agent part is table stakes at this point; the interesting piece is the autoresearch loop on top.
 
@@ -34,17 +34,17 @@ The architecture is general (any domain with public prediction markets), but rig
                             │
                       ┌─────┘
                       ▼
-               Next match memo
+               Next match forecast
           (informed by updated rules)
 ```
 
-1. **Before the match:** Seven agents produce a probability-band memo. Market Reader fetches Polymarket prices. Stats Analyst queries 1,219 IPL matches from [Cricsheet](https://cricsheet.org/). News Analyst searches for team news, pitch reports, weather. Source Quality Clerk audits every source. Base-Rate Skeptic pushes back on narrative overreach. Fair Value Synthesizer writes the memo.
+1. **Before the match:** Seven agents produce a pre-match forecast. Market Reader fetches Polymarket prices. Stats Analyst queries 1,219 IPL matches from [Cricsheet](https://cricsheet.org/). News Analyst searches for team news, pitch reports, weather. Source Quality Clerk audits every source. Base-Rate Skeptic pushes back on narrative overreach. Fair Value Synthesizer writes the forecast.
 
 2. **After the match:** Post-Match Grader evaluates the reasoning (not just whether we got it right) and proposes rules for the Reflection Log.
 
 3. **Every 3 matches:** Consolidation runs automatically. It prunes rules that worsen calibration, strengthens rules that improve it, and generates new candidates from cross-match patterns.
 
-The memo pipeline alone is a standard multi-agent system. The loop on top is what makes it self-improving.
+The forecast pipeline alone is a standard multi-agent system. The loop on top is what makes it self-improving.
 
 ## The Autoresearch Loop
 
@@ -53,6 +53,8 @@ The Reflection Log (`reflection/learning_log.md`) is the system's mutable knowle
 The ratchet metric is **Brier score**: `(prediction - outcome)²`, lower is better, 0.25 = coin flip. Rules need 5+ applications before consolidation can act on them. This prevents overfitting to small samples.
 
 The frozen rules of the game (`reflection/program.md`) define what the loop can and cannot touch. Consolidation can rewrite the Reflection Log but cannot modify `program.md`, agent definitions, or the scoring function. Mutable surface, immutable program. That's what makes it safe to run without supervision.
+
+Important limitation: Brier is the only ratchet metric. The system may reward correct forecasts for the wrong reasons, and bad reasoning that produces a well-calibrated number can still strengthen a rule. Reasoning-quality failures are logged but don't drive rule mutation in v1. Keeping the ratchet simple makes the experiment auditable. Will evaluate adding a reasoning-validity gate as v2.
 
 ## No Human in the Loop
 
@@ -68,9 +70,9 @@ This is the first time I'm running a system like this with fully autonomous rule
 
 Council and debate patterns (CrewAI, multi-agent debate papers) are typically single-shot: agents debate, produce a decision, done. This project is different in two ways.
 
-The agents don't debate. They hand off through files. Stats Analyst writes query results to JSON. News Analyst writes structured markdown. Skeptic reads both and writes its review. Synthesizer reads everything and writes the memo. It's a pipeline, not a conversation.
+The agents don't debate. They hand off through files. Stats Analyst writes query results to JSON. News Analyst writes structured markdown. Skeptic reads both and writes its review. Synthesizer reads everything and writes the forecast. It's a pipeline, not a conversation.
 
-More importantly, it's not single-shot. After each match, the Grader scores the memo. Every few matches, consolidation rewrites the rule library based on what's actually working. Council patterns don't have this layer.
+More importantly, it's not single-shot. After each match, the Grader scores the forecast. Every few matches, consolidation rewrites the rule library based on what's actually working. Council patterns don't have this layer.
 
 ## Run It Yourself
 
@@ -94,7 +96,7 @@ The auto-pilot runs on a VPS. It discovers matches from Polymarket, triggers at 
 
 ## Output Format
 
-Memos output probability bands, not point estimates:
+Forecasts output probability bands, not point estimates:
 
 ```
 Anchor price:      GT 51.5% (Polymarket, $112K volume)
@@ -111,19 +113,21 @@ Every case study is a self-contained evidence packet:
 - `market_snapshot.json` - frozen Polymarket state (VPS-captured pre-toss)
 - `stats_snapshot.json` - Cricsheet query results
 - `sources_fetched.md` - every external source, with URL and date
-- Full agent outputs (news, source quality, skeptic review, memo, grade)
+- Full agent outputs (news, source quality, skeptic review, pre-match forecast (memo.md), grade)
 
-Evidence packets are built once, before first ball, and never modified after that. The agents run against the frozen packet, not against live web search at memo-generation time. Anyone reading the case study folder can verify exactly what the agents could and couldn't see. See [docs/evidence_discipline.md](docs/evidence_discipline.md).
+Evidence packets are built once, before first ball, and never modified after that. The agents run against the frozen packet, not against live web search at forecast-generation time. Anyone reading the case study folder can verify exactly what the agents could and couldn't see. See [docs/evidence_discipline.md](docs/evidence_discipline.md).
 
 ## Status
 
-| Match | Date | Memo Call | Result | Brier | Grade |
+| Match | Date | Forecast | Result | Brier | Grade |
 |-------|------|-----------|--------|-------|-------|
 | [RR vs GT](case_studies/exp_001_rr_vs_gt/) | 2026-05-09 | GT 48-56% (coin flip) | GT won by 77 runs | 0.25 | C+ |
 
 **Running Brier: 0.25** (1 match, baseline is 0.25 which is a coin flip)
 
-The memo was directionally right (leaned GT) but under-confident. It called a coin flip when GT turned out to be a clear favorite, winning by 77 runs. The Skeptic's rule ("never claim more than 5pp from 50%") was too cautious and prevented the Synthesizer from following its own evidence. That's now a tentative rule in the Reflection Log, and the next consolidation will test whether loosening it improves calibration.
+The forecast leaned GT but stayed near coin-flip. GT then won by 77 runs. The post-match grade flagged that the system may have been too cautious. Synthesizer's evidence was stronger than the final band allowed, and the Skeptic's default rule ("never claim more than 5pp from 50%") may have suppressed legitimate confidence. That's now a tentative rule in the Reflection Log; whether loosening it improves calibration is what the next consolidation will test.
+
+Note: a 77-run margin is decisive but doesn't prove pre-match probability should have been much higher. Variance in a T20 match is super high. The learning is that the system's reasoning may have been stronger than its output band reflected.
 
 Live through IPL 2026 second half. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
 

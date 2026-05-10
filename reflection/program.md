@@ -81,6 +81,63 @@ This means:
 This is deliberate: we are testing whether multi-agent reasoning adds value over an
 informed market, not whether we can predict coin flips (toss) or guess team selections.
 
+## News Search Protocol
+
+The News & Conditions Analyst uses open web search with a frozen query protocol.
+Source-set variance is expected across matches; the protocol is what's frozen.
+
+### Search Query Templates
+
+For a match {Team1} vs {Team2} at {Venue} on {Date}, execute these searches:
+
+1. `"{Team1} vs {Team2} playing XI {Date}"` — confirmed/likely team selections
+2. `"{Team1} vs {Team2} team news injury"` — injury updates, availability
+3. `"{Venue} pitch report IPL 2026"` — pitch behavior, curator comments
+4. `"{Team1} vs {Team2} weather forecast {Date}"` — match-day conditions
+5. `"{Team1} IPL 2026 form"` — recent team performance context
+6. `"{Team2} IPL 2026 form"` — recent team performance context
+7. `"{Team1} vs {Team2} preview IPL 2026"` — journalist previews, tactical signals
+8. `"IPL 2026 points table playoff scenarios"` — standings context
+
+### Date Window
+
+- Earliest: match-day minus 3 days
+- Latest: toss time (post-toss sources allowed only for toss result + confirmed XI)
+- Sources without a visible publication date: flagged as "undated" in sources log
+
+### Inclusion Rule
+
+Any cricket-relevant page returned by the template queries within the date window.
+No manual exclusion based on content — the Source Quality Clerk handles discrimination.
+
+### Exclusion Rule (hard, applied before Clerk)
+
+- Published outside the date window
+- Non-English
+- Off-topic (not about this match, these teams, or this venue)
+- Paywalled content not accessible via search snippet
+
+### Source Logging
+
+Every source fetched is logged to `case_studies/{case_id}/sources_fetched.md`:
+
+```
+| # | URL | Published | Query | Role |
+|---|-----|-----------|-------|------|
+| 1 | https://... | 2026-05-09 | query_1 | team news |
+| 2 | https://... | undated | query_3 | pitch report |
+```
+
+This is the audit artifact. The Source Quality Clerk reads this + the News Analyst
+output to perform its 3-tier assessment.
+
+### Variance Acknowledgment
+
+Different runs of the same match may produce different source sets (search results
+vary by time, personalization, availability). This is expected and acceptable.
+What's frozen is the protocol, not the output. Comparability across experiments
+comes from the consistent query structure and the Clerk's standardized audit.
+
 ## Market Anchor
 
 - Source: Polymarket Gamma API (tag_id=101988)

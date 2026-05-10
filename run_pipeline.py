@@ -62,6 +62,8 @@ def make_case_id(team1: str, team2: str, date: str) -> str:
 
 def find_pretoss_snapshot(team1: str, team2: str, date: str) -> dict | None:
     """Find the last pre-toss VPS snapshot for this match."""
+    from datetime import datetime, timezone
+
     snapshots_dir = PROJECT_ROOT / "market_snapshots"
     if not snapshots_dir.exists():
         return None
@@ -77,8 +79,17 @@ def find_pretoss_snapshot(team1: str, team2: str, date: str) -> dict | None:
             if t1_last in title and t2_last in title:
                 captured_at = data.get("captured_at", "")
                 game_start = data.get("game_start_time", "")
-                if game_start and captured_at and captured_at >= game_start:
-                    continue
+                if game_start and captured_at:
+                    try:
+                        cap_dt = datetime.fromisoformat(captured_at)
+                        gs_raw = game_start.strip()
+                        if gs_raw.endswith("+00"):
+                            gs_raw = gs_raw + ":00"
+                        gs_dt = datetime.fromisoformat(gs_raw.replace(" ", "T"))
+                        if cap_dt >= gs_dt:
+                            continue
+                    except ValueError:
+                        pass
                 candidates.append((captured_at, data))
         except (json.JSONDecodeError, KeyError):
             continue

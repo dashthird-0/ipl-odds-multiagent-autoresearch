@@ -482,6 +482,7 @@ def run(dry_run: bool = False):
                 log(f"  ABORT {team1} vs {team2}: market closed (match started early)")
                 ms["status"] = "missed"
                 ms["reason"] = "market closed before trigger window"
+                send_telegram(f"MISSED: {team1} vs {team2}. Match started before trigger window fired.")
                 state["matches"][match_key] = ms
                 save_state(state)
                 continue
@@ -504,6 +505,8 @@ def run(dry_run: bool = False):
             })
             state["matches"][match_key] = ms
             save_state(state)
+            if not ok:
+                send_telegram(f"FAILED: {team1} vs {team2} trigger failed. Evidence may be built but agents didn't run. Check auto_pilot.log.")
 
         # Past trigger window but match not started yet (rain delay)
         elif mins_to_start < TRIGGER_WINDOW_CLOSE and mkt["accepting_orders"]:
@@ -512,6 +515,7 @@ def run(dry_run: bool = False):
                 log(f"  TIMEOUT {team1} vs {team2}: rain delay > {RAIN_DELAY_TIMEOUT_HOURS}h")
                 ms["status"] = "missed"
                 ms["reason"] = "rain delay timeout"
+                send_telegram(f"MISSED: {team1} vs {team2}. Rain delay exceeded {RAIN_DELAY_TIMEOUT_HOURS}h, gave up.")
                 state["matches"][match_key] = ms
                 save_state(state)
             elif ms.get("status") != "rain_delay":
@@ -567,6 +571,7 @@ def run(dry_run: bool = False):
                 log(f"  MISSED {team1} vs {team2}: match already underway")
                 ms["status"] = "missed"
                 ms["reason"] = "discovered after match start"
+                send_telegram(f"MISSED: {team1} vs {team2}. Discovered after match already started.")
                 state["matches"][match_key] = ms
                 save_state(state)
 
@@ -598,6 +603,7 @@ def run(dry_run: bool = False):
             if hours_since > RESULT_DEADLINE_HOURS:
                 log(f"  RESULT TIMEOUT: {ms['case_id']}")
                 ms["status"] = "result_timeout"
+                send_telegram(f"PROBLEM: {ms.get('team1','?')} vs {ms.get('team2','?')} - no result detected after 24h. Polymarket may not have resolved. Check manually.")
                 state["matches"][match_key] = ms
                 save_state(state)
                 continue
@@ -612,6 +618,8 @@ def run(dry_run: bool = False):
                         "winner": winner,
                         "graded_at": now.isoformat(),
                     })
+                    if not ok:
+                        send_telegram(f"FAILED: {ms.get('team1','?')} vs {ms.get('team2','?')} grading failed. Winner: {winner}. Check auto_pilot.log.")
                     state["matches"][match_key] = ms
                     save_state(state)
 

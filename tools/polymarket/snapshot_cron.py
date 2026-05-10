@@ -49,10 +49,11 @@ def fetch_active_ipl_markets() -> list[dict]:
 
     matches = []
     for event in data:
+        event_title = event.get("title", "")
+        if any(x in event_title for x in ["Most Sixes", "Toss Match", "Top Batter", "Top Bowler"]):
+            continue
         for market in event.get("markets", []):
             volume = float(market.get("volume", "0") or "0")
-            if volume < 10000:
-                continue
             game_start = market.get("gameStartTime", "")
             if not game_start:
                 continue

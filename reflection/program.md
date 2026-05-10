@@ -69,12 +69,24 @@ knowledge of outcomes. Forward-only eliminates both problems.
 
 The Reflection Log starts empty. Rules emerge from forward grading only.
 
+## Evidence Cutoff: Post-Toss, Pre-First-Ball
+
+All agents operate on evidence available after the toss but before the first ball is bowled.
+This means:
+- Toss result is known (who bats/bowls first)
+- Confirmed playing XIs are known (announced at toss)
+- Market price reflects toss outcome and confirmed XIs
+- Both the system and the market have the same information set
+
+This is deliberate: we are testing whether multi-agent reasoning adds value over an
+informed market, not whether we can predict coin flips (toss) or guess team selections.
+
 ## Market Anchor
 
 - Source: Polymarket Gamma API (tag_id=101988)
 - Captured by: VPS cron at VPS_IP_REDACTED, every 30 minutes
-- Official snapshot: last capture before toss (gameStartTime - 30min)
-- Minimum volume for valid anchor: $10,000
+- Official snapshot: last capture after toss, before first ball
+- Minimum volume for valid anchor: $10,000 (markets below this are flagged as thin)
 
 ## Human Role
 

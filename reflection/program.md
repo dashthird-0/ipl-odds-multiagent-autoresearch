@@ -116,6 +116,8 @@ No manual exclusion based on content — the Source Quality Clerk handles discri
 - Non-English
 - Off-topic (not about this match, these teams, or this venue)
 - Paywalled content not accessible via search snippet
+- On double-header days: results/post-match coverage from the earlier match must not
+  inform the later match's memo. Each match's date window ends at its own toss time.
 
 ### Source Logging
 
@@ -142,7 +144,8 @@ comes from the consistent query structure and the Clerk's standardized audit.
 
 - Source: Polymarket Gamma API (tag_id=101988)
 - Captured by: VPS cron at VPS_IP_REDACTED, every 30 minutes
-- Official snapshot: last capture after toss, before first ball
+- Official snapshot: last VPS capture before first ball (post-toss). This is the hard
+  physical anchor — toss time is fixed, memo-generation time varies. Do not change mid-season.
 - Minimum volume for valid anchor: $10,000 (markets below this are flagged as thin)
 
 ## Human Role

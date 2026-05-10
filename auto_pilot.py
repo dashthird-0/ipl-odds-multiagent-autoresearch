@@ -94,15 +94,19 @@ CANONICAL_TEAMS = {
 # ---------------------------------------------------------------------------
 
 def acquire_lock() -> bool:
-    if LOCK_FILE.exists():
+    try:
+        fd = os.open(str(LOCK_FILE), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.write(fd, str(os.getpid()).encode())
+        os.close(fd)
+        return True
+    except FileExistsError:
         try:
             old_pid = int(LOCK_FILE.read_text().strip())
             os.kill(old_pid, 0)
             return False  # process is still alive
         except (ValueError, ProcessLookupError, PermissionError):
             LOCK_FILE.unlink(missing_ok=True)
-    LOCK_FILE.write_text(str(os.getpid()))
-    return True
+            return acquire_lock()
 
 
 def release_lock():

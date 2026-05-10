@@ -178,12 +178,12 @@ Packet built at: {now}
     (case_dir / "market_snapshot.json").write_text(json.dumps(market, indent=2))
 
     t1p = market["team1"].get("implied_probability")
-    if t1p is not None:
-        t2p = market["team2"]["implied_probability"]
+    t2p = market["team2"].get("implied_probability")
+    if t1p is not None and t2p is not None:
         print(f"  {team1}: {t1p*100:.1f}% | {team2}: {t2p*100:.1f}%")
         print(f"  Volume: ${market.get('volume_usd', 0):,.0f} ({market.get('liquidity_flag', '?')})")
     else:
-        print("  No market data found")
+        print("  No market data found (will use live fetch during agent run)")
 
     for fname in ["news_conditions.md", "source_quality.md", "skeptic_review.md",
                   "memo.md", "result.md", "post_match_grade.md"]:

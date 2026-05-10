@@ -79,6 +79,72 @@ TEAM_ABBREV = {
 
 
 # ---------------------------------------------------------------------------
+# Telegram alerts
+# ---------------------------------------------------------------------------
+
+TELEGRAM_ENV = Path.home() / ".claude" / "channels" / "telegram" / ".env"
+TELEGRAM_CHAT_ID = "REDACTED_CHAT_ID"
+HEARTBEAT_INTERVAL_HOURS = 6
+
+
+def _get_bot_token() -> str | None:
+    if not TELEGRAM_ENV.exists():
+        return None
+    for line in TELEGRAM_ENV.read_text().splitlines():
+        if line.startswith("TELEGRAM_BOT_TOKEN="):
+            return line.split("=", 1)[1].strip()
+    return None
+
+
+def send_telegram(text: str):
+    token = _get_bot_token()
+    if not token:
+        return
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    payload = json.dumps({"chat_id": TELEGRAM_CHAT_ID, "text": text}).encode()
+    req = Request(url, data=payload, headers={"Content-Type": "application/json"})
+    try:
+        with urlopen(req, timeout=10):
+            pass
+    except Exception:
+        pass
+
+
+def maybe_send_heartbeat(state: dict):
+    now = datetime.now(timezone.utc)
+    last = state.get("last_heartbeat_at")
+    if last:
+        elapsed = (now - datetime.fromisoformat(last)).total_seconds() / 3600
+        if elapsed < HEARTBEAT_INTERVAL_HOURS:
+            return
+
+    matches = state.get("matches", {})
+    n_discovered = sum(1 for v in matches.values() if v.get("status") == "discovered")
+    n_triggered = sum(1 for v in matches.values() if v.get("status") == "triggered")
+    n_graded = sum(1 for v in matches.values() if v.get("status") == "graded")
+    total = n_discovered + n_triggered + n_graded
+
+    scorecard_path = PROJECT_ROOT / "scorecard.json"
+    brier_str = ""
+    if scorecard_path.exists():
+        try:
+            sc = json.loads(scorecard_path.read_text())
+            b = sc.get("aggregates", {}).get("mean_brier")
+            n = sc.get("aggregates", {}).get("n_matches", 0)
+            if b is not None:
+                brier_str = f" Running Brier: {b:.3f} across {n} matches."
+        except (json.JSONDecodeError, KeyError):
+            pass
+
+    msg = (
+        f"Auto-pilot alive. "
+        f"{n_discovered} discovered, {n_triggered} triggered, {n_graded} graded.{brier_str}"
+    )
+    send_telegram(msg)
+    state["last_heartbeat_at"] = now.isoformat()
+
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
@@ -309,6 +375,7 @@ def trigger_pipeline(team1: str, team2: str, venue: str, date: str,
         return False
 
     log("  memo pipeline complete")
+    send_telegram(f"Triggered: {team1} vs {team2} ({case_id}). Forecast pipeline complete.")
     return True
 
 
@@ -359,6 +426,7 @@ def grade_match(case_id: str, winner: str, dry_run: bool = False) -> bool:
         return False
 
     log("  grading complete")
+    send_telegram(f"Graded: {case_id}. Winner: {winner}.")
     return True
 
 
@@ -540,9 +608,11 @@ def run(dry_run: bool = False):
             if r.returncode == 0:
                 state["last_consolidation_count"] = graded_count
                 log("  consolidation complete")
+                send_telegram(f"Consolidation complete. {graded_count} matches graded. Rules updated.")
             else:
                 log(f"  consolidation FAILED: {r.stderr[:300]}")
 
+    maybe_send_heartbeat(state)
     save_state(state)
     log("tick complete")
 

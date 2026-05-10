@@ -21,3 +21,7 @@ Thumbs.db
 # Cron logs (snapshots themselves are committed)
 market_snapshots/cron_stdout.log
 market_snapshots/capture_log.jsonl
+
+# Auto-pilot runtime state
+auto_pilot_state.json
+auto_pilot.log

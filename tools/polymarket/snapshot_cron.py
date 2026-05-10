@@ -76,14 +76,16 @@ def fetch_active_ipl_markets() -> list[dict]:
 
 
 def parse_game_time(game_start_str: str) -> datetime:
+    s = game_start_str.strip()
+    if s.endswith("+00"):
+        s = s + ":00"
     for fmt in ["%Y-%m-%d %H:%M:%S%z", "%Y-%m-%dT%H:%M:%S%z"]:
         try:
-            return datetime.strptime(game_start_str.strip(), fmt)
+            return datetime.strptime(s, fmt)
         except ValueError:
             continue
-    # Fallback: assume UTC
     try:
-        dt = datetime.strptime(game_start_str.strip()[:19], "%Y-%m-%d %H:%M:%S")
+        dt = datetime.strptime(s[:19], "%Y-%m-%d %H:%M:%S")
         return dt.replace(tzinfo=timezone.utc)
     except ValueError:
         return datetime.now(timezone.utc) + timedelta(days=365)

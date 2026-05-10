@@ -130,7 +130,7 @@ def maybe_send_heartbeat(state: dict):
             gst = parse_game_time(gst_str)
             trigger_at = gst - timedelta(minutes=15)
             ist = trigger_at + timedelta(hours=5, minutes=30)
-            upcoming_lines.append(f"  {t1} vs {t2} - triggers {ist.strftime('%-I:%M %p')} IST")
+            upcoming_lines.append(f"  {t1} vs {t2} - {ist.strftime('%a %b %-d, %-I:%M %p')} IST")
         elif status == "triggered":
             upcoming_lines.append(f"  {t1} vs {t2} - forecast done, waiting for result")
         elif status == "graded":

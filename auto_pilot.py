@@ -555,20 +555,21 @@ def run(dry_run: bool = False):
             case_id = make_case_id(team1, team2, exp_num)
 
             ok = trigger_pipeline(team1, team2, venue, date, case_id, dry_run)
-            ms.update({
-                "status": "triggered" if ok else "trigger_failed",
-                "team1": team1, "team2": team2,
-                "venue": venue, "date": date,
-                "case_id": case_id,
-                "experiment_number": exp_num,
-                "market_id": mkt["market_id"],
-                "game_start_time": mkt["game_start_time"],
-                "triggered_at": now.isoformat(),
-            })
-            state["matches"][match_key] = ms
-            save_state(state)
-            if not ok:
-                send_telegram(f"FAILED: {team1} vs {team2} trigger failed. Evidence may be built but agents didn't run. Check auto_pilot.log.")
+            if not dry_run:
+                ms.update({
+                    "status": "triggered" if ok else "trigger_failed",
+                    "team1": team1, "team2": team2,
+                    "venue": venue, "date": date,
+                    "case_id": case_id,
+                    "experiment_number": exp_num,
+                    "market_id": mkt["market_id"],
+                    "game_start_time": mkt["game_start_time"],
+                    "triggered_at": now.isoformat(),
+                })
+                state["matches"][match_key] = ms
+                save_state(state)
+                if not ok:
+                    send_telegram(f"FAILED: {team1} vs {team2} trigger failed. Evidence may be built but agents didn't run. Check auto_pilot.log.")
 
         # Past trigger window but match not started yet (rain delay)
         elif mins_to_start < TRIGGER_WINDOW_CLOSE and mkt["accepting_orders"]:
@@ -618,16 +619,17 @@ def run(dry_run: bool = False):
                         exp_num = ms.get("experiment_number") or next_experiment_number()
                         case_id = make_case_id(team1, team2, exp_num)
                         ok = trigger_pipeline(team1, team2, venue, date, case_id, dry_run)
-                        ms.update({
-                            "status": "triggered" if ok else "trigger_failed",
-                            "venue": venue, "date": date,
-                            "case_id": case_id,
-                            "experiment_number": exp_num,
-                            "triggered_at": now.isoformat(),
-                            "trigger_reason": "rain_delay_toss_detected",
-                        })
-                        state["matches"][match_key] = ms
-                        save_state(state)
+                        if not dry_run:
+                            ms.update({
+                                "status": "triggered" if ok else "trigger_failed",
+                                "venue": venue, "date": date,
+                                "case_id": case_id,
+                                "experiment_number": exp_num,
+                                "triggered_at": now.isoformat(),
+                                "trigger_reason": "rain_delay_toss_detected",
+                            })
+                            state["matches"][match_key] = ms
+                            save_state(state)
                         continue
 
                 if current_prices and len(current_prices) == 2:

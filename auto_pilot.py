@@ -16,10 +16,13 @@ Usage:
     python3 auto_pilot.py --install    # install local cron (every 5 min)
 """
 
+import atexit
 import json
 import os
+import signal
 import subprocess
 import sys
+import tempfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.request import urlopen, Request
@@ -28,6 +31,7 @@ from urllib.error import URLError
 PROJECT_ROOT = Path(__file__).parent
 STATE_FILE = PROJECT_ROOT / "auto_pilot_state.json"
 LOG_FILE = PROJECT_ROOT / "auto_pilot.log"
+LOCK_FILE = PROJECT_ROOT / "auto_pilot.lock"
 CASE_STUDIES_DIR = PROJECT_ROOT / "case_studies"
 
 GAMMA_API = "https://gamma-api.polymarket.com/events"
@@ -78,13 +82,55 @@ TEAM_ABBREV = {
 }
 
 
+CANONICAL_TEAMS = {
+    "Chennai Super Kings", "Mumbai Indians", "Royal Challengers Bengaluru",
+    "Kolkata Knight Riders", "Delhi Capitals", "Rajasthan Royals",
+    "Sunrisers Hyderabad", "Punjab Kings", "Gujarat Titans", "Lucknow Super Giants",
+}
+
+
+# ---------------------------------------------------------------------------
+# PID lock (prevents cron overlap)
+# ---------------------------------------------------------------------------
+
+def acquire_lock() -> bool:
+    if LOCK_FILE.exists():
+        try:
+            old_pid = int(LOCK_FILE.read_text().strip())
+            os.kill(old_pid, 0)
+            return False  # process is still alive
+        except (ValueError, ProcessLookupError, PermissionError):
+            LOCK_FILE.unlink(missing_ok=True)
+    LOCK_FILE.write_text(str(os.getpid()))
+    return True
+
+
+def release_lock():
+    LOCK_FILE.unlink(missing_ok=True)
+
+
+atexit.register(release_lock)
+signal.signal(signal.SIGTERM, lambda *_: sys.exit(0))
+
+
 # ---------------------------------------------------------------------------
 # Telegram alerts
 # ---------------------------------------------------------------------------
 
 TELEGRAM_ENV = Path.home() / ".claude" / "channels" / "telegram" / ".env"
-TELEGRAM_CHAT_ID = "REDACTED_CHAT_ID"
 HEARTBEAT_INTERVAL_HOURS = 6
+
+
+def _get_chat_id() -> str | None:
+    cid = os.environ.get("TELEGRAM_CHAT_ID")
+    if cid:
+        return cid
+    env_file = Path.home() / ".claude" / "channels" / "telegram" / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            if line.startswith("TELEGRAM_CHAT_ID="):
+                return line.split("=", 1)[1].strip()
+    return None
 
 
 def _get_bot_token() -> str | None:
@@ -98,16 +144,18 @@ def _get_bot_token() -> str | None:
 
 def send_telegram(text: str):
     token = _get_bot_token()
-    if not token:
+    chat_id = _get_chat_id()
+    if not token or not chat_id:
         return
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = json.dumps({"chat_id": TELEGRAM_CHAT_ID, "text": text}).encode()
+    payload = json.dumps({"chat_id": chat_id, "text": text}).encode()
     req = Request(url, data=payload, headers={"Content-Type": "application/json"})
     try:
-        with urlopen(req, timeout=10):
-            pass
-    except Exception:
-        pass
+        resp = urlopen(req, timeout=10)
+        if resp.status != 200:
+            log(f"  Telegram send failed: HTTP {resp.status}")
+    except Exception as e:
+        log(f"  Telegram send failed: {e}")
 
 
 def maybe_send_heartbeat(state: dict):
@@ -174,7 +222,14 @@ def load_state() -> dict:
 
 
 def save_state(state: dict):
-    STATE_FILE.write_text(json.dumps(state, indent=2))
+    tmp_fd, tmp_path = tempfile.mkstemp(dir=PROJECT_ROOT, suffix=".tmp")
+    try:
+        with os.fdopen(tmp_fd, "w") as f:
+            json.dump(state, f, indent=2)
+        os.replace(tmp_path, STATE_FILE)
+    except Exception:
+        os.unlink(tmp_path)
+        raise
 
 
 def parse_game_time(s: str) -> datetime:
@@ -214,6 +269,8 @@ def extract_teams(title: str) -> tuple[str, str] | None:
         return None
     t1 = TEAM_NORMALIZE.get(parts[0], parts[0])
     t2 = TEAM_NORMALIZE.get(parts[1], parts[1])
+    if t1 not in CANONICAL_TEAMS or t2 not in CANONICAL_TEAMS:
+        return None
     return (t1, t2)
 
 
@@ -473,7 +530,7 @@ def run(dry_run: bool = False):
         match_key = f"{mkt['game_start_time'][:10]}_{mkt['market_id']}"
         ms = state["matches"].get(match_key, {})
 
-        if ms.get("status") in ("triggered", "graded", "missed"):
+        if ms.get("status") in ("triggered", "graded", "missed", "trigger_failed"):
             continue
 
         # Inside trigger window (toss+10 to toss+20)
@@ -520,12 +577,20 @@ def run(dry_run: bool = False):
                 save_state(state)
             elif ms.get("status") != "rain_delay":
                 log(f"  RAIN DELAY {team1} vs {team2}: past scheduled start, market still open")
+                current_prices = mkt.get("outcome_prices", "")
+                if isinstance(current_prices, str):
+                    try:
+                        current_prices = json.loads(current_prices)
+                    except json.JSONDecodeError:
+                        current_prices = []
+                baseline = [str(current_prices[0]), str(current_prices[1])] if len(current_prices) == 2 else []
                 ms.update({
                     "status": "rain_delay",
                     "team1": team1, "team2": team2,
                     "game_start_time": mkt["game_start_time"],
                     "market_id": mkt["market_id"],
                     "rain_delay_detected_at": now.isoformat(),
+                    "last_prices": baseline,
                 })
                 state["matches"][match_key] = ms
                 save_state(state)
@@ -717,4 +782,7 @@ if __name__ == "__main__":
     elif "--dry-run" in sys.argv:
         run(dry_run=True)
     else:
+        if not acquire_lock():
+            print("Another auto_pilot instance is running. Exiting.")
+            sys.exit(0)
         run()

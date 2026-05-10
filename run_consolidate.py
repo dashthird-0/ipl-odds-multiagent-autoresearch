@@ -40,6 +40,8 @@ def load_scorecard() -> dict:
 
 
 def count_matches_since_last_consolidation() -> int:
+    if not EXPERIMENTS_PATH.exists():
+        return len(load_scorecard()["matches"])
     experiments = EXPERIMENTS_PATH.read_text()
     scorecard = load_scorecard()
     n_matches = len(scorecard["matches"])
@@ -151,8 +153,8 @@ def main():
     print("=" * 60)
 
     if not args.dry_run:
-        experiments_text = EXPERIMENTS_PATH.read_text()
-        if "_No consolidation runs yet" in experiments_text:
+        experiments_text = EXPERIMENTS_PATH.read_text() if EXPERIMENTS_PATH.exists() else ""
+        if not experiments_text or "_No consolidation runs yet" in experiments_text:
             experiments_text = "# Experiments Log\n\nAudit trail of every consolidation cycle.\n\n---\n"
         experiments_text += report
         EXPERIMENTS_PATH.write_text(experiments_text)

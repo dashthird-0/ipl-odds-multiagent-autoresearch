@@ -68,21 +68,25 @@ def find_pretoss_snapshot(team1: str, team2: str, date: str) -> dict | None:
 
     date_prefix = date.replace("-", "")
     candidates = []
-    for f in sorted(snapshots_dir.glob(f"{date_prefix}_*.json")):
+    for f in snapshots_dir.glob(f"{date_prefix}_*.json"):
         try:
             data = json.loads(f.read_text())
             title = data.get("event_title", "").lower()
             t1_last = team1.split()[-1].lower()
             t2_last = team2.split()[-1].lower()
             if t1_last in title and t2_last in title:
-                candidates.append((f, data))
+                captured_at = data.get("captured_at", "")
+                game_start = data.get("game_start_time", "")
+                if game_start and captured_at and captured_at >= game_start:
+                    continue
+                candidates.append((captured_at, data))
         except (json.JSONDecodeError, KeyError):
             continue
 
     if not candidates:
         return None
 
-    # Use the last captured snapshot (closest to toss)
+    candidates.sort(key=lambda x: x[0])
     _, snapshot = candidates[-1]
     return snapshot
 

@@ -25,3 +25,8 @@ market_snapshots/capture_log.jsonl
 # Auto-pilot runtime state
 auto_pilot_state.json
 auto_pilot.log
+auto_pilot.lock
+
+# Sensitive docs (contain VPS IP, credentials)
+CLAUDE.md
+docs/handoff.md

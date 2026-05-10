@@ -10,6 +10,13 @@ Brier score = (prediction - outcome)^2. Lower is better. Baseline (coin flip) = 
 import json
 from pathlib import Path
 
+TEAM_NORMALIZE = {
+    "Royal Challengers Bangalore": "Royal Challengers Bengaluru",
+    "Kings XI Punjab": "Punjab Kings",
+    "Delhi Daredevils": "Delhi Capitals",
+    "Rising Pune Supergiant": "Rising Pune Supergiants",
+}
+
 
 def alphabetical_reference_team(team1: str, team2: str) -> tuple[str, str]:
     teams = sorted([team1, team2])
@@ -28,17 +35,18 @@ def band_coverage(band_low: float, band_high: float, outcome: int) -> bool:
 
 
 def band_coverage_check(band_low: float, band_high: float, prediction: float, outcome: int) -> bool:
-    """Check if the outcome probability falls within the stated band.
+    """Check if the band's directional lean matched the outcome.
 
-    If Team A won (outcome=1), the "true probability" was >= the prediction.
-    We check if the band encompassed a reasonable range around the result.
-    Simple version: did the outcome (0 or 1) fall on the expected side of 0.5
-    given the band?
+    Covered if: band midpoint > 0.5 and ref team won, or midpoint < 0.5 and ref team lost.
+    Bands straddling 0.5 always count as covered (the forecast acknowledged uncertainty).
     """
+    midpoint = (band_low + band_high) / 2
+    if band_low <= 0.5 <= band_high:
+        return True
     if outcome == 1:
-        return band_high >= 0.5
+        return midpoint > 0.5
     else:
-        return band_low <= 0.5
+        return midpoint < 0.5
 
 
 def compute_match_score(memo_prediction: float, memo_band: tuple[float, float],
@@ -55,7 +63,8 @@ def compute_match_score(memo_prediction: float, memo_band: tuple[float, float],
         dict with brier_score, band_coverage, reference_team, prediction, outcome
     """
     ref_team, other_team = alphabetical_reference_team(team1, team2)
-    outcome = 1 if winner == ref_team else 0
+    normalized_winner = TEAM_NORMALIZE.get(winner.strip(), winner.strip())
+    outcome = 1 if normalized_winner == ref_team else 0
 
     score = brier_score(memo_prediction, outcome)
     coverage = band_coverage_check(memo_band[0], memo_band[1], memo_prediction, outcome)

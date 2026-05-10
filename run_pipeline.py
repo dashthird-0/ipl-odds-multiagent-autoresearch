@@ -25,6 +25,7 @@ Usage:
 
 import argparse
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -211,7 +212,7 @@ Stats and market data are already frozen in the evidence packet.
 """)
 
 
-VPS_HOST = "root@VPS_IP_REDACTED"
+VPS_HOST = os.environ.get("IPL_VPS_HOST", "root@YOUR_VPS_IP")
 VPS_SNAPSHOTS = "/root/ipl_snapshots/data/"
 
 

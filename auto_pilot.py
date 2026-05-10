@@ -119,27 +119,38 @@ def maybe_send_heartbeat(state: dict):
             return
 
     matches = state.get("matches", {})
-    n_discovered = sum(1 for v in matches.values() if v.get("status") == "discovered")
-    n_triggered = sum(1 for v in matches.values() if v.get("status") == "triggered")
-    n_graded = sum(1 for v in matches.values() if v.get("status") == "graded")
-    total = n_discovered + n_triggered + n_graded
+    # Build upcoming match list
+    upcoming_lines = []
+    for ms in sorted(matches.values(), key=lambda m: m.get("game_start_time", "")):
+        status = ms.get("status", "")
+        t1 = ms.get("team1", "?")
+        t2 = ms.get("team2", "?")
+        gst_str = ms.get("game_start_time", "")
+        if status == "discovered" and gst_str:
+            gst = parse_game_time(gst_str)
+            trigger_at = gst - timedelta(minutes=15)
+            ist = trigger_at + timedelta(hours=5, minutes=30)
+            upcoming_lines.append(f"  {t1} vs {t2} - triggers {ist.strftime('%-I:%M %p')} IST")
+        elif status == "triggered":
+            upcoming_lines.append(f"  {t1} vs {t2} - forecast done, waiting for result")
+        elif status == "graded":
+            winner = ms.get("winner", "?")
+            upcoming_lines.append(f"  {t1} vs {t2} - graded ({winner} won)")
 
     scorecard_path = PROJECT_ROOT / "scorecard.json"
-    brier_str = ""
+    brier_line = ""
     if scorecard_path.exists():
         try:
             sc = json.loads(scorecard_path.read_text())
             b = sc.get("aggregates", {}).get("mean_brier")
             n = sc.get("aggregates", {}).get("n_matches", 0)
             if b is not None:
-                brier_str = f" Running Brier: {b:.3f} across {n} matches."
+                brier_line = f"\nBrier: {b:.3f} across {n} match{'es' if n != 1 else ''} (0.25 = coin flip)"
         except (json.JSONDecodeError, KeyError):
             pass
 
-    msg = (
-        f"Auto-pilot alive. "
-        f"{n_discovered} discovered, {n_triggered} triggered, {n_graded} graded.{brier_str}"
-    )
+    match_section = "\n".join(upcoming_lines) if upcoming_lines else "  No matches tracked"
+    msg = f"IPL Auto-Pilot is running.\n\nMatches:\n{match_section}{brier_line}"
     send_telegram(msg)
     state["last_heartbeat_at"] = now.isoformat()
 
@@ -375,7 +386,7 @@ def trigger_pipeline(team1: str, team2: str, venue: str, date: str,
         return False
 
     log("  memo pipeline complete")
-    send_telegram(f"Triggered: {team1} vs {team2} ({case_id}). Forecast pipeline complete.")
+    send_telegram(f"Forecast ready: {team1} vs {team2}.\nCheck case_studies/{case_id}/memo.md for the probability band.")
     return True
 
 
@@ -426,7 +437,17 @@ def grade_match(case_id: str, winner: str, dry_run: bool = False) -> bool:
         return False
 
     log("  grading complete")
-    send_telegram(f"Graded: {case_id}. Winner: {winner}.")
+    # Read Brier score from scorecard for this match
+    brier_info = ""
+    try:
+        sc = json.loads((PROJECT_ROOT / "scorecard.json").read_text())
+        for m in sc.get("matches", []):
+            if m.get("case_id") == case_id:
+                brier_info = f"\nBrier: {m['brier_score']:.3f} (0.25 = coin flip)"
+                break
+    except Exception:
+        pass
+    send_telegram(f"Match graded: {winner} won.\nSee case_studies/{case_id}/post_match_grade.md{brier_info}")
     return True
 
 
@@ -608,7 +629,7 @@ def run(dry_run: bool = False):
             if r.returncode == 0:
                 state["last_consolidation_count"] = graded_count
                 log("  consolidation complete")
-                send_telegram(f"Consolidation complete. {graded_count} matches graded. Rules updated.")
+                send_telegram(f"Consolidation ran after {graded_count} matches. Reflection Log rules updated.\nSee reflection/learning_log.md and reflection/experiments.md")
             else:
                 log(f"  consolidation FAILED: {r.stderr[:300]}")
 

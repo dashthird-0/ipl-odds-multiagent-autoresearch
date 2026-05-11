@@ -349,7 +349,7 @@ def fetch_active_markets() -> list[dict]:
 
 
 def fetch_resolved_markets() -> list[dict]:
-    events = _gamma_fetch("closed=true")
+    events = _gamma_fetch("closed=true&order=id&ascending=false")
     markets = []
     for event in events:
         title = event.get("title", "")

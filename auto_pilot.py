@@ -19,6 +19,7 @@ Usage:
 import atexit
 import json
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -182,6 +183,9 @@ def maybe_send_heartbeat(state: dict):
         gst_str = ms.get("game_start_time", "")
         if status == "discovered" and gst_str:
             gst = parse_game_time(gst_str)
+            if not gst:
+                upcoming_lines.append(f"  {t1} vs {t2} - discovered (bad game time)")
+                continue
             trigger_at = gst - timedelta(minutes=15)
             ist = trigger_at + timedelta(hours=5, minutes=30)
             upcoming_lines.append(f"  {t1} vs {t2} - {ist.strftime('%a %b %-d, %-I:%M %p')} IST")
@@ -216,7 +220,6 @@ def maybe_send_heartbeat(state: dict):
 def log(msg: str):
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{ts}] {msg}"
-    print(line)
     with open(LOG_FILE, "a") as f:
         f.write(line + "\n")
 
@@ -240,9 +243,8 @@ def save_state(state: dict):
         raise
 
 
-def parse_game_time(s: str) -> datetime:
+def parse_game_time(s: str) -> datetime | None:
     s = s.strip()
-    # Normalize "+00" to "+00:00" so %z can parse it
     if s.endswith("+00"):
         s = s + ":00"
     elif s.endswith("-00"):
@@ -257,7 +259,8 @@ def parse_game_time(s: str) -> datetime:
         dt = datetime.strptime(s[:19], "%Y-%m-%d %H:%M:%S")
         return dt.replace(tzinfo=timezone.utc)
     except ValueError:
-        return datetime.now(timezone.utc) + timedelta(days=365)
+        log(f"  WARNING: unparseable game time: {s!r}")
+        return None
 
 
 TEAM_NORMALIZE = {
@@ -272,7 +275,7 @@ def extract_teams(title: str) -> tuple[str, str] | None:
     if " vs " not in title.lower():
         return None
     match_part = title.split(":", 1)[-1].strip() if ":" in title else title
-    parts = [p.strip() for p in match_part.split(" vs ")]
+    parts = [p.strip() for p in re.split(r' vs ', match_part, flags=re.IGNORECASE)]
     if len(parts) != 2:
         return None
     t1 = TEAM_NORMALIZE.get(parts[0], parts[0])
@@ -478,11 +481,17 @@ def grade_match(case_id: str, winner: str, dry_run: bool = False) -> bool:
         log(f"  scoring FAILED: {r.stderr[:400]}")
         return False
 
-    # Grade via Claude Code
+    # Grade via Claude Code — find latest graded case as format template
+    template_ref = "exp_001_rr_vs_gt"
+    state = load_state()
+    graded = [(v["case_id"], v.get("graded_at", "")) for v in state.get("matches", {}).values()
+              if v.get("status") == "graded" and v.get("case_id") != case_id]
+    if graded:
+        template_ref = max(graded, key=lambda x: x[1])[0]
     prompt = (
         f"Grade {case_dir}. Read all files including the memo, result, stats, and market snapshot. "
         f"Write a thorough post-match grade to post_match_grade.md following the same format as "
-        f"exp_001_rr_vs_gt/post_match_grade.md. "
+        f"{template_ref}/post_match_grade.md. "
         f"Then update reflection/learning_log.md with any new durable rules learned."
     )
     log("  invoking grader...")
@@ -527,12 +536,15 @@ def run():
             continue
         team1, team2 = teams
         gst = parse_game_time(mkt["game_start_time"])
+        if not gst:
+            continue
         mins_to_start = (gst - now).total_seconds() / 60
 
         match_key = f"{mkt['game_start_time'][:10]}_{mkt['market_id']}"
         ms = state["matches"].get(match_key, {})
 
-        if ms.get("status") in ("triggered", "graded", "missed", "trigger_failed"):
+        if ms.get("status") in ("triggered", "graded", "missed", "trigger_failed",
+                                    "result_timeout", "grade_failed", "abandoned"):
             continue
 
         # Inside trigger window (toss+10 to toss+20)
@@ -714,6 +726,8 @@ def run():
         resolved = {m["market_id"]: m for m in fetch_resolved_markets()}
         for match_key, ms in triggered.items():
             gst = parse_game_time(ms["game_start_time"])
+            if not gst:
+                continue
             hours_since = (now - gst).total_seconds() / 3600
 
             if hours_since < RESULT_CHECK_AFTER_HOURS:
@@ -807,7 +821,7 @@ def show_status():
         by_status.setdefault(s, []).append(ms)
 
     for status in ["discovered", "rain_delay", "triggered", "graded", "missed",
-                    "trigger_failed", "grade_failed", "result_timeout"]:
+                    "trigger_failed", "grade_failed", "result_timeout", "abandoned"]:
         group = by_status.get(status, [])
         if not group:
             continue

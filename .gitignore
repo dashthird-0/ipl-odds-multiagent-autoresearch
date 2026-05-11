@@ -18,9 +18,8 @@ Thumbs.db
 .env
 *.env
 
-# Cron logs (snapshots themselves are committed)
-market_snapshots/cron_stdout.log
-market_snapshots/capture_log.jsonl
+# Market snapshots (live on VPS, symlinked in)
+market_snapshots/
 
 # Auto-pilot runtime state
 auto_pilot_state.json

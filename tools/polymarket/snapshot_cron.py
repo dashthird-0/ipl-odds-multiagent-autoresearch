@@ -88,14 +88,15 @@ def parse_game_time(game_start_str: str) -> datetime:
         dt = datetime.strptime(s[:19], "%Y-%m-%d %H:%M:%S")
         return dt.replace(tzinfo=timezone.utc)
     except ValueError:
-        return datetime.now(timezone.utc) + timedelta(days=365)
+        return None
 
 
 def should_capture(game_start_str: str) -> bool:
     now = datetime.now(timezone.utc)
     game_time = parse_game_time(game_start_str)
+    if not game_time:
+        return False
     hours_until = (game_time - now).total_seconds() / 3600
-    # Capture if match is within 8h ahead OR started within last 4h (game still live)
     return -4 < hours_until < LOOKAHEAD_HOURS
 
 
@@ -157,8 +158,12 @@ def run_capture():
             print(f"  {market['event_title']}")
             print(f"  Prices: {market['outcome_prices']}, Vol: ${market['volume']:,.0f}")
         else:
-            hours = (parse_game_time(market["game_start_time"]) - datetime.now(timezone.utc)).total_seconds() / 3600
-            print(f"Skipped (starts in {hours:.1f}h): {market['event_title'][:50]}")
+            gt = parse_game_time(market["game_start_time"])
+            if gt:
+                hours = (gt - datetime.now(timezone.utc)).total_seconds() / 3600
+                print(f"Skipped (starts in {hours:.1f}h): {market['event_title'][:50]}")
+            else:
+                print(f"Skipped (bad game time): {market['event_title'][:50]}")
 
     if not captured:
         log_event("no_capture", {"note": "No matches within capture window", "markets_found": len(markets)})

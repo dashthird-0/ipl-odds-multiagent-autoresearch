@@ -685,15 +685,16 @@ def run(dry_run: bool = False):
                 winner = detect_winner(rmkt)
                 if winner:
                     ok = grade_match(ms["case_id"], winner, dry_run)
-                    ms.update({
-                        "status": "graded" if ok else "grade_failed",
-                        "winner": winner,
-                        "graded_at": now.isoformat(),
-                    })
-                    if not ok:
-                        send_telegram(f"FAILED: {ms.get('team1','?')} vs {ms.get('team2','?')} grading failed. Winner: {winner}. Check auto_pilot.log.")
-                    state["matches"][match_key] = ms
-                    save_state(state)
+                    if not dry_run:
+                        ms.update({
+                            "status": "graded" if ok else "grade_failed",
+                            "winner": winner,
+                            "graded_at": now.isoformat(),
+                        })
+                        if not ok:
+                            send_telegram(f"FAILED: {ms.get('team1','?')} vs {ms.get('team2','?')} grading failed. Winner: {winner}. Check auto_pilot.log.")
+                        state["matches"][match_key] = ms
+                        save_state(state)
 
     # ── Phase 3: consolidation check ─────────────────────────────────────
     graded_count = sum(1 for v in state["matches"].values() if v.get("status") == "graded")

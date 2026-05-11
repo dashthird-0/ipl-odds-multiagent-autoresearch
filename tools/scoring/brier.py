@@ -89,6 +89,9 @@ def update_scorecard(scorecard_path: str, match_entry: dict) -> dict:
     else:
         scorecard = {"matches": [], "aggregates": {}}
 
+    existing_ids = {m["case_id"] for m in scorecard["matches"]}
+    if match_entry.get("case_id") in existing_ids:
+        return scorecard
     scorecard["matches"].append(match_entry)
 
     scores = [m["brier_score"] for m in scorecard["matches"]]

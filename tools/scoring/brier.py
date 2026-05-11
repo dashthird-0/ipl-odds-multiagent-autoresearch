@@ -8,6 +8,8 @@ Brier score = (prediction - outcome)^2. Lower is better. Baseline (coin flip) = 
 """
 
 import json
+import os
+import tempfile
 from pathlib import Path
 
 TEAM_NORMALIZE = {
@@ -25,13 +27,6 @@ def alphabetical_reference_team(team1: str, team2: str) -> tuple[str, str]:
 
 def brier_score(prediction: float, outcome: int) -> float:
     return (prediction - outcome) ** 2
-
-
-def band_coverage(band_low: float, band_high: float, outcome: int) -> bool:
-    if outcome == 1:
-        return band_low <= 1.0 <= band_high or band_high >= 0.5
-    else:
-        return band_low <= 0.0 or band_low <= 0.5
 
 
 def band_coverage_check(band_low: float, band_high: float, prediction: float, outcome: int) -> bool:
@@ -112,7 +107,14 @@ def update_scorecard(scorecard_path: str, match_entry: dict) -> dict:
         "vs_coinflip": round(mean_brier - 0.25, 4),
     }
 
-    path.write_text(json.dumps(scorecard, indent=2))
+    tmp_fd, tmp_path = tempfile.mkstemp(dir=path.parent, suffix=".tmp")
+    try:
+        with os.fdopen(tmp_fd, "w") as f:
+            json.dump(scorecard, f, indent=2)
+        os.replace(tmp_path, path)
+    except Exception:
+        os.unlink(tmp_path)
+        raise
     return scorecard
 
 

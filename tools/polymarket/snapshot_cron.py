@@ -38,7 +38,7 @@ LOOKAHEAD_HOURS = 8
 
 
 def fetch_active_ipl_markets() -> list[dict]:
-    url = f"{GAMMA_API}?tag_id={IPL_TAG_ID}&active=true&closed=false&limit=50"
+    url = f"{GAMMA_API}?tag_id={IPL_TAG_ID}&active=true&closed=false&limit=50&order=id&ascending=false"
     req = Request(url, headers={"User-Agent": "CricketPricingRoom/1.0"})
     try:
         with urlopen(req, timeout=30) as resp:

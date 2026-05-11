@@ -26,6 +26,7 @@ market_snapshots/capture_log.jsonl
 auto_pilot_state.json
 auto_pilot.log
 auto_pilot.lock
+*.tmp
 
 # Sensitive docs (contain VPS IP, credentials)
 CLAUDE.md

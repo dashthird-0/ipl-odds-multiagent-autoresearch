@@ -92,9 +92,12 @@ def main():
     print(f"Band coverage: {result['band_coverage']}")
     print(f"vs Coin flip (0.25): {'+' if result['brier_score'] < 0.25 else ''}{result['brier_score'] - 0.25:.4f}")
 
+    date_match = re.search(r"\*\*Date:\*\*\s*(.+)", (case_dir / "evidence_cutoff.md").read_text())
+    match_date = date_match.group(1).strip() if date_match else "unknown"
+
     match_entry = {
         "case_id": case_dir.name,
-        "date": re.search(r"\*\*Date:\*\*\s*(.+)", (case_dir / "evidence_cutoff.md").read_text()).group(1).strip(),
+        "date": match_date,
         "teams": [team1, team2],
         "active_rules": args.rules,
         **result,

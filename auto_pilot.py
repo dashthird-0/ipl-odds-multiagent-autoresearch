@@ -34,6 +34,8 @@ LOG_FILE = PROJECT_ROOT / "auto_pilot.log"
 LOCK_FILE = PROJECT_ROOT / "auto_pilot.lock"
 CASE_STUDIES_DIR = PROJECT_ROOT / "case_studies"
 
+DRY_RUN = False
+
 GAMMA_API = "https://gamma-api.polymarket.com/events"
 IPL_TAG_ID = "101988"
 
@@ -226,6 +228,8 @@ def load_state() -> dict:
 
 
 def save_state(state: dict):
+    if DRY_RUN:
+        return
     tmp_fd, tmp_path = tempfile.mkstemp(dir=PROJECT_ROOT, suffix=".tmp")
     try:
         with os.fdopen(tmp_fd, "w") as f:
@@ -325,7 +329,7 @@ def _gamma_fetch(params: str) -> list[dict]:
 
 
 def fetch_active_markets() -> list[dict]:
-    events = _gamma_fetch("active=true&closed=false")
+    events = _gamma_fetch("active=true&closed=false&order=id&ascending=false")
     markets = []
     for event in events:
         title = event.get("title", "")
@@ -517,7 +521,7 @@ def grade_match(case_id: str, winner: str, dry_run: bool = False) -> bool:
 # Main loop
 # ---------------------------------------------------------------------------
 
-def run(dry_run: bool = False):
+def run():
     now = datetime.now(timezone.utc)
     state = load_state()
     log(f"auto-pilot tick")
@@ -554,22 +558,21 @@ def run(dry_run: bool = False):
             exp_num = ms.get("experiment_number") or next_experiment_number()
             case_id = make_case_id(team1, team2, exp_num)
 
-            ok = trigger_pipeline(team1, team2, venue, date, case_id, dry_run)
-            if not dry_run:
-                ms.update({
-                    "status": "triggered" if ok else "trigger_failed",
-                    "team1": team1, "team2": team2,
-                    "venue": venue, "date": date,
-                    "case_id": case_id,
-                    "experiment_number": exp_num,
-                    "market_id": mkt["market_id"],
-                    "game_start_time": mkt["game_start_time"],
-                    "triggered_at": now.isoformat(),
-                })
-                state["matches"][match_key] = ms
-                save_state(state)
-                if not ok:
-                    send_telegram(f"FAILED: {team1} vs {team2} trigger failed. Evidence may be built but agents didn't run. Check auto_pilot.log.")
+            ok = trigger_pipeline(team1, team2, venue, date, case_id, DRY_RUN)
+            ms.update({
+                "status": "triggered" if ok else "trigger_failed",
+                "team1": team1, "team2": team2,
+                "venue": venue, "date": date,
+                "case_id": case_id,
+                "experiment_number": exp_num,
+                "market_id": mkt["market_id"],
+                "game_start_time": mkt["game_start_time"],
+                "triggered_at": now.isoformat(),
+            })
+            state["matches"][match_key] = ms
+            save_state(state)
+            if not ok:
+                send_telegram(f"FAILED: {team1} vs {team2} trigger failed. Evidence may be built but agents didn't run. Check auto_pilot.log.")
 
         # Past trigger window but match not started yet (rain delay)
         elif mins_to_start < TRIGGER_WINDOW_CLOSE and mkt["accepting_orders"]:
@@ -618,18 +621,17 @@ def run(dry_run: bool = False):
                         venue = get_venue(team1, team2)
                         exp_num = ms.get("experiment_number") or next_experiment_number()
                         case_id = make_case_id(team1, team2, exp_num)
-                        ok = trigger_pipeline(team1, team2, venue, date, case_id, dry_run)
-                        if not dry_run:
-                            ms.update({
-                                "status": "triggered" if ok else "trigger_failed",
-                                "venue": venue, "date": date,
-                                "case_id": case_id,
-                                "experiment_number": exp_num,
-                                "triggered_at": now.isoformat(),
-                                "trigger_reason": "rain_delay_toss_detected",
-                            })
-                            state["matches"][match_key] = ms
-                            save_state(state)
+                        ok = trigger_pipeline(team1, team2, venue, date, case_id, DRY_RUN)
+                        ms.update({
+                            "status": "triggered" if ok else "trigger_failed",
+                            "venue": venue, "date": date,
+                            "case_id": case_id,
+                            "experiment_number": exp_num,
+                            "triggered_at": now.isoformat(),
+                            "trigger_reason": "rain_delay_toss_detected",
+                        })
+                        state["matches"][match_key] = ms
+                        save_state(state)
                         continue
 
                 if current_prices and len(current_prices) == 2:
@@ -684,24 +686,23 @@ def run(dry_run: bool = False):
             if rmkt:
                 winner = detect_winner(rmkt)
                 if winner:
-                    ok = grade_match(ms["case_id"], winner, dry_run)
-                    if not dry_run:
-                        ms.update({
-                            "status": "graded" if ok else "grade_failed",
-                            "winner": winner,
-                            "graded_at": now.isoformat(),
-                        })
-                        if not ok:
-                            send_telegram(f"FAILED: {ms.get('team1','?')} vs {ms.get('team2','?')} grading failed. Winner: {winner}. Check auto_pilot.log.")
-                        state["matches"][match_key] = ms
-                        save_state(state)
+                    ok = grade_match(ms["case_id"], winner, DRY_RUN)
+                    ms.update({
+                        "status": "graded" if ok else "grade_failed",
+                        "winner": winner,
+                        "graded_at": now.isoformat(),
+                    })
+                    if not ok:
+                        send_telegram(f"FAILED: {ms.get('team1','?')} vs {ms.get('team2','?')} grading failed. Winner: {winner}. Check auto_pilot.log.")
+                    state["matches"][match_key] = ms
+                    save_state(state)
 
     # ── Phase 3: consolidation check ─────────────────────────────────────
     graded_count = sum(1 for v in state["matches"].values() if v.get("status") == "graded")
     last_consol = state.get("last_consolidation_count", 0)
     if graded_count >= last_consol + 3:
         log(f"CONSOLIDATION: {graded_count} graded (last ran at {last_consol})")
-        if not dry_run:
+        if not DRY_RUN:
             r = subprocess.run(
                 [sys.executable, str(PROJECT_ROOT / "run_consolidate.py")],
                 capture_output=True, text=True, timeout=300,
@@ -726,7 +727,7 @@ def run(dry_run: bool = False):
 def install_cron():
     python = sys.executable
     script = Path(__file__).resolve()
-    cron_line = f"*/5 * * * * cd {PROJECT_ROOT} && {python} {script} >> {LOG_FILE} 2>&1"
+    cron_line = f"*/5 * * * * PATH=/usr/local/bin:/usr/bin:/bin cd {PROJECT_ROOT} && {python} {script} >> {LOG_FILE} 2>&1"
     marker = "# cricket-auto-pilot"
 
     result = subprocess.run(["crontab", "-l"], capture_output=True, text=True)
@@ -788,7 +789,8 @@ if __name__ == "__main__":
     elif "--status" in sys.argv:
         show_status()
     elif "--dry-run" in sys.argv:
-        run(dry_run=True)
+        DRY_RUN = True
+        run()
     else:
         if not acquire_lock():
             print("Another auto_pilot instance is running. Exiting.")

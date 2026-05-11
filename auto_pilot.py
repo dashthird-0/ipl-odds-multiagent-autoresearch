@@ -410,16 +410,10 @@ def sync_snapshots() -> bool:
     return False
 
 
-def trigger_pipeline(team1: str, team2: str, venue: str, date: str,
-                     case_id: str, dry_run: bool = False) -> bool:
+def build_evidence(team1: str, team2: str, venue: str, date: str,
+                   case_id: str) -> bool:
     log(f"TRIGGER: {team1} vs {team2} at {venue} → {case_id}")
-    if dry_run:
-        log("  [DRY RUN] would build evidence + invoke agents")
-        return True
-
     sync_snapshots()
-
-    # Build evidence packet
     build_cmd = [
         sys.executable, str(PROJECT_ROOT / "run_pipeline.py"),
         team1, team2, venue, date, "--data-only", "--id", case_id,
@@ -431,9 +425,10 @@ def trigger_pipeline(team1: str, team2: str, venue: str, date: str,
         log(f"  evidence build FAILED: {r.stderr[:400]}")
         return False
     log("  evidence packet ready")
-    send_telegram(f"Pipeline triggered: {team1} vs {team2}. Agents running, expect ~30 min.")
+    return True
 
-    # Invoke Claude Code agents
+
+def run_agents(team1: str, team2: str, date: str, case_id: str) -> bool:
     case_dir = CASE_STUDIES_DIR / case_id
     cutoff = datetime.now(timezone.utc).isoformat()
     prompt = (
@@ -450,9 +445,7 @@ def trigger_pipeline(team1: str, team2: str, venue: str, date: str,
     if r.returncode != 0:
         log(f"  agent pipeline FAILED (evidence still intact): {r.stderr[:400]}")
         return False
-
     log("  memo pipeline complete")
-    send_telegram(f"Forecast ready: {team1} vs {team2}.\nCheck case_studies/{case_id}/memo.md for the probability band.")
     return True
 
 
@@ -558,9 +551,29 @@ def run():
             exp_num = ms.get("experiment_number") or next_experiment_number()
             case_id = make_case_id(team1, team2, exp_num)
 
-            ok = trigger_pipeline(team1, team2, venue, date, case_id, DRY_RUN)
+            if DRY_RUN:
+                log(f"  [DRY RUN] would trigger {team1} vs {team2}")
+                continue
+
+            evidence_ok = build_evidence(team1, team2, venue, date, case_id)
+            if not evidence_ok:
+                ms.update({
+                    "status": "trigger_failed",
+                    "team1": team1, "team2": team2,
+                    "venue": venue, "date": date,
+                    "case_id": case_id,
+                    "experiment_number": exp_num,
+                    "market_id": mkt["market_id"],
+                    "game_start_time": mkt["game_start_time"],
+                    "triggered_at": now.isoformat(),
+                })
+                state["matches"][match_key] = ms
+                save_state(state)
+                send_telegram(f"FAILED: {team1} vs {team2} evidence build failed. Check auto_pilot.log.")
+                continue
+
             ms.update({
-                "status": "triggered" if ok else "trigger_failed",
+                "status": "triggered",
                 "team1": team1, "team2": team2,
                 "venue": venue, "date": date,
                 "case_id": case_id,
@@ -571,8 +584,13 @@ def run():
             })
             state["matches"][match_key] = ms
             save_state(state)
-            if not ok:
-                send_telegram(f"FAILED: {team1} vs {team2} trigger failed. Evidence may be built but agents didn't run. Check auto_pilot.log.")
+            send_telegram(f"Pipeline triggered: {team1} vs {team2}. Agents running, expect ~30 min.")
+
+            agents_ok = run_agents(team1, team2, date, case_id)
+            if agents_ok:
+                send_telegram(f"Forecast ready: {team1} vs {team2}.\nCheck case_studies/{case_id}/memo.md for the probability band.")
+            else:
+                send_telegram(f"FAILED: {team1} vs {team2} agents failed. Evidence is intact. Check auto_pilot.log.")
 
         # Past trigger window but match not started yet (rain delay)
         elif mins_to_start < TRIGGER_WINDOW_CLOSE and mkt["accepting_orders"]:
@@ -621,9 +639,28 @@ def run():
                         venue = get_venue(team1, team2)
                         exp_num = ms.get("experiment_number") or next_experiment_number()
                         case_id = make_case_id(team1, team2, exp_num)
-                        ok = trigger_pipeline(team1, team2, venue, date, case_id, DRY_RUN)
+
+                        if DRY_RUN:
+                            log(f"  [DRY RUN] would trigger {team1} vs {team2} (rain delay toss)")
+                            continue
+
+                        evidence_ok = build_evidence(team1, team2, venue, date, case_id)
+                        if not evidence_ok:
+                            ms.update({
+                                "status": "trigger_failed",
+                                "venue": venue, "date": date,
+                                "case_id": case_id,
+                                "experiment_number": exp_num,
+                                "triggered_at": now.isoformat(),
+                                "trigger_reason": "rain_delay_toss_detected",
+                            })
+                            state["matches"][match_key] = ms
+                            save_state(state)
+                            send_telegram(f"FAILED: {team1} vs {team2} evidence build failed (rain delay toss). Check auto_pilot.log.")
+                            continue
+
                         ms.update({
-                            "status": "triggered" if ok else "trigger_failed",
+                            "status": "triggered",
                             "venue": venue, "date": date,
                             "case_id": case_id,
                             "experiment_number": exp_num,
@@ -632,6 +669,13 @@ def run():
                         })
                         state["matches"][match_key] = ms
                         save_state(state)
+                        send_telegram(f"Pipeline triggered: {team1} vs {team2} (rain delay toss detected). Agents running, expect ~30 min.")
+
+                        agents_ok = run_agents(team1, team2, date, case_id)
+                        if agents_ok:
+                            send_telegram(f"Forecast ready: {team1} vs {team2}.\nCheck case_studies/{case_id}/memo.md for the probability band.")
+                        else:
+                            send_telegram(f"FAILED: {team1} vs {team2} agents failed. Evidence is intact. Check auto_pilot.log.")
                         continue
 
                 if current_prices and len(current_prices) == 2:

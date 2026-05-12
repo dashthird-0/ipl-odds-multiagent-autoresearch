@@ -395,6 +395,43 @@ def detect_winner(market: dict) -> str | None:
 # Pipeline actions
 # ---------------------------------------------------------------------------
 
+def git_sync(message: str, paths: list[str]) -> bool:
+    if DRY_RUN:
+        return True
+    try:
+        subprocess.run(
+            ["git", "add"] + paths,
+            capture_output=True, text=True, timeout=30,
+            cwd=str(PROJECT_ROOT),
+        )
+        status = subprocess.run(
+            ["git", "diff", "--cached", "--quiet"],
+            capture_output=True, timeout=10,
+            cwd=str(PROJECT_ROOT),
+        )
+        if status.returncode == 0:
+            log("  git sync: nothing to commit")
+            return True
+        subprocess.run(
+            ["git", "commit", "-m", message],
+            capture_output=True, text=True, timeout=30,
+            cwd=str(PROJECT_ROOT),
+        )
+        r = subprocess.run(
+            ["git", "push"],
+            capture_output=True, text=True, timeout=60,
+            cwd=str(PROJECT_ROOT),
+        )
+        if r.returncode != 0:
+            log(f"  git push failed: {r.stderr[:200]}")
+            return False
+        log("  git sync: pushed to GitHub")
+        return True
+    except Exception as e:
+        log(f"  git sync failed: {e}")
+        return False
+
+
 def sync_snapshots() -> bool:
     vps_host = os.environ.get("IPL_VPS_HOST")
     if not vps_host:
@@ -600,6 +637,10 @@ def run():
 
             agents_ok = run_agents(team1, team2, date, case_id)
             if agents_ok:
+                git_sync(
+                    f"{case_id}: {team1} vs {team2} memo",
+                    [f"case_studies/{case_id}/"],
+                )
                 send_telegram(f"Forecast ready: {team1} vs {team2}.\nCheck case_studies/{case_id}/memo.md for the probability band.")
             else:
                 send_telegram(f"FAILED: {team1} vs {team2} agents failed. Evidence is intact. Check auto_pilot.log.")
@@ -685,6 +726,10 @@ def run():
 
                         agents_ok = run_agents(team1, team2, date, case_id)
                         if agents_ok:
+                            git_sync(
+                                f"{case_id}: {team1} vs {team2} memo",
+                                [f"case_studies/{case_id}/"],
+                            )
                             send_telegram(f"Forecast ready: {team1} vs {team2}.\nCheck case_studies/{case_id}/memo.md for the probability band.")
                         else:
                             send_telegram(f"FAILED: {team1} vs {team2} agents failed. Evidence is intact. Check auto_pilot.log.")
@@ -752,6 +797,12 @@ def run():
                     })
                     if not ok:
                         send_telegram(f"FAILED: {ms.get('team1','?')} vs {ms.get('team2','?')} grading failed. Winner: {winner}. Check auto_pilot.log.")
+                    else:
+                        git_sync(
+                            f"{ms['case_id']}: {winner} won, graded",
+                            [f"case_studies/{ms['case_id']}/", "scorecard.json",
+                             "reflection/learning_log.md", "reflection/experiments.md"],
+                        )
                     state["matches"][match_key] = ms
                     save_state(state)
 
@@ -769,6 +820,10 @@ def run():
             if r.returncode == 0:
                 state["last_consolidation_count"] = graded_count
                 log("  consolidation complete")
+                git_sync(
+                    f"Consolidation after {graded_count} graded matches",
+                    ["reflection/learning_log.md", "reflection/experiments.md"],
+                )
                 send_telegram(f"Consolidation ran after {graded_count} matches. Reflection Log rules updated.\nSee reflection/learning_log.md and reflection/experiments.md")
             else:
                 log(f"  consolidation FAILED: {r.stderr[:300]}")

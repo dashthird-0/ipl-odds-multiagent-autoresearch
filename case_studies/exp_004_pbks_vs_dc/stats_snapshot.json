@@ -1,0 +1,383 @@
+{
+  "match": "Punjab Kings vs Delhi Capitals",
+  "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+  "cutoff_date": "2026-05-11",
+  "head_to_head": {
+    "overall": {
+      "team1": "Punjab Kings",
+      "team2": "Delhi Capitals",
+      "team1_wins": 18,
+      "team2_wins": 16,
+      "no_results": 2,
+      "total_matches": 36,
+      "venue_filter": null
+    },
+    "at_venue": {
+      "team1": "Punjab Kings",
+      "team2": "Delhi Capitals",
+      "team1_wins": 0,
+      "team2_wins": 0,
+      "no_results": 0,
+      "total_matches": 0,
+      "venue_filter": "Maharaja Yadavindra Singh International Cricket Stadium"
+    }
+  },
+  "venue_splits": {
+    "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+    "matches_analyzed": 0,
+    "bat_first_wins": 0,
+    "chase_wins": 0,
+    "bat_first_win_pct": null,
+    "avg_first_innings_score": null,
+    "avg_winning_chase": null,
+    "seasons_included": []
+  },
+  "recent_form": {
+    "team1": {
+      "team": "Punjab Kings",
+      "last_n": 8,
+      "wins": 4,
+      "losses": 4,
+      "matches": [
+        {
+          "vs": "Kolkata Knight Riders",
+          "date": "2026-04-06",
+          "venue": "Eden Gardens, Kolkata",
+          "result": "no result"
+        },
+        {
+          "vs": "Sunrisers Hyderabad",
+          "date": "2026-04-11",
+          "venue": "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",
+          "result": "won by 6 wickets"
+        },
+        {
+          "vs": "Mumbai Indians",
+          "date": "2026-04-16",
+          "venue": "Wankhede Stadium, Mumbai",
+          "result": "won by 7 wickets"
+        },
+        {
+          "vs": "Lucknow Super Giants",
+          "date": "2026-04-19",
+          "venue": "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",
+          "result": "won by 54 runs"
+        },
+        {
+          "vs": "Delhi Capitals",
+          "date": "2026-04-25",
+          "venue": "Arun Jaitley Stadium, Delhi",
+          "result": "won by 6 wickets"
+        },
+        {
+          "vs": "Rajasthan Royals",
+          "date": "2026-04-28",
+          "venue": "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",
+          "result": "lost by 6 wickets"
+        },
+        {
+          "vs": "Gujarat Titans",
+          "date": "2026-05-03",
+          "venue": "Narendra Modi Stadium, Ahmedabad",
+          "result": "lost by 4 wickets"
+        },
+        {
+          "vs": "Sunrisers Hyderabad",
+          "date": "2026-05-06",
+          "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
+          "result": "lost by 33 runs"
+        }
+      ]
+    },
+    "team2": {
+      "team": "Delhi Capitals",
+      "last_n": 8,
+      "wins": 2,
+      "losses": 6,
+      "matches": [
+        {
+          "vs": "Gujarat Titans",
+          "date": "2026-04-08",
+          "venue": "Arun Jaitley Stadium, Delhi",
+          "result": "lost by 1 runs"
+        },
+        {
+          "vs": "Chennai Super Kings",
+          "date": "2026-04-11",
+          "venue": "MA Chidambaram Stadium, Chepauk, Chennai",
+          "result": "lost by 23 runs"
+        },
+        {
+          "vs": "Royal Challengers Bengaluru",
+          "date": "2026-04-18",
+          "venue": "M Chinnaswamy Stadium, Bengaluru",
+          "result": "won by 6 wickets"
+        },
+        {
+          "vs": "Sunrisers Hyderabad",
+          "date": "2026-04-21",
+          "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
+          "result": "lost by 47 runs"
+        },
+        {
+          "vs": "Punjab Kings",
+          "date": "2026-04-25",
+          "venue": "Arun Jaitley Stadium, Delhi",
+          "result": "lost by 6 wickets"
+        },
+        {
+          "vs": "Royal Challengers Bengaluru",
+          "date": "2026-04-27",
+          "venue": "Arun Jaitley Stadium, Delhi",
+          "result": "lost by 9 wickets"
+        },
+        {
+          "vs": "Rajasthan Royals",
+          "date": "2026-05-01",
+          "venue": "Sawai Mansingh Stadium, Jaipur",
+          "result": "won by 7 wickets"
+        },
+        {
+          "vs": "Chennai Super Kings",
+          "date": "2026-05-05",
+          "venue": "Arun Jaitley Stadium, Delhi",
+          "result": "lost by 8 wickets"
+        }
+      ]
+    }
+  },
+  "key_players": {
+    "team1": {
+      "team": "Punjab Kings",
+      "season": "2026",
+      "matches_in_season": 10,
+      "top_batters": [
+        {
+          "name": "C Connolly",
+          "runs": 377,
+          "balls": 230,
+          "strike_rate": 163.9
+        },
+        {
+          "name": "P Simran Singh",
+          "runs": 364,
+          "balls": 221,
+          "strike_rate": 164.7
+        },
+        {
+          "name": "SS Iyer",
+          "runs": 333,
+          "balls": 211,
+          "strike_rate": 157.8
+        },
+        {
+          "name": "Priyansh Arya",
+          "runs": 286,
+          "balls": 125,
+          "strike_rate": 228.8
+        },
+        {
+          "name": "MP Stoinis",
+          "runs": 178,
+          "balls": 102,
+          "strike_rate": 174.5
+        }
+      ],
+      "top_bowlers": [
+        {
+          "name": "Arshdeep Singh",
+          "wickets": 11,
+          "economy": 9.57,
+          "balls": 249
+        },
+        {
+          "name": "Vijaykumar Vyshak",
+          "wickets": 9,
+          "economy": 10.53,
+          "balls": 175
+        },
+        {
+          "name": "YS Chahal",
+          "wickets": 8,
+          "economy": 8.97,
+          "balls": 194
+        },
+        {
+          "name": "M Jansen",
+          "wickets": 6,
+          "economy": 9.74,
+          "balls": 220
+        },
+        {
+          "name": "XC Bartlett",
+          "wickets": 5,
+          "economy": 10.87,
+          "balls": 186
+        }
+      ]
+    },
+    "team2": {
+      "team": "Delhi Capitals",
+      "season": "2026",
+      "matches_in_season": 10,
+      "top_batters": [
+        {
+          "name": "KL Rahul",
+          "runs": 445,
+          "balls": 258,
+          "strike_rate": 172.5
+        },
+        {
+          "name": "T Stubbs",
+          "runs": 257,
+          "balls": 197,
+          "strike_rate": 130.5
+        },
+        {
+          "name": "Sameer Rizvi",
+          "runs": 249,
+          "balls": 171,
+          "strike_rate": 145.6
+        },
+        {
+          "name": "P Nissanka",
+          "runs": 228,
+          "balls": 150,
+          "strike_rate": 152.0
+        },
+        {
+          "name": "N Rana",
+          "runs": 217,
+          "balls": 148,
+          "strike_rate": 146.6
+        }
+      ],
+      "top_bowlers": [
+        {
+          "name": "AR Patel",
+          "wickets": 9,
+          "economy": 8.2,
+          "balls": 196
+        },
+        {
+          "name": "L Ngidi",
+          "wickets": 8,
+          "economy": 8.22,
+          "balls": 173
+        },
+        {
+          "name": "Kuldeep Yadav",
+          "wickets": 7,
+          "economy": 10.3,
+          "balls": 183
+        },
+        {
+          "name": "Mukesh Kumar",
+          "wickets": 5,
+          "economy": 10.27,
+          "balls": 163
+        },
+        {
+          "name": "T Natarajan",
+          "wickets": 5,
+          "economy": 10.45,
+          "balls": 205
+        }
+      ]
+    }
+  },
+  "toss_impact": {
+    "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+    "sample_size": 0,
+    "toss_winner_match_winner_pct": null,
+    "chose_bat_first": 0,
+    "chose_field_first": 0,
+    "preferred_choice": "field first"
+  },
+  "season_standings": {
+    "season": "2026",
+    "as_of": "2026-05-11",
+    "table": [
+      {
+        "position": 1,
+        "team": "Sunrisers Hyderabad",
+        "played": 11,
+        "won": 7,
+        "lost": 4,
+        "points": 14
+      },
+      {
+        "position": 2,
+        "team": "Royal Challengers Bengaluru",
+        "played": 10,
+        "won": 6,
+        "lost": 4,
+        "points": 12
+      },
+      {
+        "position": 3,
+        "team": "Rajasthan Royals",
+        "played": 10,
+        "won": 6,
+        "lost": 4,
+        "points": 12
+      },
+      {
+        "position": 4,
+        "team": "Gujarat Titans",
+        "played": 10,
+        "won": 6,
+        "lost": 4,
+        "points": 12
+      },
+      {
+        "position": 5,
+        "team": "Punjab Kings",
+        "played": 9,
+        "won": 6,
+        "lost": 3,
+        "points": 12
+      },
+      {
+        "position": 6,
+        "team": "Chennai Super Kings",
+        "played": 10,
+        "won": 5,
+        "lost": 5,
+        "points": 10
+      },
+      {
+        "position": 7,
+        "team": "Delhi Capitals",
+        "played": 10,
+        "won": 4,
+        "lost": 6,
+        "points": 8
+      },
+      {
+        "position": 8,
+        "team": "Mumbai Indians",
+        "played": 10,
+        "won": 3,
+        "lost": 7,
+        "points": 6
+      },
+      {
+        "position": 9,
+        "team": "Lucknow Super Giants",
+        "played": 9,
+        "won": 3,
+        "lost": 6,
+        "points": 6
+      },
+      {
+        "position": 10,
+        "team": "Kolkata Knight Riders",
+        "played": 7,
+        "won": 2,
+        "lost": 5,
+        "points": 4
+      }
+    ]
+  }
+}

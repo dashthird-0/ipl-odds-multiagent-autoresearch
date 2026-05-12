@@ -1,0 +1,19 @@
+{
+  "match": "Punjab Kings vs Delhi Capitals",
+  "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+  "date": "2026-05-11",
+  "snapshot_timestamp": "2026-05-11T13:30:02.770832+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2190076",
+  "condition_id": "0x40b79a54ea42b389d8a4e4850206df303e8e0ce7b06df327e10ef252e4a1f623",
+  "team1": {
+    "name": "Punjab Kings",
+    "implied_probability": 0.605
+  },
+  "team2": {
+    "name": "Delhi Capitals",
+    "implied_probability": 0.395
+  },
+  "volume_usd": 101564.27834899984,
+  "liquidity_flag": "deep"
+}

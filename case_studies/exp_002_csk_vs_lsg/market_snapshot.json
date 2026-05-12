@@ -1,0 +1,19 @@
+{
+  "match": "Chennai Super Kings vs Lucknow Super Giants",
+  "venue": "MA Chidambaram Stadium",
+  "date": "2026-05-10",
+  "snapshot_timestamp": "2026-05-10T09:30:02.058544+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2182547",
+  "condition_id": "0xc7891488cec2fdbacf92469bbf7c049bda60a54cc1942158ba2ec005bcf254f0",
+  "team1": {
+    "name": "Chennai Super Kings",
+    "implied_probability": 0.555
+  },
+  "team2": {
+    "name": "Lucknow Super Giants",
+    "implied_probability": 0.445
+  },
+  "volume_usd": 49795.257495999904,
+  "liquidity_flag": "moderate"
+}

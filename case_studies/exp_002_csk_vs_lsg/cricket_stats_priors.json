@@ -1,0 +1,515 @@
+{
+  "match": "Chennai Super Kings vs Lucknow Super Giants",
+  "venue": "MA Chidambaram Stadium, Chepauk, Chennai",
+  "date": "2026-05-10",
+  "cutoff_date": "2026-05-10",
+  "data_source": "Cricsheet ball-by-ball JSON (1219 IPL matches, 2008-04-18 to 2026-05-07)",
+  "date_filtering": "All queries filtered to matches strictly before 2026-05-10",
+  "head_to_head": {
+    "overall": {
+      "csk_wins": 2,
+      "lsg_wins": 3,
+      "no_results": 1,
+      "total_matches": 6,
+      "note": "LSG entered IPL in 2022. Small sample size."
+    },
+    "at_venue": {
+      "csk_wins": 1,
+      "lsg_wins": 1,
+      "no_results": 0,
+      "total_matches": 2,
+      "details": [
+        {
+          "date": "2023-04-03",
+          "winner": "CSK",
+          "margin": "by 12 runs"
+        },
+        {
+          "date": "2024-04-23",
+          "winner": "LSG",
+          "margin": "by 6 wickets"
+        }
+      ],
+      "warning": "VERY SMALL SAMPLE SIZE (2 matches) - not statistically meaningful"
+    }
+  },
+  "venue_splits": {
+    "all_time": {
+      "total_matches": 96,
+      "matches_with_result": 94,
+      "bat_first_wins": 51,
+      "chase_wins": 43,
+      "bat_first_win_pct": 54.3,
+      "chase_win_pct": 45.7,
+      "avg_first_innings_score": 165.4,
+      "avg_winning_chase": 153.4
+    },
+    "recent_2023_2026": {
+      "total_matches": 29,
+      "bat_first_wins": 12,
+      "chase_wins": 17,
+      "bat_first_win_pct": 41.4,
+      "chase_win_pct": 58.6,
+      "avg_first_innings_score": 171.4,
+      "note": "Recent trend REVERSES historical pattern - chasing now significantly favored"
+    },
+    "season_breakdown": {
+      "2023": {
+        "bat_first_wins": 5,
+        "chase_wins": 4,
+        "avg_1st_innings": 170.0
+      },
+      "2024": {
+        "bat_first_wins": 3,
+        "chase_wins": 6,
+        "avg_1st_innings": 169.9
+      },
+      "2025": {
+        "bat_first_wins": 2,
+        "chase_wins": 4,
+        "avg_1st_innings": 163.5
+      },
+      "2026": {
+        "bat_first_wins": 2,
+        "chase_wins": 3,
+        "avg_1st_innings": 186.0
+      }
+    }
+  },
+  "phase_wise_scoring": {
+    "period": "2023-2026",
+    "innings_analyzed": 58,
+    "powerplay_overs_1_to_6": {
+      "avg_runs": 53.1,
+      "run_rate_per_over": 8.84,
+      "avg_1st_inn_score": 52.3,
+      "avg_1st_inn_wickets": 1.48,
+      "avg_2nd_inn_score": 53.8,
+      "avg_2nd_inn_wickets": 1.55
+    },
+    "middle_overs_7_to_15": {
+      "avg_runs": 68.1,
+      "run_rate_per_over": 7.56
+    },
+    "death_overs_16_to_20": {
+      "avg_runs": 43.3,
+      "run_rate_per_over": 8.67,
+      "avg_1st_inn_score": 49.1,
+      "avg_1st_inn_wickets": 2.79,
+      "avg_2nd_inn_score": 40.3,
+      "avg_2nd_inn_wickets": 1.56,
+      "note": "Significant scoring compression in 2nd inn death overs (8.07 vs 9.82 RPO)"
+    }
+  },
+  "spinner_vs_pace": {
+    "all_time_at_venue": {
+      "spinners": {
+        "overs": 800.0,
+        "wickets": 222,
+        "economy": 7.04,
+        "strike_rate": 21.6
+      },
+      "pace": {
+        "overs": 3092.0,
+        "wickets": 841,
+        "economy": 8.02,
+        "strike_rate": 22.1
+      },
+      "spin_economy_advantage": 0.98,
+      "spin_sr_advantage": 0.5
+    },
+    "recent_2023_2026": {
+      "spinners": {
+        "economy": 7.69,
+        "wickets": 79,
+        "overs": 263.5
+      },
+      "pace": {
+        "economy": 8.32,
+        "wickets": 262,
+        "overs": 903.3
+      },
+      "spin_economy_advantage": 0.63
+    },
+    "note": "Spin is significantly more economical at Chepauk (nearly 1 RPO less all-time). Strike rates similar - spin advantage is primarily in containment."
+  },
+  "toss_impact": {
+    "all_time": {
+      "sample_size": 94,
+      "toss_winner_match_winner_pct": 51.1,
+      "chose_bat": 49,
+      "chose_bat_won": 27,
+      "chose_bat_win_pct": 55.1,
+      "chose_field": 45,
+      "chose_field_won": 21,
+      "chose_field_win_pct": 46.7
+    },
+    "recent_2023_2026": {
+      "sample_size": 29,
+      "toss_winner_match_winner_pct": 48.3,
+      "chose_bat": 9,
+      "chose_bat_won": 3,
+      "chose_bat_win_pct": 33.3,
+      "chose_field": 20,
+      "chose_field_won": 11,
+      "chose_field_win_pct": 55.0,
+      "preferred_choice": "field first",
+      "note": "Strong recent trend of choosing to field (69% of toss winners). Those who chose to field won 55% of their matches."
+    }
+  },
+  "csk_home_record": {
+    "all_time_at_chepauk": {
+      "total_matches": 82,
+      "won": 54,
+      "lost": 27,
+      "no_result": 1,
+      "win_pct": 66.7
+    },
+    "recent_2023_2026": {
+      "total_matches": 26,
+      "won": 14,
+      "lost": 12,
+      "win_pct": 53.8,
+      "note": "CSK home dominance has declined significantly in recent years"
+    },
+    "2025_season": {
+      "won": 1,
+      "lost": 5,
+      "win_pct": 16.7,
+      "note": "Terrible home season in 2025"
+    },
+    "2026_season": {
+      "won": 3,
+      "lost": 2,
+      "win_pct": 60.0,
+      "matches": [
+        {
+          "date": "2026-04-03",
+          "vs": "Punjab Kings",
+          "csk_score": 209,
+          "result": "lost by 5 wickets"
+        },
+        {
+          "date": "2026-04-11",
+          "vs": "Delhi Capitals",
+          "csk_score": 212,
+          "result": "won by 23 runs"
+        },
+        {
+          "date": "2026-04-14",
+          "vs": "Kolkata Knight Riders",
+          "csk_score": 192,
+          "result": "won by 32 runs"
+        },
+        {
+          "date": "2026-04-26",
+          "vs": "Gujarat Titans",
+          "csk_score": 158,
+          "result": "lost by 8 wickets"
+        },
+        {
+          "date": "2026-05-02",
+          "vs": "Mumbai Indians",
+          "csk_score": 160,
+          "result": "won by 8 wickets"
+        }
+      ]
+    }
+  },
+  "recent_form": {
+    "csk": {
+      "2026_record": "W5 L5 (10 matches)",
+      "last_5_results": [
+        {
+          "date": "2026-04-18",
+          "vs": "Sunrisers Hyderabad",
+          "venue": "Hyderabad",
+          "result": "lost by 10 runs"
+        },
+        {
+          "date": "2026-04-23",
+          "vs": "Mumbai Indians",
+          "venue": "Mumbai",
+          "result": "won by 103 runs"
+        },
+        {
+          "date": "2026-04-26",
+          "vs": "Gujarat Titans",
+          "venue": "Chennai",
+          "result": "lost by 8 wickets"
+        },
+        {
+          "date": "2026-05-02",
+          "vs": "Mumbai Indians",
+          "venue": "Chennai",
+          "result": "won by 8 wickets"
+        },
+        {
+          "date": "2026-05-05",
+          "vs": "Delhi Capitals",
+          "venue": "Delhi",
+          "result": "won by 8 wickets"
+        }
+      ],
+      "momentum": "Won 3 of last 4. On an upswing."
+    },
+    "lsg": {
+      "2026_record": "W3 L6 (10 matches, 1 NR)",
+      "last_5_results": [
+        {
+          "date": "2026-04-19",
+          "vs": "Punjab Kings",
+          "venue": "Chandigarh",
+          "result": "lost by 54 runs"
+        },
+        {
+          "date": "2026-04-22",
+          "vs": "Rajasthan Royals",
+          "venue": "Lucknow",
+          "result": "lost by 40 runs"
+        },
+        {
+          "date": "2026-04-26",
+          "vs": "Kolkata Knight Riders",
+          "venue": "Lucknow",
+          "result": "NR"
+        },
+        {
+          "date": "2026-05-04",
+          "vs": "Mumbai Indians",
+          "venue": "Mumbai",
+          "result": "lost by 6 wickets"
+        },
+        {
+          "date": "2026-05-07",
+          "vs": "Royal Challengers Bengaluru",
+          "venue": "Lucknow",
+          "result": "won by 9 runs"
+        }
+      ],
+      "momentum": "Won only 1 of last 5 completed matches. Poor form.",
+      "away_record_2026": "W2 L3 (5 away matches)"
+    }
+  },
+  "key_players": {
+    "csk": {
+      "season": "2026",
+      "matches": 10,
+      "top_batters": [
+        {
+          "name": "SV Samson",
+          "runs": 402,
+          "balls": 246,
+          "strike_rate": 163.4
+        },
+        {
+          "name": "RD Gaikwad",
+          "runs": 251,
+          "balls": 224,
+          "strike_rate": 112.1
+        },
+        {
+          "name": "A Mhatre",
+          "runs": 201,
+          "balls": 119,
+          "strike_rate": 168.9
+        },
+        {
+          "name": "SN Khan",
+          "runs": 161,
+          "balls": 100,
+          "strike_rate": 161.0
+        },
+        {
+          "name": "Kartik Sharma",
+          "runs": 153,
+          "balls": 123,
+          "strike_rate": 124.4
+        }
+      ],
+      "top_bowlers": [
+        {
+          "name": "A Kamboj",
+          "wickets": 17,
+          "economy": 8.64,
+          "balls": 223
+        },
+        {
+          "name": "Noor Ahmad",
+          "wickets": 11,
+          "economy": 8.5,
+          "balls": 223
+        },
+        {
+          "name": "J Overton",
+          "wickets": 11,
+          "economy": 8.68,
+          "balls": 150
+        },
+        {
+          "name": "AJ Hosein",
+          "wickets": 7,
+          "economy": 7.11,
+          "balls": 108
+        },
+        {
+          "name": "Gurjapneet Singh",
+          "wickets": 4,
+          "economy": 8.92,
+          "balls": 113
+        }
+      ]
+    },
+    "lsg": {
+      "season": "2026",
+      "matches": 10,
+      "top_batters": [
+        {
+          "name": "MR Marsh",
+          "runs": 367,
+          "balls": 248,
+          "strike_rate": 148.0
+        },
+        {
+          "name": "RR Pant",
+          "runs": 237,
+          "balls": 177,
+          "strike_rate": 133.9
+        },
+        {
+          "name": "AK Markram",
+          "runs": 225,
+          "balls": 164,
+          "strike_rate": 137.2
+        },
+        {
+          "name": "N Pooran",
+          "runs": 183,
+          "balls": 154,
+          "strike_rate": 118.8
+        },
+        {
+          "name": "A Badoni",
+          "runs": 172,
+          "balls": 125,
+          "strike_rate": 137.6
+        }
+      ],
+      "top_bowlers": [
+        {
+          "name": "Prince Yadav",
+          "wickets": 16,
+          "economy": 7.83,
+          "balls": 236
+        },
+        {
+          "name": "Mohsin Khan",
+          "wickets": 10,
+          "economy": 7.56,
+          "balls": 123
+        },
+        {
+          "name": "Mohammed Shami",
+          "wickets": 9,
+          "economy": 8.21,
+          "balls": 252
+        },
+        {
+          "name": "M Siddharth",
+          "wickets": 6,
+          "economy": 9.46,
+          "balls": 92
+        },
+        {
+          "name": "Avesh Khan",
+          "wickets": 5,
+          "economy": 10.88,
+          "balls": 128
+        }
+      ]
+    }
+  },
+  "season_context": {
+    "csk": {
+      "position": 6,
+      "played": 10,
+      "won": 5,
+      "lost": 5,
+      "points": 10
+    },
+    "lsg": {
+      "position": 9,
+      "played": 9,
+      "won": 3,
+      "lost": 6,
+      "points": 6
+    },
+    "note": "CSK in playoff contention (6th, 10pts). LSG near elimination (9th, 6pts from 9 games). High-stakes for both teams."
+  },
+  "highest_scores_at_venue_recent": [
+    {
+      "score": 217,
+      "team": "CSK",
+      "date": "2023-04-03"
+    },
+    {
+      "score": 212,
+      "team": "CSK",
+      "date": "2026-04-11"
+    },
+    {
+      "score": 212,
+      "team": "CSK",
+      "date": "2024-04-28"
+    },
+    {
+      "score": 210,
+      "team": "CSK",
+      "date": "2024-04-23"
+    },
+    {
+      "score": 209,
+      "team": "CSK",
+      "date": "2026-04-03"
+    }
+  ],
+  "lowest_scores_at_venue_recent": [
+    {
+      "score": 103,
+      "team": "CSK",
+      "date": "2025-04-11"
+    },
+    {
+      "score": 113,
+      "team": "Sunrisers Hyderabad",
+      "date": "2024-05-26"
+    },
+    {
+      "score": 134,
+      "team": "Sunrisers Hyderabad",
+      "date": "2023-04-21"
+    },
+    {
+      "score": 137,
+      "team": "Kolkata Knight Riders",
+      "date": "2024-04-08"
+    },
+    {
+      "score": 139,
+      "team": "Mumbai Indians",
+      "date": "2023-05-06"
+    }
+  ],
+  "base_rate_estimate": {
+    "csk_win_probability": 0.62,
+    "basis": "Weighted combination: CSK home advantage at Chepauk (66.7% all-time, 60% in 2026), recent form (CSK won 3/4 vs LSG 1/5), venue familiarity, LSG poor away record (2W-3L), and LSG's near-elimination pressure. Partially offset by LSG's 3-2 H2H advantage overall and recent chase-friendly conditions.",
+    "confidence": "moderate",
+    "key_factors": [
+      "CSK home advantage and spin-friendly conditions favor their spin duo (Noor Ahmad, Hosein)",
+      "LSG struggling (3 wins from 9 games, poor momentum)",
+      "Chepauk now chasing-friendly in recent years (58.6% chase wins 2023-2026)",
+      "Toss will matter - recent trend heavily favors fielding first",
+      "Both teams in must-win territory affecting pressure dynamics"
+    ]
+  }
+}

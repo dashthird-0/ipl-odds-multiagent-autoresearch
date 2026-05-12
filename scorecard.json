@@ -19,13 +19,73 @@
       "winner": "Gujarat Titans",
       "brier_score": 0.25,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_002_csk_vs_lsg",
+      "date": "2026-05-10",
+      "teams": [
+        "Chennai Super Kings",
+        "Lucknow Super Giants"
+      ],
+      "active_rules": [],
+      "reference_team": "Chennai Super Kings",
+      "other_team": "Lucknow Super Giants",
+      "prediction": 0.41999999999999993,
+      "band": [
+        0.37,
+        0.47
+      ],
+      "outcome": 1,
+      "winner": "Chennai Super Kings",
+      "brier_score": 0.3364,
+      "band_coverage": false
+    },
+    {
+      "case_id": "exp_003_rcb_vs_mi",
+      "date": "2026-05-10",
+      "teams": [
+        "Royal Challengers Bengaluru",
+        "Mumbai Indians"
+      ],
+      "active_rules": [],
+      "reference_team": "Mumbai Indians",
+      "other_team": "Royal Challengers Bengaluru",
+      "prediction": 0.42999999999999994,
+      "band": [
+        0.38,
+        0.48
+      ],
+      "outcome": 0,
+      "winner": "Royal Challengers Bangalore",
+      "brier_score": 0.1849,
+      "band_coverage": true
+    },
+    {
+      "case_id": "exp_004_pbks_vs_dc",
+      "date": "2026-05-11",
+      "teams": [
+        "Punjab Kings",
+        "Delhi Capitals"
+      ],
+      "active_rules": [],
+      "reference_team": "Delhi Capitals",
+      "other_team": "Punjab Kings",
+      "prediction": 0.44999999999999996,
+      "band": [
+        0.39,
+        0.51
+      ],
+      "outcome": 1,
+      "winner": "Delhi Capitals",
+      "brier_score": 0.3025,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 1,
-    "mean_brier": 0.25,
-    "rolling_brier_5": 0.25,
-    "band_coverage_rate": 1.0,
-    "vs_coinflip": 0.0
+    "n_matches": 4,
+    "mean_brier": 0.2684,
+    "rolling_brier_5": 0.2684,
+    "band_coverage_rate": 0.75,
+    "vs_coinflip": 0.0184
   }
 }

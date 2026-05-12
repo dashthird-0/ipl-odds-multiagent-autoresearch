@@ -1,0 +1,28 @@
+{
+  "match": "Royal Challengers Bengaluru vs Mumbai Indians",
+  "venue": "Wankhede Stadium, Mumbai",
+  "date": "2026-05-10",
+  "snapshot_timestamp": "2026-05-10T13:42:12Z",
+  "source": "polymarket",
+  "market_id": "460672",
+  "polymarket_slug": "cricipl-roy-mum-2026-05-10",
+  "polymarket_condition_id": "0xd793f00c050222169d8db2e12219ec3c67b8822278000cc2bb60c448b410fe05",
+  "team1": {
+    "name": "Royal Challengers Bengaluru",
+    "implied_probability": 0.555,
+    "clob_token_id": "106282853057392862470812778943052584455571356077071382087402536101265694886452"
+  },
+  "team2": {
+    "name": "Mumbai Indians",
+    "implied_probability": 0.445,
+    "clob_token_id": "115110965810835649408919382739907790220138275945517282198220197313520450299226"
+  },
+  "last_trade_price_rcb": 0.56,
+  "best_bid": 0.57,
+  "best_ask": 0.58,
+  "volume_usd": 35227,
+  "bid_ask_spread_pct": 1.0,
+  "liquidity_flag": "moderate",
+  "game_start_time": "2026-05-10T14:00:00Z",
+  "notes": "Market found on Polymarket (event ID 460672). Match winner market has $35,227 volume traded. CLOB orderbook shows best bid 0.57 / best ask 0.58 for RCB, giving a 1.0% spread. outcomePrices from Gamma API: RCB 0.555, MI 0.445. Last trade price for RCB was 0.56 per Gamma API. Volume classifies as moderate ($10k-$50k). Toss market (vol $8,261) shows RCB won the toss at near-certainty (0.995). Completed-match market prices at 0.75 Yes / 0.25 No, suggesting some weather or abandonment risk. Venue per Polymarket event metadata is Wankhede Stadium. Head-to-head edge historically to MI (21-14), but RCB sits third in standings vs MI ninth."
+}

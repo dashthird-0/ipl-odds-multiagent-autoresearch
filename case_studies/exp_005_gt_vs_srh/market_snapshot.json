@@ -1,0 +1,37 @@
+{
+  "match": "Gujarat Titans vs Sunrisers Hyderabad",
+  "venue": "Narendra Modi Stadium",
+  "date": "2026-05-12",
+  "pre_toss_snapshot": {
+    "snapshot_timestamp": "2026-05-12T13:30:02.818666+00:00",
+    "source": "polymarket_vps_archive",
+    "team1": {
+      "name": "Gujarat Titans",
+      "implied_probability": 0.495
+    },
+    "team2": {
+      "name": "Sunrisers Hyderabad",
+      "implied_probability": 0.505
+    },
+    "volume_usd": 49685.52,
+    "liquidity_flag": "moderate"
+  },
+  "post_toss_snapshot": {
+    "snapshot_timestamp": "2026-05-12T13:48:00+00:00",
+    "source": "polymarket_gamma_api",
+    "toss_result": "SRH won toss, opted to bowl first",
+    "team1": {
+      "name": "Gujarat Titans",
+      "implied_probability": 0.455
+    },
+    "team2": {
+      "name": "Sunrisers Hyderabad",
+      "implied_probability": 0.545
+    },
+    "volume_usd": 104184.10,
+    "liquidity_flag": "deep"
+  },
+  "market_id": "467570",
+  "condition_id": "0xff096f89122457645b426baee515712c7b0d06809bf1ffdddd735893da95c579",
+  "notes": "Market moved 4pp toward SRH post-toss (GT 49.5% -> 45.5%, SRH 50.5% -> 54.5%). Volume doubled from ~$50K to ~$104K, crossing the 'deep' liquidity threshold. The toss result (SRH bowling first in Ahmedabad evening match with expected dew) appears to have been priced as a ~4pp advantage for SRH."
+}

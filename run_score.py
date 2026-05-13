@@ -23,6 +23,28 @@ from scoring.brier import alphabetical_reference_team, compute_match_score, upda
 PROJECT_ROOT = Path(__file__).parent
 SCORECARD_PATH = PROJECT_ROOT / "scorecard.json"
 
+TEAM_ABBREVS = {
+    "CSK": "Chennai Super Kings",
+    "MI": "Mumbai Indians",
+    "RCB": "Royal Challengers Bengaluru",
+    "KKR": "Kolkata Knight Riders",
+    "DC": "Delhi Capitals",
+    "RR": "Rajasthan Royals",
+    "SRH": "Sunrisers Hyderabad",
+    "PBKS": "Punjab Kings",
+    "GT": "Gujarat Titans",
+    "LSG": "Lucknow Super Giants",
+}
+
+
+def _fragment_matches_team(fragment: str, team: str) -> bool:
+    """Check if a band label (abbreviation or partial name) refers to a team."""
+    frag = fragment.strip().lower()
+    for abbrev, full_name in TEAM_ABBREVS.items():
+        if abbrev.lower() == frag and full_name == team:
+            return True
+    return team.split()[-1].lower() in frag or team.split()[0].lower() in frag
+
 
 def extract_teams_from_case(case_dir: Path) -> tuple[str, str]:
     """Extract team names from evidence_cutoff.md."""
@@ -61,7 +83,7 @@ def extract_prediction_from_memo(case_dir: Path, ref_team: str, team1: str, team
 
     midpoint = (band_low + band_high) / 2
 
-    if ref_team.split()[-1].lower() in band_team_fragment.lower() or ref_team.split()[0].lower() in band_team_fragment.lower():
+    if _fragment_matches_team(band_team_fragment, ref_team):
         return midpoint, (band_low, band_high)
     else:
         return 1 - midpoint, (1 - band_high, 1 - band_low)

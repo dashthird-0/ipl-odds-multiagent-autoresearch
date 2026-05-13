@@ -17,7 +17,7 @@ yet the memo applied generic +6pp home advantage. Two data points showing the sa
 is weak individually but strong against a generic base rate. False balance produces memos
 that are technically defensible but practically uninformative.
 
-**Status:** tentative | **Applications:** 3 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application.)
+**Status:** tentative | **Applications:** 4 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application. Exp 6: RCB vs KKR — Skeptic correctly applied Entry 1: RCB's win at Raipur 3 days prior overrode the "slow pitch hurts aggressive batting" narrative. RCB chased 193 comfortably, validating the application.)
 
 ## Entry 2 — from Exp 1: RR vs GT (2026-05-09), Grade: C+
 
@@ -44,7 +44,7 @@ while the replacement all-rounder (Bawa, 13.00 economy) was materially weaker. T
 bowling comparison described a lineup that didn't take the field, missing both MI's bowling
 competitiveness and Bawa's death-overs vulnerability.
 
-**Status:** tentative | **Applications:** 2 (Exp 4: PBKS vs DC — rule applied to DC but not reciprocally to PBKS. DC's replacement XI was flagged as an uncertainty, but PBKS's own surprise change — Ferguson out, Dwarshuis debut — was not modeled. Additionally, the rule needs extension: replacement XIs should be assessed for BOTH ceiling and floor, not assumed to be a downgrade. DC's 5 changes produced a team that won. Exp 5: GT vs SRH — rule correctly applied to Travis Head's impact sub status. The memo assessed SRH's starting XI without Head and noted it was weaker than aggregate stats. Head was used as impact sub and scored 0(4). However, the rule was applied asymmetrically again: GT's impact sub Prasidh Krishna 2/23 was not equivalently modeled.)
+**Status:** tentative | **Applications:** 3 (Exp 4: PBKS vs DC — rule applied to DC but not reciprocally to PBKS. DC's replacement XI was flagged as an uncertainty, but PBKS's own surprise change — Ferguson out, Dwarshuis debut — was not modeled. Additionally, the rule needs extension: replacement XIs should be assessed for BOTH ceiling and floor, not assumed to be a downgrade. DC's 5 changes produced a team that won. Exp 5: GT vs SRH — rule correctly applied to Travis Head's impact sub status. The memo assessed SRH's starting XI without Head and noted it was weaker than aggregate stats. Head was used as impact sub and scored 0(4). However, the rule was applied asymmetrically again: GT's impact sub Prasidh Krishna 2/23 was not equivalently modeled. Exp 6: RCB vs KKR — Salt's absence correctly modeled with Bethell replacement. Varun's injury correctly flagged as uncertainty with conditional adjustment. However, the actual XI surprises (Venkatesh Iyer in, Suyash Sharma out, Jacob Duffy in) were not anticipated, leading to fragile matchup analysis. See new Entry 12.)
 
 ## Entry 4 — from Exp 3: RCB vs MI (2026-05-10), Grade: B
 
@@ -114,7 +114,7 @@ at Dharamsala). "Deep liquidity" is a weak argument for market efficiency when t
 is explained by concrete analytical findings. When your own analysis produces a consistent
 reason for the gap, trust the analysis over the market anchor.
 
-**Status:** tentative | **Applications:** 1 (Exp 5: GT vs SRH — Entry 8 correctly applied. The memo placed GT at 55% vs market's 45.5%, a 9.5pp contrarian gap explained by toss overpricing, H2H dominance, and bowling quality. GT won by 82 runs. The base-rate estimate was more accurate than the market.)
+**Status:** tentative | **Applications:** 2 (Exp 5: GT vs SRH — Entry 8 correctly applied. The memo placed GT at 55% vs market's 45.5%, a 9.5pp contrarian gap explained by toss overpricing, H2H dominance, and bowling quality. GT won by 82 runs. The base-rate estimate was more accurate than the market. Exp 6: RCB vs KKR — Entry 8 applied again: memo placed RCB at 54% vs market's 57.5%, a 3.5pp lean BELOW the market. RCB won by 6 wickets. The contrarian direction was against RCB, and RCB won — a mixed result. The memo attributed the market's premium to "anchoring and name recognition," but table position and Kohli's match-winning century (105*) suggest the premium reflected real factors. Entry 8's principle remains sound, but the attribution of WHY the market diverges matters: when the gap is explainable by cognitive biases, lean strongly away; when explainable by verifiable strengths, lean more modestly.)
 
 ## Entry 9 — from Exp 5: GT vs SRH (2026-05-12), Grade: A-
 
@@ -129,7 +129,7 @@ data combined with same-day weather is more informative than generic evening dew
 This is the strongest case in the experiment series of the market systematically overpricing
 a toss.
 
-**Status:** tentative | **Applications:** 0
+**Status:** tentative | **Applications:** 1 (Exp 6: RCB vs KKR — Entry 9 was partially applicable but conditions differed. Raipur humidity was moderate (29% rising to 61%), dew-point gap ~15-20C at match start. The memo correctly capped the toss adjustment at +3-5pp. The chasing team (RCB) won, consistent with a moderate — not extreme — toss advantage. Unlike Exp 5 where weather data contradicted the dew narrative, here the weather was ambiguous, and the correct response was a bounded toss adjustment rather than a 0pp cap.)
 
 ## Entry 10 — from Exp 5: GT vs SRH (2026-05-12), Grade: A-
 
@@ -145,5 +145,38 @@ that survive opponent squad upgrades more than market participants typically exp
 samples (3-4 matches) at a specific venue are more informative than they appear when the pattern
 is consistent across varying conditions (different toss outcomes, different years, different
 squad compositions).
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 11 — from Exp 6: RCB vs KKR (2026-05-13), Grade: B+
+
+**When** a venue's match sample spans multiple IPL eras (e.g., 2014-2015 and 2026), **segment**
+the scoring norms by era rather than blending them into a single average — and treat the
+recent-era subset as more informative than the blended figure.
+**Because:** Raipur's 7-match blended average was ~149. Five of those matches were from 2014-2015
+(avg ~140); the two 2026 matches averaged ~180. KKR scored 192/4 — the highest-ever Raipur IPL
+total, 43 runs above the cited average. T20 batting has evolved dramatically across eras: ball
+composition, power-hitting depth, strategic intent, and squad quality have all shifted scoring
+norms upward. A blended average that weights 2014-2015 equally with 2026 systematically
+underestimates modern run-scoring. The memo treated ~149 as directionally informative for pitch
+characterization and par score, but the era gap rendered it misleading. When most of a venue's
+sample is from a prior era, acknowledge the era gap explicitly and anchor on the recent subset.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 12 — from Exp 6: RCB vs KKR (2026-05-13), Grade: B+
+
+**When** playing XIs are unconfirmed at memo time, **do not** build detailed tactical matchups
+(bowler X vs batter Y, spin attack comparisons) around predicted XIs — instead model overall
+team quality and note that specific matchups are contingent on selection.
+**Because:** The memo built significant reasoning around Suyash Sharma vs Narine/Varun as the
+spin battle on a "spin-friendly" Raipur surface. In the event: Suyash Sharma was not selected
+(replaced by Jacob Duffy, a pacer), Varun Chakravarthy was ruled out with injury, and the
+surface played faster than expected. The Source Quality Clerk had explicitly rated all predicted
+XIs as "speculative with known disagreements," but the memo still invested analytical space in
+matchups that required those predictions to hold. Detailed matchup analysis creates fragile
+reasoning that collapses if 1-2 selections differ. Reserve it for post-toss memos with confirmed
+XIs; pre-toss memos should focus on team-level bowling/batting quality indices that are robust
+to individual selection changes.
 
 **Status:** tentative | **Applications:** 0

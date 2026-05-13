@@ -37,16 +37,28 @@ def extract_prediction_from_memo(case_dir: Path, ref_team: str, team1: str, team
     """Parse the memo to extract prediction and band for the reference team."""
     memo = (case_dir / "memo.md").read_text()
 
+    # Format A: **Model band:** 49-61% (GT) or 49-61% (Gujarat Titans)
     band_match = re.search(
         r"\*{0,2}[Mm]odel [Bb]and:?\*{0,2}\s*(\d+)\s*[\-–—]\s*(\d+)\s*%\s*\(([^)]+)\)",
         memo,
     )
-    if not band_match:
+    # Format B: **Model band:** GT 49-61% (midpoint ~55%)
+    band_match_b = re.search(
+        r"\*{0,2}[Mm]odel [Bb]and:?\*{0,2}\s+([A-Z][A-Za-z ]+?)\s+(\d+)\s*[\-–—]\s*(\d+)\s*%",
+        memo,
+    )
+
+    if band_match:
+        band_low = int(band_match.group(1)) / 100
+        band_high = int(band_match.group(2)) / 100
+        band_team_fragment = band_match.group(3).strip()
+    elif band_match_b:
+        band_team_fragment = band_match_b.group(1).strip()
+        band_low = int(band_match_b.group(2)) / 100
+        band_high = int(band_match_b.group(3)) / 100
+    else:
         raise ValueError("Could not parse model band from memo")
 
-    band_low = int(band_match.group(1)) / 100
-    band_high = int(band_match.group(2)) / 100
-    band_team_fragment = band_match.group(3).strip()
     midpoint = (band_low + band_high) / 2
 
     if ref_team.split()[-1].lower() in band_team_fragment.lower() or ref_team.split()[0].lower() in band_team_fragment.lower():

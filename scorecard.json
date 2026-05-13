@@ -21,26 +21,6 @@
       "band_coverage": true
     },
     {
-      "case_id": "exp_002_csk_vs_lsg",
-      "date": "2026-05-10",
-      "teams": [
-        "Chennai Super Kings",
-        "Lucknow Super Giants"
-      ],
-      "active_rules": [],
-      "reference_team": "Chennai Super Kings",
-      "other_team": "Lucknow Super Giants",
-      "prediction": 0.41999999999999993,
-      "band": [
-        0.37,
-        0.47
-      ],
-      "outcome": 1,
-      "winner": "Chennai Super Kings",
-      "brier_score": 0.3364,
-      "band_coverage": false
-    },
-    {
       "case_id": "exp_003_rcb_vs_mi",
       "date": "2026-05-10",
       "teams": [
@@ -79,13 +59,53 @@
       "winner": "Delhi Capitals",
       "brier_score": 0.3025,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_002_csk_vs_lsg",
+      "date": "2026-05-10",
+      "teams": [
+        "Chennai Super Kings",
+        "Lucknow Super Giants"
+      ],
+      "active_rules": [],
+      "reference_team": "Chennai Super Kings",
+      "other_team": "Lucknow Super Giants",
+      "prediction": 0.5800000000000001,
+      "band": [
+        0.53,
+        0.63
+      ],
+      "outcome": 1,
+      "winner": "Chennai Super Kings",
+      "brier_score": 0.1764,
+      "band_coverage": true
+    },
+    {
+      "case_id": "exp_005_gt_vs_srh",
+      "date": "2026-05-12",
+      "teams": [
+        "Gujarat Titans",
+        "Sunrisers Hyderabad"
+      ],
+      "active_rules": [],
+      "reference_team": "Gujarat Titans",
+      "other_team": "Sunrisers Hyderabad",
+      "prediction": 0.55,
+      "band": [
+        0.49,
+        0.61
+      ],
+      "outcome": 1,
+      "winner": "Gujarat Titans",
+      "brier_score": 0.2025,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 4,
-    "mean_brier": 0.2684,
-    "rolling_brier_5": 0.2684,
-    "band_coverage_rate": 0.75,
-    "vs_coinflip": 0.0184
+    "n_matches": 5,
+    "mean_brier": 0.2233,
+    "rolling_brier_5": 0.2233,
+    "band_coverage_rate": 1.0,
+    "vs_coinflip": -0.0267
   }
 }

@@ -17,7 +17,7 @@ yet the memo applied generic +6pp home advantage. Two data points showing the sa
 is weak individually but strong against a generic base rate. False balance produces memos
 that are technically defensible but practically uninformative.
 
-**Status:** tentative | **Applications:** 2 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9.)
+**Status:** tentative | **Applications:** 3 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application.)
 
 ## Entry 2 — from Exp 1: RR vs GT (2026-05-09), Grade: C+
 
@@ -44,7 +44,7 @@ while the replacement all-rounder (Bawa, 13.00 economy) was materially weaker. T
 bowling comparison described a lineup that didn't take the field, missing both MI's bowling
 competitiveness and Bawa's death-overs vulnerability.
 
-**Status:** tentative | **Applications:** 1 (Exp 4: PBKS vs DC — rule applied to DC but not reciprocally to PBKS. DC's replacement XI was flagged as an uncertainty, but PBKS's own surprise change — Ferguson out, Dwarshuis debut — was not modeled. Additionally, the rule needs extension: replacement XIs should be assessed for BOTH ceiling and floor, not assumed to be a downgrade. DC's 5 changes produced a team that won.)
+**Status:** tentative | **Applications:** 2 (Exp 4: PBKS vs DC — rule applied to DC but not reciprocally to PBKS. DC's replacement XI was flagged as an uncertainty, but PBKS's own surprise change — Ferguson out, Dwarshuis debut — was not modeled. Additionally, the rule needs extension: replacement XIs should be assessed for BOTH ceiling and floor, not assumed to be a downgrade. DC's 5 changes produced a team that won. Exp 5: GT vs SRH — rule correctly applied to Travis Head's impact sub status. The memo assessed SRH's starting XI without Head and noted it was weaker than aggregate stats. Head was used as impact sub and scored 0(4). However, the rule was applied asymmetrically again: GT's impact sub Prasidh Krishna 2/23 was not equivalently modeled.)
 
 ## Entry 4 — from Exp 3: RCB vs MI (2026-05-10), Grade: B
 
@@ -99,7 +99,7 @@ pressure, players auditioning for retention) just as easily as a weaker one. The
 weakness" assumption is a systematic bias. Assess the replacement players' individual quality
 and the absence-of-pressure advantage, not just the fact of rotation.
 
-**Status:** tentative | **Applications:** 0
+**Status:** tentative | **Applications:** 1 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated.)
 
 ## Entry 8 — from Exp 4: PBKS vs DC (2026-05-11), Grade: B+
 
@@ -113,5 +113,37 @@ recent form (PBKS 4-4 in last 8), generic home advantage vs venue-specific recor
 at Dharamsala). "Deep liquidity" is a weak argument for market efficiency when the divergence
 is explained by concrete analytical findings. When your own analysis produces a consistent
 reason for the gap, trust the analysis over the market anchor.
+
+**Status:** tentative | **Applications:** 1 (Exp 5: GT vs SRH — Entry 8 correctly applied. The memo placed GT at 55% vs market's 45.5%, a 9.5pp contrarian gap explained by toss overpricing, H2H dominance, and bowling quality. GT won by 82 runs. The base-rate estimate was more accurate than the market.)
+
+## Entry 9 — from Exp 5: GT vs SRH (2026-05-12), Grade: A-
+
+**When** same-day weather data contradicts a venue's generic "dew advantage" narrative AND the
+venue-level field-first win rate is ≤50%, **cap** the toss adjustment at 0pp and treat any
+market swing >2pp as overpricing the toss.
+**Because:** At NMS the field-first win rate was 50% (15/30, 2023-2026). Same-day humidity was
+11-20% with a 23C dew-point gap (evening temp 33-34C, dew point 6-10C). The market moved 4pp
+toward SRH post-toss. SRH chose to field and lost by 82 runs. The "significant dew" narrative
+from the Times of India preview was unsupported by the weather API data. Venue-specific toss
+data combined with same-day weather is more informative than generic evening dew narratives.
+This is the strongest case in the experiment series of the market systematically overpricing
+a toss.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 10 — from Exp 5: GT vs SRH (2026-05-12), Grade: A-
+
+**When** a team's H2H dominance at a specific venue is ≥3-0 across different toss outcomes and
+years, **weight** it at the upper end of the +5-8pp adjustment range — opponent squad
+improvements reduce but do not eliminate the prior.
+**Because:** GT's 3-0 at NMS (including 2 matches where SRH chose to field first) extended to
+4-0. SRH's 2026 batting lineup — arguably their strongest ever (Abhishek SR 188.5, Ishan SR
+181.0, Klaasen SR 149.2, plus Head available as impact sub) — was bowled out for 86. The market
+had SRH at 54.5%, pricing as if the squad upgrade overrode the venue H2H. Venue-specific H2H
+captures persistent dynamics (bowling attack vs batting style, pitch familiarity, crowd effect)
+that survive opponent squad upgrades more than market participants typically expect. Small
+samples (3-4 matches) at a specific venue are more informative than they appear when the pattern
+is consistent across varying conditions (different toss outcomes, different years, different
+squad compositions).
 
 **Status:** tentative | **Applications:** 0

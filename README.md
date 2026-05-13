@@ -60,9 +60,9 @@ Important limitation: Brier is the only ratchet metric. The system may reward co
 
 There's no human approval gate on rule changes. After consolidation, updates go straight to the Reflection Log. Git tracks every mutation and `experiments.md` logs the numbers behind each decision, but nobody reviews the changes before they take effect.
 
-I want to be explicit about why this matters. Most multi-agent systems that claim self-improvement have a human reviewer quietly filtering out bad rule mutations. The system looks disciplined, but the discipline is coming from the human, not the mechanism. Here, the discipline comes from two things: the pre-committed rules in `program.md` (frozen at season start) and the Brier score (computed automatically). That's it.
+I want to be explicit about why this matters. Most multi-agent systems that claim self-improvement have a human reviewer filtering out bad rule mutations. The system looks disciplined, but the discipline is coming from the human, not the mechanism. Here, the discipline comes from two things: the pre-committed rules in `program.md` (frozen at season start) and the Brier score (computed automatically). That's it.
 
-At small N (15-22 matches over IPL 2026), some rule decisions will be wrong. Those mistakes show up in `experiments.md` as part of the honest result.
+At small N (15-22 matches over IPL 2026), some rule decisions will be wrong. Those mistakes show up in `experiments.md` as part of the result.
 
 This is the first time I'm running a system like this with fully autonomous rule mutation. End-of-season blog post will cover what worked and what didn't.
 
@@ -121,15 +121,15 @@ Evidence packets are built once, before first ball, and never modified after tha
 
 | Match | Date | Forecast | Result | Brier | Grade |
 |-------|------|-----------|--------|-------|-------|
-| [RR vs GT](case_studies/exp_001_rr_vs_gt/) | 2026-05-09 | GT 48-56% (coin flip) | GT won by 77 runs | 0.25 | C+ |
+| [RR vs GT](case_studies/exp_001_rr_vs_gt/) | 2026-05-09 | GT 45-55% | GT won by 77 runs | 0.250 | C+ |
+| [CSK vs LSG](case_studies/exp_002_csk_vs_lsg/) | 2026-05-10 | CSK 53-63% | CSK won by 5 wickets | 0.176 | B+ |
+| [RCB vs MI](case_studies/exp_003_rcb_vs_mi/) | 2026-05-10 | RCB 52-62% | RCB won by 2 wickets | 0.185 | B |
+| [PBKS vs DC](case_studies/exp_004_pbks_vs_dc/) | 2026-05-11 | PBKS 49-61% | DC won by 3 wickets | 0.303 | B+ |
+| [GT vs SRH](case_studies/exp_005_gt_vs_srh/) | 2026-05-12 | GT 49-61% | GT won by 82 runs | 0.203 | A- |
 
-**Running Brier: 0.25** (1 match, baseline is 0.25 which is a coin flip)
+**Running Brier: 0.223** across 5 matches (0.25 = coin flip). Band coverage: 100%.
 
-The forecast leaned GT but stayed near coin-flip. GT then won by 77 runs. The post-match grade flagged that the system may have been too cautious. Synthesizer's evidence was stronger than the final band allowed, and the Skeptic's default rule ("never claim more than 5pp from 50%") may have suppressed legitimate confidence. That's now a tentative rule in the Reflection Log; whether loosening it improves calibration is what the next consolidation will test.
-
-Note: a 77-run margin is decisive but doesn't prove pre-match probability should have been much higher. Variance in a T20 match is super high. The learning is that the system's reasoning may have been stronger than its output band reflected.
-
-Live through IPL 2026 second half. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
+Live through IPL 2026. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
 
 ## Frozen Rules of the Game
 
@@ -150,11 +150,19 @@ No agent and no consolidation step can change this file.
 - **[Polymarket](https://polymarket.com/)** - public Gamma API for market-implied probabilities (no auth)
 - **Web search** - team news, pitch reports, weather. The search queries are frozen in `program.md`, but the returned source set varies per match. The Source Quality Clerk audits each source's reliability and timestamp after the fact.
 
-## Why Claude Code, Not Managed Agents
+## FAQ
 
-Claude Code's subagent system (`.claude/agents/*.md`) does what I need for multi-agent orchestration. Managed Agents is for production agents (long-running, async, cloud-hosted). This project runs locally and was built over a couple of weekends. The Reflection Log is a deliberately simple learning loop. Managed Agents' dreaming primitive would be the natural v2 replacement.
+**"T20 is a super high variance game. Is it even practical to model it?"**
+Yes, and that's the point. We might get to the end of the season and realize this is useless. But I'm genuinely curious if a self-improving AI system can learn to model T20 madness, or is it just noise all the way down.
 
-See [docs/claude_code_vs_managed_agents.md](docs/claude_code_vs_managed_agents.md).
+**"Isn't it too early to claim the model is better than prediction markets?"**
+Of course. Sample is too low to make any conclusions. Treating these as interesting early reads.
+
+**"Why Polymarket? Why not Cricbuzz or Cricinfo?"**
+A prediction market with $50-100K in real money on each match is a harder benchmark than an expert panel. Also, Cricbuzz and Cricinfo don't publish these probabilities in a reliable way.
+
+**"You say zero human inputs but I see commits in the repo?"**
+Code changes and bug fixes are human driven. The forecasts, grades, rules, and scoring run autonomously on a VPS cron. No human reviews the memo before the match or approves rule changes after grading. Git history shows which commits are mine (code) vs the auto-pilot's (output).
 
 ## What This Is Not
 

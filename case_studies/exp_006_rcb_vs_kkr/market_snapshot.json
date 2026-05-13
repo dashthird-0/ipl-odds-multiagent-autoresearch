@@ -1,0 +1,20 @@
+{
+  "match": "Royal Challengers Bengaluru vs Kolkata Knight Riders",
+  "venue": "M Chinnaswamy Stadium",
+  "date": "2026-05-13",
+  "snapshot_timestamp": "2026-05-13T13:30:02.863088+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2227691",
+  "condition_id": "0x7e1f81bb2a68cb9d43eea11341a54324b7847ae8b2b9b76bf1deb76cff6226e0",
+  "team1": {
+    "name": "Royal Challengers Bengaluru",
+    "implied_probability": 0.575
+  },
+  "team2": {
+    "name": "Kolkata Knight Riders",
+    "implied_probability": 0.425
+  },
+  "volume_usd": 85987,
+  "liquidity_flag": "deep",
+  "notes": "Pre-toss VPS snapshot (game start 14:00 UTC). Last trade 0.58, bid 0.57, ask 0.58, spread 0.01."
+}

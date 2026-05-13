@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "match": "Royal Challengers Bengaluru vs Kolkata Knight Riders",
+    "venue": "M Chinnaswamy Stadium, Bengaluru",
+    "cutoff_date": "2026-05-13",
+    "date_filtering": "enforced via cutoff_date < 2026-05-13 on all queries",
+    "generated_by": "cricket_stats_analyst_deep_queries"
+  },
+  "q1_chase_win_rate_chinnaswamy": {
+    "description": "Chase win rate at M Chinnaswamy Stadium by season (2023-2026)",
+    "overall_2023_2026": {
+      "decided_matches": 24,
+      "bat_first_wins": 11,
+      "chase_wins": 13,
+      "chase_win_pct": 54.2
+    },
+    "by_season": {
+      "2023": {
+        "matches": 7,
+        "bat_first_wins": 4,
+        "chase_wins": 3,
+        "chase_win_pct": 42.9
+      },
+      "2024": {
+        "matches": 7,
+        "bat_first_wins": 4,
+        "chase_wins": 3,
+        "chase_win_pct": 42.9
+      },
+      "2025": {
+        "matches": 5,
+        "bat_first_wins": 2,
+        "chase_wins": 3,
+        "chase_win_pct": 60.0
+      },
+      "2026": {
+        "matches": 5,
+        "bat_first_wins": 1,
+        "chase_wins": 4,
+        "chase_win_pct": 80.0
+      }
+    },
+    "trend_note": "Chase win rate rising sharply: 42.9% in 2023-24, 60% in 2025, 80% in 2026 (small samples)"
+  },
+  "q2_toss_field_first_chinnaswamy": {
+    "description": "Win rate for teams choosing to field first after winning toss at Chinnaswamy",
+    "all_time": {
+      "total_decided": 100,
+      "chose_field": 91,
+      "chose_bat": 9,
+      "field_first_won": 51,
+      "field_first_win_pct": 56.0,
+      "bat_first_won": 4,
+      "bat_first_win_pct": 44.4
+    },
+    "recent_2023_2026": {
+      "total_field_first": 24,
+      "field_first_won": 13,
+      "field_first_win_pct": 54.2,
+      "by_season": {
+        "2023": {
+          "field_first_choices": 7,
+          "won": 3
+        },
+        "2024": {
+          "field_first_choices": 7,
+          "won": 3
+        },
+        "2025": {
+          "field_first_choices": 5,
+          "won": 3
+        },
+        "2026": {
+          "field_first_choices": 5,
+          "won": 4
+        }
+      }
+    },
+    "note": "Overwhelming preference to field first (91/100 all-time). Toss winner choosing to field wins 56% all-time, 80% in 2026 (5 matches)."
+  },
+  "q3_win_streak_continuation": {
+    "description": "Base rate for teams on 4+ win streak winning next match (IPL 2023-2026)",
+    "total_instances": 28,
+    "won_next": 14,
+    "lost_next": 14,
+    "continuation_rate_pct": 50.0,
+    "by_streak_length": {
+      "4_wins": {
+        "instances": 14,
+        "won_next": 10,
+        "pct": 71.4
+      },
+      "5_wins": {
+        "instances": 10,
+        "won_next": 4,
+        "pct": 40.0
+      },
+      "6_wins": {
+        "instances": 4,
+        "won_next": 0,
+        "pct": 0.0
+      }
+    },
+    "note": "Teams on exactly 4-win streaks continue winning 71.4% of the time, but 5+ win streaks see sharply declining continuation (40% for 5W, 0% for 6W). This is relevant if RCB is on any streak."
+  },
+  "q4_bottom_table_away_wins": {
+    "description": "Base rate for teams with <=2W and >=5L winning away matches (IPL 2023-2026)",
+    "total_instances": 19,
+    "away_wins": 11,
+    "away_win_pct": 57.9,
+    "by_season": {
+      "2023": {
+        "instances": 4,
+        "wins": 4,
+        "pct": 100.0
+      },
+      "2024": {
+        "instances": 5,
+        "wins": 3,
+        "pct": 60.0
+      },
+      "2025": {
+        "instances": 7,
+        "wins": 3,
+        "pct": 42.9
+      },
+      "2026": {
+        "instances": 3,
+        "wins": 1,
+        "pct": 33.3
+      }
+    },
+    "kkr_specific_2026": {
+      "note": "KKR with 1W-5L record won away at Hyderabad vs SRH on 2026-05-03. Their current record is 2W-5L (with 2 NR).",
+      "kkr_away_as_bottom_table": "1 instance in 2026 season: won 1/1"
+    },
+    "caution": "Sample sizes are small per season. The overall 57.9% is surprisingly high \u2014 bottom-table teams are not as hopeless away as expected, possibly because IPL away disadvantage is smaller than in other leagues."
+  },
+  "q5_rcb_home_chinnaswamy_2026": {
+    "description": "RCB's home record at Chinnaswamy in IPL 2026",
+    "matches": 5,
+    "won": 4,
+    "lost": 1,
+    "win_pct": 80.0,
+    "details": [
+      {
+        "date": "2026-03-28",
+        "vs": "Sunrisers Hyderabad",
+        "result": "won by 6 wickets",
+        "scores": "SRH 201 -> RCB 203"
+      },
+      {
+        "date": "2026-04-05",
+        "vs": "Chennai Super Kings",
+        "result": "won by 43 runs",
+        "scores": "RCB 250 -> CSK 207"
+      },
+      {
+        "date": "2026-04-15",
+        "vs": "Lucknow Super Giants",
+        "result": "won by 5 wickets",
+        "scores": "LSG 146 -> RCB 149"
+      },
+      {
+        "date": "2026-04-18",
+        "vs": "Delhi Capitals",
+        "result": "lost by 6 wickets",
+        "scores": "RCB 175 -> DC 179"
+      },
+      {
+        "date": "2026-04-24",
+        "vs": "Gujarat Titans",
+        "result": "won by 5 wickets",
+        "scores": "GT 205 -> RCB 206"
+      }
+    ],
+    "note": "RCB dominant at home in 2026: 4-1 record. Three of four wins came chasing. Only loss was also while batting first (175, chased down by DC)."
+  },
+  "q6_kkr_away_2026": {
+    "description": "KKR's away record in IPL 2026",
+    "total_away": 5,
+    "won": 1,
+    "lost": 3,
+    "no_result": 1,
+    "win_pct_decided": 25.0,
+    "details": [
+      {
+        "date": "2026-03-29",
+        "vs": "Mumbai Indians",
+        "venue": "Wankhede Stadium, Mumbai",
+        "result": "lost by 6 wickets"
+      },
+      {
+        "date": "2026-04-14",
+        "vs": "Chennai Super Kings",
+        "venue": "MA Chidambaram Stadium, Chennai",
+        "result": "lost by 32 runs"
+      },
+      {
+        "date": "2026-04-17",
+        "vs": "Gujarat Titans",
+        "venue": "Narendra Modi Stadium, Ahmedabad",
+        "result": "lost by 5 wickets"
+      },
+      {
+        "date": "2026-04-26",
+        "vs": "Lucknow Super Giants",
+        "venue": "Ekana Stadium, Lucknow",
+        "result": "no result"
+      },
+      {
+        "date": "2026-05-03",
+        "vs": "Sunrisers Hyderabad",
+        "venue": "Rajiv Gandhi Stadium, Hyderabad",
+        "result": "won by 7 wickets"
+      }
+    ],
+    "home_comparison": {
+      "home_matches": 4,
+      "home_won": 1,
+      "home_lost": 2,
+      "home_nr": 1
+    },
+    "note": "KKR poor away: 1-3 in decided matches (25%). But their only away win was the most recent (May 3 vs SRH), so they broke the losing streak."
+  },
+  "q7_h2h_at_chinnaswamy": {
+    "description": "RCB vs KKR head-to-head at M Chinnaswamy Stadium",
+    "total_matches": 12,
+    "rcb_wins": 4,
+    "kkr_wins": 8,
+    "kkr_win_pct": 66.7,
+    "last_5_results": [
+      {
+        "date": "2017-05-07",
+        "winner": "KKR",
+        "result": "KKR won by 6 wickets",
+        "scores": "RCB 158/6 -> KKR 159/4"
+      },
+      {
+        "date": "2018-04-29",
+        "winner": "KKR",
+        "result": "KKR won by 6 wickets",
+        "scores": "RCB 175/4 -> KKR 176/5"
+      },
+      {
+        "date": "2019-04-05",
+        "winner": "KKR",
+        "result": "KKR won by 5 wickets",
+        "scores": "RCB 205/3 -> KKR 206/5"
+      },
+      {
+        "date": "2023-04-26",
+        "winner": "KKR",
+        "result": "KKR won by 21 runs",
+        "scores": "KKR 200/5 -> RCB 179/8"
+      },
+      {
+        "date": "2024-03-29",
+        "winner": "KKR",
+        "result": "KKR won by 7 wickets",
+        "scores": "RCB 182/6 -> KKR 186/3"
+      }
+    ],
+    "kkr_streak_at_chinnaswamy": 5,
+    "rcb_last_win_at_chinnaswamy_vs_kkr": "2015-05-02",
+    "note": "KKR have won 5 consecutive matches at Chinnaswamy vs RCB (2017-2024). RCB have not beaten KKR at home since 2015. Extremely strong historical pattern."
+  },
+  "q8_high_scoring_frequency_chinnaswamy": {
+    "description": "High-scoring match frequency at Chinnaswamy (first innings 200+)",
+    "period": "2023-2026",
+    "total_matches": 24,
+    "over_200_first_innings": 10,
+    "over_200_pct": 41.7,
+    "over_180_first_innings": 15,
+    "over_180_pct": 62.5,
+    "over_160_first_innings": 21,
+    "over_160_pct": 87.5,
+    "avg_first_innings_score": 190,
+    "by_season": {
+      "2023": {
+        "matches": 7,
+        "avg": 196,
+        "over_200": 3,
+        "over_200_pct": 42.9
+      },
+      "2024": {
+        "matches": 7,
+        "avg": 197,
+        "over_200": 2,
+        "over_200_pct": 28.6
+      },
+      "2025": {
+        "matches": 5,
+        "avg": 169,
+        "over_200": 2,
+        "over_200_pct": 40.0
+      },
+      "2026": {
+        "matches": 5,
+        "avg": 195,
+        "over_200": 3,
+        "over_200_pct": 60.0
+      }
+    },
+    "note": "Chinnaswamy is a consistently high-scoring ground: 42% of matches see 200+ first innings, 63% see 180+. In 2026, 3/5 matches had 200+ (including a 250). Average first innings score is 190."
+  }
+}

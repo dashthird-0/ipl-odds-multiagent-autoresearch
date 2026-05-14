@@ -1,0 +1,19 @@
+{
+  "match": "Punjab Kings vs Mumbai Indians",
+  "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+  "date": "2026-05-14",
+  "snapshot_timestamp": "2026-05-14T13:30:03.151491+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2253797",
+  "condition_id": "0xa64aaa928bd6d9b44bd3e008889acccba83629843477bcc6ecbd45a1090271a2",
+  "team1": {
+    "name": "Punjab Kings",
+    "implied_probability": 0.615
+  },
+  "team2": {
+    "name": "Mumbai Indians",
+    "implied_probability": 0.385
+  },
+  "volume_usd": 0.0,
+  "liquidity_flag": "thin"
+}

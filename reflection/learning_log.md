@@ -99,7 +99,7 @@ pressure, players auditioning for retention) just as easily as a weaker one. The
 weakness" assumption is a systematic bias. Assess the replacement players' individual quality
 and the absence-of-pressure advantage, not just the fact of rotation.
 
-**Status:** tentative | **Applications:** 1 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated.)
+**Status:** tentative | **Applications:** 2 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated. Exp 7: PBKS vs MI — rule correctly applied. The memo explicitly dismissed the dead-rubber motivation narrative: "no probability adjustment for MI's 'lack of motivation.'" MI — virtually eliminated, missing captain Pandya and vice-captain SKY, with Rohit as impact sub — won by 6 wickets. This is the third consecutive validation that dead-rubber teams are unpredictable, not systematically weaker.)
 
 ## Entry 8 — from Exp 4: PBKS vs DC (2026-05-11), Grade: B+
 
@@ -114,7 +114,7 @@ at Dharamsala). "Deep liquidity" is a weak argument for market efficiency when t
 is explained by concrete analytical findings. When your own analysis produces a consistent
 reason for the gap, trust the analysis over the market anchor.
 
-**Status:** tentative | **Applications:** 2 (Exp 5: GT vs SRH — Entry 8 correctly applied. The memo placed GT at 55% vs market's 45.5%, a 9.5pp contrarian gap explained by toss overpricing, H2H dominance, and bowling quality. GT won by 82 runs. The base-rate estimate was more accurate than the market. Exp 6: RCB vs KKR — Entry 8 applied again: memo placed RCB at 54% vs market's 57.5%, a 3.5pp lean BELOW the market. RCB won by 6 wickets. The contrarian direction was against RCB, and RCB won — a mixed result. The memo attributed the market's premium to "anchoring and name recognition," but table position and Kohli's match-winning century (105*) suggest the premium reflected real factors. Entry 8's principle remains sound, but the attribution of WHY the market diverges matters: when the gap is explainable by cognitive biases, lean strongly away; when explainable by verifiable strengths, lean more modestly.)
+**Status:** tentative | **Applications:** 3 (Exp 5: GT vs SRH — Entry 8 correctly applied. The memo placed GT at 55% vs market's 45.5%, a 9.5pp contrarian gap explained by toss overpricing, H2H dominance, and bowling quality. GT won by 82 runs. The base-rate estimate was more accurate than the market. Exp 6: RCB vs KKR — Entry 8 applied again: memo placed RCB at 54% vs market's 57.5%, a 3.5pp lean BELOW the market. RCB won by 6 wickets. The contrarian direction was against RCB, and RCB won — a mixed result. The memo attributed the market's premium to "anchoring and name recognition," but table position and Kohli's match-winning century (105*) suggest the premium reflected real factors. Entry 8's principle remains sound, but the attribution of WHY the market diverges matters: when the gap is explainable by cognitive biases, lean strongly away; when explainable by verifiable strengths, lean more modestly. Exp 7: PBKS vs MI — Entry 8 applied correctly in direction. The memo placed PBKS at 57% vs market's 61.5%, a 4.5pp lean toward MI. MI won. The lean was directionally correct but insufficiently aggressive — the base-rate analysis (H2H 17-17, home disadvantage, dead-rubber dismissal) pointed closer to 50-53% PBKS, not 57%. Three consecutive applications now show that when Entry 8 fires, the contrarian direction has been correct every time, but the magnitude of the lean could be bolder.)
 
 ## Entry 9 — from Exp 5: GT vs SRH (2026-05-12), Grade: A-
 
@@ -178,5 +178,39 @@ matchups that required those predictions to hold. Detailed matchup analysis crea
 reasoning that collapses if 1-2 selections differ. Reserve it for post-toss memos with confirmed
 XIs; pre-toss memos should focus on team-level bowling/batting quality indices that are robust
 to individual selection changes.
+
+**Status:** tentative | **Applications:** 1 (Exp 7: PBKS vs MI — rule correctly applied. The memo explicitly cited Entry 12 and refused to build detailed matchups against MI's unconfirmed XI: "I assess team-level quality only." MI's actual XI differed significantly from the last known XI (Pandya out, SKY out, Rohit demoted to impact sub, Thakur returned). Had the memo built matchups around the May 4 XI, they would have collapsed. This is the strongest validation yet of Entry 12.)
+
+## Entry 13 — from Exp 7: PBKS vs MI (2026-05-14), Grade: C+
+
+**When** the pipeline assigns a venue to a match, **verify** the venue proactively against an
+authoritative source (IPL fixture list, official team announcement, or multiple independent
+press references) rather than relying on the absence of contradicting evidence.
+**Because:** The Exp 7 memo analyzed PBKS vs MI as occurring at Maharaja Yadavindra Singh
+International Cricket Stadium (Mullanpur/New Chandigarh). The match was actually played at HPCA
+Stadium, Dharamsala. Every venue-specific data point — scoring norms (214.2 avg), toss impact
+(66.7%), chase splits, PBKS's "3-1 in 2026" home record — was for the wrong ground. No agent
+detected the discrepancy because the pipeline's venue-checking is reactive (catches contradictions
+in sourced evidence) rather than proactive (independently verifies venue). In Exp 6, the venue
+error was caught because the news agent surfaced a direct contradiction; here, no source within
+the evidence window mentioned the correct venue, so the error propagated through all agents
+unchecked. A single proactive verification step would have prevented the most consequential
+analytical error in the experiment series.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 14 — from Exp 7: PBKS vs MI (2026-05-14), Grade: C+
+
+**When** a team's losing streak extends beyond 3 matches and includes at least one home loss
+or loss to a clearly weaker team, **increase** the momentum adjustment to -3-5pp (not -1-2pp)
+and treat the streak as evidence of genuine decline rather than contextual noise.
+**Because:** PBKS entered the match on a 3-match losing streak. The memo adjusted only -1-2pp,
+reasoning that all losses were "to top-4 teams, mostly away." PBKS then lost their 4th and 5th
+consecutive matches — including this home loss to dead-rubber MI (8th place, missing Pandya and
+SKY). The contextual explanation ("strong opponents away from home") was invalidated by the home
+loss to a weakened team. Streaks that cross 3+ games signal something beyond bad scheduling:
+confidence erosion, tactical predictability, or structural issues that the opponent-quality
+adjustment cannot explain. When the losing-streak context includes mixed conditions (some home,
+some away, varying opponent strength), the streak itself becomes the signal.
 
 **Status:** tentative | **Applications:** 0

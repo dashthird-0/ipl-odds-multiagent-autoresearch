@@ -119,13 +119,33 @@
       "winner": "Royal Challengers Bangalore",
       "brier_score": 0.2116,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_007_pbks_vs_mi",
+      "date": "2026-05-14",
+      "teams": [
+        "Punjab Kings",
+        "Mumbai Indians"
+      ],
+      "active_rules": [],
+      "reference_team": "Mumbai Indians",
+      "other_team": "Punjab Kings",
+      "prediction": 0.42999999999999994,
+      "band": [
+        0.39,
+        0.47
+      ],
+      "outcome": 1,
+      "winner": "Mumbai Indians",
+      "brier_score": 0.3249,
+      "band_coverage": false
     }
   ],
   "aggregates": {
-    "n_matches": 6,
-    "mean_brier": 0.2213,
-    "rolling_brier_5": 0.2156,
-    "band_coverage_rate": 1.0,
-    "vs_coinflip": -0.0287
+    "n_matches": 7,
+    "mean_brier": 0.2361,
+    "rolling_brier_5": 0.2436,
+    "band_coverage_rate": 0.8571,
+    "vs_coinflip": -0.0139
   }
 }

@@ -1,0 +1,19 @@
+{
+  "match": "Lucknow Super Giants vs Chennai Super Kings",
+  "venue": "BRSABV Ekana Cricket Stadium",
+  "date": "2026-05-15",
+  "snapshot_timestamp": "2026-05-15T13:30:02.573284+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2253806",
+  "condition_id": "0x895bf372190173d3f9a908ba0582930010b98b17dd7d6313348ba0ed42c7d5fe",
+  "team1": {
+    "name": "Lucknow Super Giants",
+    "implied_probability": 0.849
+  },
+  "team2": {
+    "name": "Chennai Super Kings",
+    "implied_probability": 0.151
+  },
+  "volume_usd": 52.83,
+  "liquidity_flag": "thin"
+}

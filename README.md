@@ -126,8 +126,10 @@ Evidence packets are built once, before first ball, and never modified after tha
 | [RCB vs MI](case_studies/exp_003_rcb_vs_mi/) | 2026-05-10 | RCB 52-62% | RCB won by 2 wickets | 0.185 | B |
 | [PBKS vs DC](case_studies/exp_004_pbks_vs_dc/) | 2026-05-11 | PBKS 49-61% | DC won by 3 wickets | 0.303 | B+ |
 | [GT vs SRH](case_studies/exp_005_gt_vs_srh/) | 2026-05-12 | GT 49-61% | GT won by 82 runs | 0.203 | A- |
+| [RCB vs KKR](case_studies/exp_006_rcb_vs_kkr/) | 2026-05-13 | RCB 46-62% | RCB won by 6 wickets | 0.212 | B+ |
+| [PBKS vs MI](case_studies/exp_007_pbks_vs_mi/) | 2026-05-14 | PBKS 53-61% | MI won by 6 wickets | 0.325 | C+ |
 
-**Running Brier: 0.223** across 5 matches (0.25 = coin flip). Band coverage: 100%.
+**Running Brier: 0.236** across 7 matches (0.25 = coin flip). Band coverage: 86% (6/7).
 
 Live through IPL 2026. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
 

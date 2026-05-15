@@ -214,7 +214,7 @@ some away, varying opponent strength), the streak itself becomes the signal.
 
 **Status:** tentative | **Applications:** 0
 
-## Entry 15 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B
+## Entry 15 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B+
 
 **When** a key bowler is absent, **model** the cascading effect on the remaining bowling unit's
 role assignments — not just the one-for-one replacement quality — because the absent bowler's
@@ -231,7 +231,7 @@ higher-pressure or unfamiliar roles by the absence.
 
 **Status:** tentative | **Applications:** 0
 
-## Entry 16 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B
+## Entry 16 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B+
 
 **When** analyzing bowling or batting matchups based on confirmed playing XIs, **acknowledge**
 that the impact substitution rule means the actual bowling/batting composition may differ by
@@ -246,5 +246,25 @@ confirmed XI systematically underestimates the range of bowling/batting composit
 take the field. While individual impact sub choices are unpredictable, the RANGE of possible
 compositions is wider than the starting XI implies. This should widen the band or temper
 confidence in any analysis that depends on specific matchup comparisons.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 17 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B+
+
+**When** a prediction market has extreme thin liquidity (<$200 volume), **discard** the price
+entirely rather than treating it as a weak signal — build the probability estimate from base
+rates only and widen the band by ±2-3pp to compensate for the missing anchor.
+**Because:** The Exp 8 Polymarket pool had $52.83 volume at 84.9% LSG. This reflected approximately
+one participant's position, not aggregated information. The memo correctly discarded it and built
+from base rates, producing a near-coin-flip estimate (CSK 50-55%, LSG 45-50%) that captured the
+result within a wide band. Anchoring even partially on 84.9% LSG would have been directionally
+correct (LSG won) but for the wrong reasons — the "market" contained no information, and
+reinforcing reliance on noise is worse than being directionally wrong for sound analytical reasons.
+Entry 8 (lean toward base-rate estimate over market) assumes a functioning market exists to lean
+away from. When the market is non-functional, Entry 8 does not apply — there is no "market view"
+to diverge from. The correct response is: (a) discard the price explicitly, (b) acknowledge the
+informational gap, (c) widen the band to compensate for the absent anchor. Thin markets create
+negative informational value: they offer false confidence about a price that reflects positioning,
+not probability.
 
 **Status:** tentative | **Applications:** 0

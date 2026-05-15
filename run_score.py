@@ -46,6 +46,16 @@ def _fragment_matches_team(fragment: str, team: str) -> bool:
     return team.split()[-1].lower() in frag or team.split()[0].lower() in frag
 
 
+def extract_active_rules(case_dir: Path) -> list[str]:
+    """Extract Entry references from memo.md. If a rule was cited, it influenced the prediction."""
+    memo_path = case_dir / "memo.md"
+    if not memo_path.exists():
+        return []
+    memo = memo_path.read_text()
+    entries = set(re.findall(r"[Ee]ntry\s+(\d+)", memo))
+    return sorted(f"entry_{n}" for n in entries)
+
+
 def extract_teams_from_case(case_dir: Path) -> tuple[str, str]:
     """Extract team names from evidence_cutoff.md."""
     cutoff = (case_dir / "evidence_cutoff.md").read_text()
@@ -129,11 +139,15 @@ def main():
     date_match = re.search(r"\*\*Date:\*\*\s*(.+)", (case_dir / "evidence_cutoff.md").read_text())
     match_date = date_match.group(1).strip() if date_match else "unknown"
 
+    active_rules = args.rules if args.rules else extract_active_rules(case_dir)
+    if active_rules:
+        print(f"Active rules: {', '.join(active_rules)}")
+
     match_entry = {
         "case_id": case_dir.name,
         "date": match_date,
         "teams": [team1, team2],
-        "active_rules": args.rules,
+        "active_rules": active_rules,
         **result,
     }
 

@@ -7,7 +7,9 @@
         "Rajasthan Royals",
         "Gujarat Titans"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_1"
+      ],
       "reference_team": "Gujarat Titans",
       "other_team": "Rajasthan Royals",
       "prediction": 0.5,
@@ -27,7 +29,10 @@
         "Royal Challengers Bengaluru",
         "Mumbai Indians"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_1",
+        "entry_2"
+      ],
       "reference_team": "Mumbai Indians",
       "other_team": "Royal Challengers Bengaluru",
       "prediction": 0.42999999999999994,
@@ -47,7 +52,12 @@
         "Punjab Kings",
         "Delhi Capitals"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_1",
+        "entry_2",
+        "entry_3",
+        "entry_6"
+      ],
       "reference_team": "Delhi Capitals",
       "other_team": "Punjab Kings",
       "prediction": 0.44999999999999996,
@@ -67,7 +77,10 @@
         "Chennai Super Kings",
         "Lucknow Super Giants"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_1",
+        "entry_2"
+      ],
       "reference_team": "Chennai Super Kings",
       "other_team": "Lucknow Super Giants",
       "prediction": 0.5800000000000001,
@@ -87,7 +100,10 @@
         "Gujarat Titans",
         "Sunrisers Hyderabad"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_3",
+        "entry_8"
+      ],
       "reference_team": "Gujarat Titans",
       "other_team": "Sunrisers Hyderabad",
       "prediction": 0.55,
@@ -107,7 +123,13 @@
         "Royal Challengers Bengaluru",
         "Kolkata Knight Riders"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_1",
+        "entry_2",
+        "entry_3",
+        "entry_8",
+        "entry_9"
+      ],
       "reference_team": "Kolkata Knight Riders",
       "other_team": "Royal Challengers Bengaluru",
       "prediction": 0.45999999999999996,
@@ -127,7 +149,15 @@
         "Punjab Kings",
         "Mumbai Indians"
       ],
-      "active_rules": [],
+      "active_rules": [
+        "entry_1",
+        "entry_12",
+        "entry_3",
+        "entry_6",
+        "entry_7",
+        "entry_8",
+        "entry_9"
+      ],
       "reference_team": "Mumbai Indians",
       "other_team": "Punjab Kings",
       "prediction": 0.42999999999999994,
@@ -139,13 +169,39 @@
       "winner": "Mumbai Indians",
       "brier_score": 0.3249,
       "band_coverage": false
+    },
+    {
+      "case_id": "exp_008_lsg_vs_csk",
+      "date": "2026-05-15",
+      "teams": [
+        "Lucknow Super Giants",
+        "Chennai Super Kings"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_13",
+        "entry_3",
+        "entry_7",
+        "entry_9"
+      ],
+      "reference_team": "Chennai Super Kings",
+      "other_team": "Lucknow Super Giants",
+      "prediction": 0.5,
+      "band": [
+        0.44999999999999996,
+        0.55
+      ],
+      "outcome": 0,
+      "winner": "Lucknow Super Giants",
+      "brier_score": 0.25,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 7,
-    "mean_brier": 0.2361,
-    "rolling_brier_5": 0.2436,
-    "band_coverage_rate": 0.8571,
-    "vs_coinflip": -0.0139
+    "n_matches": 8,
+    "mean_brier": 0.2379,
+    "rolling_brier_5": 0.2331,
+    "band_coverage_rate": 0.875,
+    "vs_coinflip": -0.0121
   }
 }

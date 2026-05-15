@@ -17,7 +17,7 @@ yet the memo applied generic +6pp home advantage. Two data points showing the sa
 is weak individually but strong against a generic base rate. False balance produces memos
 that are technically defensible but practically uninformative.
 
-**Status:** tentative | **Applications:** 5 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application. Exp 6: RCB vs KKR — Skeptic correctly applied Entry 1: RCB's win at Raipur 3 days prior overrode the "slow pitch hurts aggressive batting" narrative. RCB chased 193 comfortably, validating the application. Exp 7: PBKS vs MI — Entry 1 was invoked for the wrong venue. The memo applied it to Mullanpur (6-8 overall, 3-1 in 2026), concluding "moderate home advantage." The match was at Dharamsala, where PBKS's record is 6-9 (extended to 6-10 with this loss). At the correct venue, Entry 1 would have found NO contradiction — the structural prior (home disadvantage) is consistently supported. The lesson: Entry 1's framework is sound, but it requires correct venue identification upstream. See Entry 13.)
+**Status:** tentative | **Applications:** 6 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application. Exp 6: RCB vs KKR — Skeptic correctly applied Entry 1: RCB's win at Raipur 3 days prior overrode the "slow pitch hurts aggressive batting" narrative. RCB chased 193 comfortably, validating the application. Exp 7: PBKS vs MI — Entry 1 was invoked for the wrong venue. The memo applied it to Mullanpur (6-8 overall, 3-1 in 2026), concluding "moderate home advantage." The match was at Dharamsala, where PBKS's record is 6-9 (extended to 6-10 with this loss). At the correct venue, Entry 1 would have found NO contradiction — the structural prior (home disadvantage) is consistently supported. The lesson: Entry 1's framework is sound, but it requires correct venue identification upstream. See Entry 13. Exp 8: LSG vs CSK — Entry 1 correctly triggered. LSG's 0W-3L in clear results at Ekana in 2026 produced 0pp home advantage. LSG won, making it 1W-3L, but the 0pp call remains valid: a team winning at ~45-50% implied probability at home is consistent with no home advantage. The framework correctly distinguishes "no home advantage" from "will lose at home.")
 
 ## Entry 2 — from Exp 1: RR vs GT (2026-05-09), Grade: C+
 
@@ -44,7 +44,7 @@ while the replacement all-rounder (Bawa, 13.00 economy) was materially weaker. T
 bowling comparison described a lineup that didn't take the field, missing both MI's bowling
 competitiveness and Bawa's death-overs vulnerability.
 
-**Status:** tentative | **Applications:** 4 (Exp 4: PBKS vs DC — rule applied to DC but not reciprocally to PBKS. DC's replacement XI was flagged as an uncertainty, but PBKS's own surprise change — Ferguson out, Dwarshuis debut — was not modeled. Additionally, the rule needs extension: replacement XIs should be assessed for BOTH ceiling and floor, not assumed to be a downgrade. DC's 5 changes produced a team that won. Exp 5: GT vs SRH — rule correctly applied to Travis Head's impact sub status. The memo assessed SRH's starting XI without Head and noted it was weaker than aggregate stats. Head was used as impact sub and scored 0(4). However, the rule was applied asymmetrically again: GT's impact sub Prasidh Krishna 2/23 was not equivalently modeled. Exp 6: RCB vs KKR — Salt's absence correctly modeled with Bethell replacement. Varun's injury correctly flagged as uncertainty with conditional adjustment. However, the actual XI surprises (Venkatesh Iyer in, Suyash Sharma out, Jacob Duffy in) were not anticipated, leading to fragile matchup analysis. See new Entry 12. Exp 7: PBKS vs MI — the asymmetric application pattern recurred for the fourth time. MI's XI uncertainty was correctly flagged as "the largest unresolved variable," but PBKS's own rotation (Stoinis dropped, Ferguson out, Bartlett in for Vyshak) was not anticipated or modeled. Stoinis was PBKS's 5th-highest run scorer (178 runs, SR 174.5) — his absence materially weakened batting depth. This is now a persistent bias: the memo models opposition uncertainty thoroughly but assumes the favored team will field their expected XI.)
+**Status:** tentative | **Applications:** 5 (Exp 4: PBKS vs DC — rule applied to DC but not reciprocally to PBKS. DC's replacement XI was flagged as an uncertainty, but PBKS's own surprise change — Ferguson out, Dwarshuis debut — was not modeled. Additionally, the rule needs extension: replacement XIs should be assessed for BOTH ceiling and floor, not assumed to be a downgrade. DC's 5 changes produced a team that won. Exp 5: GT vs SRH — rule correctly applied to Travis Head's impact sub status. The memo assessed SRH's starting XI without Head and noted it was weaker than aggregate stats. Head was used as impact sub and scored 0(4). However, the rule was applied asymmetrically again: GT's impact sub Prasidh Krishna 2/23 was not equivalently modeled. Exp 6: RCB vs KKR — Salt's absence correctly modeled with Bethell replacement. Varun's injury correctly flagged as uncertainty with conditional adjustment. However, the actual XI surprises (Venkatesh Iyer in, Suyash Sharma out, Jacob Duffy in) were not anticipated, leading to fragile matchup analysis. See new Entry 12. Exp 7: PBKS vs MI — the asymmetric application pattern recurred for the fourth time. MI's XI uncertainty was correctly flagged as "the largest unresolved variable," but PBKS's own rotation (Stoinis dropped, Ferguson out, Bartlett in for Vyshak) was not anticipated or modeled. Stoinis was PBKS's 5th-highest run scorer (178 runs, SR 174.5) — his absence materially weakened batting depth. This is now a persistent bias: the memo models opposition uncertainty thoroughly but assumes the favored team will field their expected XI. Exp 8: LSG vs CSK — Entry 3 correctly applied to Overton's absence. The 3-5pp adjustment was directionally correct but too narrowly scoped. The actual bowling collapse came from Kamboj (0/63 in 2.4 overs), not from the replacement Prashant Veer. The rule's scope should extend beyond one-for-one replacement quality to cascading role-reassignment effects — see new Entry 15.)
 
 ## Entry 4 — from Exp 3: RCB vs MI (2026-05-10), Grade: B
 
@@ -68,7 +68,7 @@ innings of the match. Team selection implies medical clearance by physios who ha
 the player. Once in the confirmed XI, discount injury-based performance concerns by at least
 75%; reserve injury adjustments for genuine game-time decisions (player not yet selected).
 
-**Status:** tentative | **Applications:** 0
+**Status:** tentative | **Applications:** 1 (Exp 8: LSG vs CSK — Entry 5 correctly applied for both Mohsin Khan and Josh Inglis, who returned from niggles that ruled them out of the May 7 match. Both were confirmed in the XI. Inglis scored 36(32) and shared a 135-run opening partnership with Marsh. The rule continues to hold.)
 
 ## Entry 6 — from Exp 2: CSK vs LSG (2026-05-10), Grade: B+
 
@@ -99,7 +99,7 @@ pressure, players auditioning for retention) just as easily as a weaker one. The
 weakness" assumption is a systematic bias. Assess the replacement players' individual quality
 and the absence-of-pressure advantage, not just the fact of rotation.
 
-**Status:** tentative | **Applications:** 2 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated. Exp 7: PBKS vs MI — rule correctly applied. The memo explicitly dismissed the dead-rubber motivation narrative: "no probability adjustment for MI's 'lack of motivation.'" MI — virtually eliminated, missing captain Pandya and vice-captain SKY, with Rohit as impact sub — won by 6 wickets. This is the third consecutive validation that dead-rubber teams are unpredictable, not systematically weaker.)
+**Status:** validated | **Applications:** 3 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated. Exp 7: PBKS vs MI — rule correctly applied. The memo explicitly dismissed the dead-rubber motivation narrative: "no probability adjustment for MI's 'lack of motivation.'" MI — virtually eliminated, missing captain Pandya and vice-captain SKY, with Rohit as impact sub — won by 6 wickets. This is the third consecutive validation that dead-rubber teams are unpredictable, not systematically weaker. Exp 8: LSG vs CSK — fourth consecutive validation. LSG, mathematically eliminated and 2W-6L in last 8, won by 7 wickets with 20 balls to spare. Marsh scored 90(38) — his best innings of the season — in a dead-rubber match. The memo correctly applied 0pp dead-rubber adjustment. Four validations with zero counter-examples across different teams (DC, GT, MI, LSG), different contexts (rotation, weakened XI, full-strength), and different margins of victory. Upgraded from "tentative" to "validated." The pipeline's default should be 0pp for dead-rubber motivation with no exceptions unless a confirmed source quotes reduced effort.)
 
 ## Entry 8 — from Exp 4: PBKS vs DC (2026-05-11), Grade: B+
 
@@ -129,7 +129,7 @@ data combined with same-day weather is more informative than generic evening dew
 This is the strongest case in the experiment series of the market systematically overpricing
 a toss.
 
-**Status:** tentative | **Applications:** 1 (Exp 6: RCB vs KKR — Entry 9 was partially applicable but conditions differed. Raipur humidity was moderate (29% rising to 61%), dew-point gap ~15-20C at match start. The memo correctly capped the toss adjustment at +3-5pp. The chasing team (RCB) won, consistent with a moderate — not extreme — toss advantage. Unlike Exp 5 where weather data contradicted the dew narrative, here the weather was ambiguous, and the correct response was a bounded toss adjustment rather than a 0pp cap.)
+**Status:** tentative | **Applications:** 2 (Exp 6: RCB vs KKR — Entry 9 was partially applicable but conditions differed. Raipur humidity was moderate (29% rising to 61%), dew-point gap ~15-20C at match start. The memo correctly capped the toss adjustment at +3-5pp. The chasing team (RCB) won, consistent with a moderate — not extreme — toss advantage. Unlike Exp 5 where weather data contradicted the dew narrative, here the weather was ambiguous, and the correct response was a bounded toss adjustment rather than a 0pp cap. Exp 8: LSG vs CSK — Entry 9 correctly applied. Lucknow in May: humidity 42-66%, dewpoints 20-23C, temperatures 30-35C. Multiple sources confirmed "very low chances of dew in Lucknow in peak summer." The memo capped the toss at +2-3pp for LSG (who won toss, elected to field). The toss winner won, but the decisive factor was Marsh's powerplay onslaught (86/0 in 6 overs), not second-innings dew. Capping the toss adjustment was correct — the match confirmed that batting-friendly conditions can favor the chasing team without dew being a factor.)
 
 ## Entry 10 — from Exp 5: GT vs SRH (2026-05-12), Grade: A-
 
@@ -197,7 +197,7 @@ the evidence window mentioned the correct venue, so the error propagated through
 unchecked. A single proactive verification step would have prevented the most consequential
 analytical error in the experiment series.
 
-**Status:** tentative | **Applications:** 0
+**Status:** tentative | **Applications:** 1 (Exp 8: LSG vs CSK — the name-mismatch pattern recurred. The stats engine returned zero venue matches for "BRSABV Ekana Cricket Stadium," the same systemic issue. The memo correctly identified and disclosed this gap: "the stats engine returned ZERO venue matches due to a name mismatch — all venue-specific statistical splits are missing." The venue was correct (confirmed via multiple match-day sources), but the stats pipeline's venue name format does not match Cricsheet's naming convention. The memo adapted by using news-sourced venue data (five 2026 Ekana match results), which proved adequate. However, the underlying pipeline bug remains unfixed — the same error will recur for any venue whose name in the stats engine differs from Cricsheet's format.)
 
 ## Entry 14 — from Exp 7: PBKS vs MI (2026-05-14), Grade: C+
 
@@ -211,5 +211,40 @@ loss to a weakened team. Streaks that cross 3+ games signal something beyond bad
 confidence erosion, tactical predictability, or structural issues that the opponent-quality
 adjustment cannot explain. When the losing-streak context includes mixed conditions (some home,
 some away, varying opponent strength), the streak itself becomes the signal.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 15 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B
+
+**When** a key bowler is absent, **model** the cascading effect on the remaining bowling unit's
+role assignments — not just the one-for-one replacement quality — because the absent bowler's
+workload must be redistributed among teammates who may be exposed in unfamiliar phases.
+**Because:** Overton's absence from CSK was assessed as a 3-5pp adjustment based on the quality
+gap between Overton and his replacement Prashant Veer. But the actual bowling collapse came from
+Kamboj (0/63 in 2.4 overs, economy 23.63) — the bowler cited as proof CSK "retained" bowling
+strength. Kamboj may have been forced into death-overs or power-hitter-facing roles that Overton
+normally shared. The one-for-one swap framework (Entry 3) correctly identifies the replacement
+but misses how the absence reorganizes the entire bowling plan. The true impact is the sum of
+the replacement quality gap PLUS the role-reassignment exposure of remaining bowlers. This
+extends Entry 3: model not just who replaces the absent player, but who else is pushed into
+higher-pressure or unfamiliar roles by the absence.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 16 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B
+
+**When** analyzing bowling or batting matchups based on confirmed playing XIs, **acknowledge**
+that the impact substitution rule means the actual bowling/batting composition may differ by
+1-2 players from the starting XI — and widen uncertainty accordingly.
+**Because:** Akash Singh was not in LSG's confirmed XI of 11 but delivered the most impactful
+bowling performance of the match (3/26, dismissing CSK's entire top 3). CSK also used impact
+subs that changed their bowling attack (Spencer Johnson and Gurjapneet Singh bowled instead of
+players from the confirmed XI). The impact sub rule allows teams to introduce match-condition
+specialists after the toss — a swing bowler for overcast powerplay conditions, an extra spinner
+for a turning pitch, or an explosive batter for a low chase. Pre-match analysis locked to the
+confirmed XI systematically underestimates the range of bowling/batting compositions that may
+take the field. While individual impact sub choices are unpredictable, the RANGE of possible
+compositions is wider than the starting XI implies. This should widen the band or temper
+confidence in any analysis that depends on specific matchup comparisons.
 
 **Status:** tentative | **Applications:** 0

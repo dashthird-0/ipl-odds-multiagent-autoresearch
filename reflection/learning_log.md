@@ -271,6 +271,29 @@ not probability.
 
 ## Entry 18 — from Exp 9: KKR vs GT (2026-05-16), Grade: B
 
+**When** a batter's international T20 profile (career SR 160+, proven power-hitter, multiple
+high-six-count innings) dramatically exceeds their current-season IPL strike rate, **weight**
+the profile over the season stat for ceiling-probability assessment — the gap signals a player
+playing below their known ceiling whose probability of an explosive day is higher than the
+season average implies.
+**Because:** Finn Allen's season SR was 130.7 from limited matches (not even in KKR's top-5
+batters by runs). His international T20 profile (SR 160+ for New Zealand, multiple 10-six
+innings in T20 career) indicated a ceiling far above what IPL season stats showed. On a flat
+Eden Gardens surface with short boundaries, Allen struck 93(35) at SR 265.71 with 10 sixes —
+more than doubling his season average. This mirrors Exp 8 where Marsh (season SR 148.0,
+international pedigree of 150+ T20I SR) scored 90(38) at SR 236.84. In both cases, the stats
+snapshot's season figures masked batters with demonstrated ceilings far above their current-season
+central tendency. Season IPL strike rates describe average performance across varied conditions;
+international profiles describe the distribution's upper tail. When conditions favor power-hitting
+(flat pitch, short boundaries, batting-friendly surface), profile-based ceiling probability should
+inform band width. A recently returned player (Allen was dropped earlier in the season,
+suppressing his aggregates) with known explosive ability is especially likely to be systematically
+undercounted by season-aggregate batting rankings.
+
+**Status:** tentative | **Applications:** 0 (Pattern observed in Exp 8: Marsh 90(38) and Exp 9: Allen 93(35) — both had international profiles far exceeding their season stats, both produced explosive innings on flat surfaces.)
+
+## Entry 19 — from Exp 9: KKR vs GT (2026-05-16), Grade: B
+
 **When** a team's "last N" form record contains a significant trend reversal (e.g., a 4+ match
 winning streak within an overall poor record), **decompose** the trajectory rather than averaging
 across the window — the recent trend is more informative than the headline figure when the team

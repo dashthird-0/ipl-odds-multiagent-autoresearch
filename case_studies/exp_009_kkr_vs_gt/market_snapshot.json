@@ -1,0 +1,19 @@
+{
+  "match": "Kolkata Knight Riders vs Gujarat Titans",
+  "venue": "Eden Gardens",
+  "date": "2026-05-16",
+  "snapshot_timestamp": "2026-05-16T13:30:02.586210+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2257475",
+  "condition_id": "0x001a96c4723787f6cb36a695e2877c2bfb4afc7db35ad892c2faeecb3d76926f",
+  "team1": {
+    "name": "Kolkata Knight Riders",
+    "implied_probability": 0.445
+  },
+  "team2": {
+    "name": "Gujarat Titans",
+    "implied_probability": 0.555
+  },
+  "volume_usd": 59187.89279599995,
+  "liquidity_flag": "deep"
+}

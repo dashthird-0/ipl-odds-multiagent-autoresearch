@@ -195,13 +195,41 @@
       "winner": "Lucknow Super Giants",
       "brier_score": 0.25,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_009_kkr_vs_gt",
+      "date": "2026-05-16",
+      "teams": [
+        "Kolkata Knight Riders",
+        "Gujarat Titans"
+      ],
+      "active_rules": [
+        "entry_10",
+        "entry_11",
+        "entry_16",
+        "entry_17",
+        "entry_5",
+        "entry_6",
+        "entry_7"
+      ],
+      "reference_team": "Gujarat Titans",
+      "other_team": "Kolkata Knight Riders",
+      "prediction": 0.57,
+      "band": [
+        0.51,
+        0.63
+      ],
+      "outcome": 0,
+      "winner": "Kolkata Knight Riders",
+      "brier_score": 0.3249,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 8,
-    "mean_brier": 0.2379,
-    "rolling_brier_5": 0.2331,
-    "band_coverage_rate": 0.875,
-    "vs_coinflip": -0.0121
+    "n_matches": 9,
+    "mean_brier": 0.2476,
+    "rolling_brier_5": 0.2628,
+    "band_coverage_rate": 0.8889,
+    "vs_coinflip": -0.0024
   }
 }

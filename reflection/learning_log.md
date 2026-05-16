@@ -17,7 +17,7 @@ yet the memo applied generic +6pp home advantage. Two data points showing the sa
 is weak individually but strong against a generic base rate. False balance produces memos
 that are technically defensible but practically uninformative.
 
-**Status:** tentative | **Applications:** 6 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application. Exp 6: RCB vs KKR — Skeptic correctly applied Entry 1: RCB's win at Raipur 3 days prior overrode the "slow pitch hurts aggressive batting" narrative. RCB chased 193 comfortably, validating the application. Exp 7: PBKS vs MI — Entry 1 was invoked for the wrong venue. The memo applied it to Mullanpur (6-8 overall, 3-1 in 2026), concluding "moderate home advantage." The match was at Dharamsala, where PBKS's record is 6-9 (extended to 6-10 with this loss). At the correct venue, Entry 1 would have found NO contradiction — the structural prior (home disadvantage) is consistently supported. The lesson: Entry 1's framework is sound, but it requires correct venue identification upstream. See Entry 13. Exp 8: LSG vs CSK — Entry 1 correctly triggered. LSG's 0W-3L in clear results at Ekana in 2026 produced 0pp home advantage. LSG won, making it 1W-3L, but the 0pp call remains valid: a team winning at ~45-50% implied probability at home is consistent with no home advantage. The framework correctly distinguishes "no home advantage" from "will lose at home.")
+**Status:** tentative | **Applications:** 7 (Exp 3: RCB vs MI — rule applied; Chinnaswamy venue data correctly excluded from Raipur analysis; the extreme case where venue priors were not merely contradicted but entirely inapplicable. Exp 4: PBKS vs DC — rule applied; PBKS's 6-8 Dharamsala record used to negate home advantage; PBKS lost again, extending to 6-9. Exp 5: GT vs SRH — Skeptic checked Entry 1 and correctly found no contradiction; GT's 3-2 NMS record supported standard home advantage. Entry 1 was consulted but NOT triggered — a correct non-application. Exp 6: RCB vs KKR — Skeptic correctly applied Entry 1: RCB's win at Raipur 3 days prior overrode the "slow pitch hurts aggressive batting" narrative. RCB chased 193 comfortably, validating the application. Exp 7: PBKS vs MI — Entry 1 was invoked for the wrong venue. The memo applied it to Mullanpur (6-8 overall, 3-1 in 2026), concluding "moderate home advantage." The match was at Dharamsala, where PBKS's record is 6-9 (extended to 6-10 with this loss). At the correct venue, Entry 1 would have found NO contradiction — the structural prior (home disadvantage) is consistently supported. The lesson: Entry 1's framework is sound, but it requires correct venue identification upstream. See Entry 13. Exp 8: LSG vs CSK — Entry 1 correctly triggered. LSG's 0W-3L in clear results at Ekana in 2026 produced 0pp home advantage. LSG won, making it 1W-3L, but the 0pp call remains valid: a team winning at ~45-50% implied probability at home is consistent with no home advantage. Exp 9: KKR vs GT — Entry 1 correctly triggered. KKR's 1W-2L at Eden Gardens in 2026 reduced home advantage to +1-2pp. KKR won via Allen's explosive 93(35), not venue familiarity — posting 247 anywhere would win most matches. The discount remains appropriate.)
 
 ## Entry 2 — from Exp 1: RR vs GT (2026-05-09), Grade: C+
 
@@ -68,7 +68,7 @@ innings of the match. Team selection implies medical clearance by physios who ha
 the player. Once in the confirmed XI, discount injury-based performance concerns by at least
 75%; reserve injury adjustments for genuine game-time decisions (player not yet selected).
 
-**Status:** tentative | **Applications:** 1 (Exp 8: LSG vs CSK — Entry 5 correctly applied for both Mohsin Khan and Josh Inglis, who returned from niggles that ruled them out of the May 7 match. Both were confirmed in the XI. Inglis scored 36(32) and shared a 135-run opening partnership with Marsh. The rule continues to hold.)
+**Status:** tentative | **Applications:** 2 (Exp 8: LSG vs CSK — Entry 5 correctly applied for both Mohsin Khan and Josh Inglis, who returned from niggles that ruled them out of the May 7 match. Both were confirmed in the XI. Inglis scored 36(32) and shared a 135-run opening partnership with Marsh. The rule continues to hold. Exp 9: KKR vs GT — Entry 5 correctly applied to Varun Chakaravarthy, returning from a hairline toe fracture. Confirmed in XI, injury discounted by 75%. Figures: 0/47 in 4 overs, economy 11.75. Poor individually, but on a surface where 465 total runs were scored — Rashid Khan 0/57, Tyagi 0/59 — poor economy is indistinguishable from venue conditions. Entry 5's framework holds: presence in XI implies clearance; subsequent performance variance is normal match noise.)
 
 ## Entry 6 — from Exp 2: CSK vs LSG (2026-05-10), Grade: B+
 
@@ -99,7 +99,7 @@ pressure, players auditioning for retention) just as easily as a weaker one. The
 weakness" assumption is a systematic bias. Assess the replacement players' individual quality
 and the absence-of-pressure advantage, not just the fact of rotation.
 
-**Status:** validated | **Applications:** 3 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated. Exp 7: PBKS vs MI — rule correctly applied. The memo explicitly dismissed the dead-rubber motivation narrative: "no probability adjustment for MI's 'lack of motivation.'" MI — virtually eliminated, missing captain Pandya and vice-captain SKY, with Rohit as impact sub — won by 6 wickets. This is the third consecutive validation that dead-rubber teams are unpredictable, not systematically weaker. Exp 8: LSG vs CSK — fourth consecutive validation. LSG, mathematically eliminated and 2W-6L in last 8, won by 7 wickets with 20 balls to spare. Marsh scored 90(38) — his best innings of the season — in a dead-rubber match. The memo correctly applied 0pp dead-rubber adjustment. Four validations with zero counter-examples across different teams (DC, GT, MI, LSG), different contexts (rotation, weakened XI, full-strength), and different margins of victory. Upgraded from "tentative" to "validated." The pipeline's default should be 0pp for dead-rubber motivation with no exceptions unless a confirmed source quotes reduced effort.)
+**Status:** validated | **Applications:** 4 (Exp 5: GT vs SRH — rule applied. DC's 5-change rotation was an extreme case; in Exp 5, GT's bowling ceiling was the dominant factor regardless of total posted. The principle that replacement/rotated XIs should be assessed for ceiling as well as floor is validated. Exp 7: PBKS vs MI — rule correctly applied. The memo explicitly dismissed the dead-rubber motivation narrative: "no probability adjustment for MI's 'lack of motivation.'" MI — virtually eliminated, missing captain Pandya and vice-captain SKY, with Rohit as impact sub — won by 6 wickets. This is the third consecutive validation that dead-rubber teams are unpredictable, not systematically weaker. Exp 8: LSG vs CSK — fourth consecutive validation. LSG, mathematically eliminated and 2W-6L in last 8, won by 7 wickets with 20 balls to spare. Marsh scored 90(38) — his best innings of the season — in a dead-rubber match. The memo correctly applied 0pp dead-rubber adjustment. Upgraded from "tentative" to "validated." Exp 9: KKR vs GT — fifth consecutive validation. KKR, 10th with 4 points and effectively eliminated, posted 247/2 — their highest total of the season — and won by 29 runs against GT on a 5-match winning streak. Allen 93(35) with 10 sixes, Raghuvanshi 82*(44), Green 52*(28), all playing without consequence-pressure. Five validations across five different teams (DC, GT, MI, LSG, KKR) with zero counter-examples. This is the pipeline's most validated and highest-confidence rule.)
 
 ## Entry 8 — from Exp 4: PBKS vs DC (2026-05-11), Grade: B+
 
@@ -162,7 +162,7 @@ underestimates modern run-scoring. The memo treated ~149 as directionally inform
 characterization and par score, but the era gap rendered it misleading. When most of a venue's
 sample is from a prior era, acknowledge the era gap explicitly and anchor on the recent subset.
 
-**Status:** tentative | **Applications:** 0
+**Status:** tentative | **Applications:** 1 (Exp 9: KKR vs GT — Eden Gardens venue splits from 2017-2019 showed avg first-innings score of 178 from 23 matches. The actual first innings was 247 — 69 runs above the stale average. The match aggregate of 465 was over 100 runs above what the stale data would suggest. The memo correctly refused to anchor on the 178 figure and explicitly acknowledged "venue stats are from 2017-2019 only, providing no reliable 2026-era baseline." Entry 11's warning was vindicated in the starkest possible terms.)
 
 ## Entry 12 — from Exp 6: RCB vs KKR (2026-05-13), Grade: B+
 
@@ -247,7 +247,7 @@ take the field. While individual impact sub choices are unpredictable, the RANGE
 compositions is wider than the starting XI implies. This should widen the band or temper
 confidence in any analysis that depends on specific matchup comparisons.
 
-**Status:** tentative | **Applications:** 0
+**Status:** tentative | **Applications:** 1 (Exp 9: KKR vs GT — Pathirana was KKR's impact sub (not in confirmed starting XI, and pre-match intelligence had him incorrectly attributed to GT). He bowled 1.2 overs before a hamstring injury, leaving KKR one bowler short. Tewatia was GT's impact sub, replacing Siraj in the batting innings. Both substitutions materially altered team composition from confirmed XIs. The pre-match intelligence error on Pathirana's team affiliation demonstrates that impact sub uncertainty extends beyond WHAT substitutions will be made to WHO is even available for substitution. Entry 16's band-widening recommendation is validated.)
 
 ## Entry 17 — from Exp 8: LSG vs CSK (2026-05-15), Grade: B+
 
@@ -266,5 +266,25 @@ to diverge from. The correct response is: (a) discard the price explicitly, (b) 
 informational gap, (c) widen the band to compensate for the absent anchor. Thin markets create
 negative informational value: they offer false confidence about a price that reflects positioning,
 not probability.
+
+**Status:** tentative | **Applications:** 0
+
+## Entry 18 — from Exp 9: KKR vs GT (2026-05-16), Grade: B
+
+**When** a team's "last N" form record contains a significant trend reversal (e.g., a 4+ match
+winning streak within an overall poor record), **decompose** the trajectory rather than averaging
+across the window — the recent trend is more informative than the headline figure when the team
+has demonstrably changed quality mid-season.
+**Because:** KKR's 2W-6L in their last 8 completed matches was the primary form signal driving
+GT's +5-8pp advantage. But KKR had actually won 4 consecutive matches before losing to RCB on
+May 13 — and that loss came against Kohli's 105(60). The 2W-6L figure was heavily influenced by
+early-season losses (SRH by 65 runs on April 2, LSG by 3 wickets on April 9) that no longer
+reflected mid-May quality. KKR then posted 247/2 against GT — their highest score of the season.
+The pipeline has Entry 14 for detecting negative momentum (extended losing streaks) but no
+equivalent mechanism for positive momentum reversals, creating an asymmetry that systematically
+underprices improving teams. The Skeptic noted KKR were "not on a current losing streak" but
+framed this as a negative finding (Entry 14 doesn't trigger) rather than positive evidence
+(KKR's quality had improved). When the recent sub-window (last 4-5 matches) shows a pattern
+directionally opposite to the full window (last 8), the sub-window should dominate.
 
 **Status:** tentative | **Applications:** 0

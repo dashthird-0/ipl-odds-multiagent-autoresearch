@@ -97,7 +97,14 @@ def find_pretoss_snapshot(team1: str, team2: str, date: str) -> dict | None:
     if not candidates:
         return None
 
-    candidates.sort(key=lambda x: x[0])
+    # Prefer highest-volume market, then latest capture time.
+    # Multiple markets can match the same teams (match-winner vs prop bets).
+    def sort_key(item):
+        ts, data = item
+        vol = float(data.get("volume", data.get("volume_num", 0)) or 0)
+        return (vol, ts)
+
+    candidates.sort(key=sort_key)
     _, snapshot = candidates[-1]
     return snapshot
 

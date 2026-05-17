@@ -1,0 +1,19 @@
+{
+  "match": "Delhi Capitals vs Rajasthan Royals",
+  "venue": "Arun Jaitley Stadium",
+  "date": "2026-05-17",
+  "snapshot_timestamp": "2026-05-17T13:30:02.903087+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2232147",
+  "condition_id": "0x2e74d6174ce7f58af170de41b75ddd3896476b2ded8c22ca16d5e6352adf5360",
+  "team1": {
+    "name": "Delhi Capitals",
+    "implied_probability": 0.435
+  },
+  "team2": {
+    "name": "Rajasthan Royals",
+    "implied_probability": 0.565
+  },
+  "volume_usd": 10733.477393000001,
+  "liquidity_flag": "moderate"
+}

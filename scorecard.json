@@ -250,13 +250,40 @@
       "winner": "Royal Challengers Bengaluru",
       "brier_score": 0.2304,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_011_dc_vs_rr",
+      "date": "2026-05-17",
+      "teams": [
+        "Delhi Capitals",
+        "Rajasthan Royals"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_12",
+        "entry_16",
+        "entry_19",
+        "entry_7",
+        "entry_9"
+      ],
+      "reference_team": "Delhi Capitals",
+      "other_team": "Rajasthan Royals",
+      "prediction": 0.44,
+      "band": [
+        0.36,
+        0.52
+      ],
+      "outcome": 1,
+      "winner": "Delhi Capitals",
+      "brier_score": 0.3136,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 10,
-    "mean_brier": 0.2458,
-    "rolling_brier_5": 0.2684,
-    "band_coverage_rate": 0.9,
-    "vs_coinflip": -0.0042
+    "n_matches": 11,
+    "mean_brier": 0.252,
+    "rolling_brier_5": 0.2888,
+    "band_coverage_rate": 0.9091,
+    "vs_coinflip": 0.002
   }
 }

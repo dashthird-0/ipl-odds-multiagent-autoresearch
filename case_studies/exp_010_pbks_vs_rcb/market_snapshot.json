@@ -1,0 +1,19 @@
+{
+  "match": "Punjab Kings vs Royal Challengers Bengaluru",
+  "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+  "date": "2026-05-17",
+  "snapshot_timestamp": "2026-05-17T09:30:02.731772+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2260991",
+  "condition_id": "0x74ee3860ca2b254af37fce2f97c5949aaca470559467b7a0e3f3054d6d57e82c",
+  "team1": {
+    "name": "Punjab Kings",
+    "implied_probability": 0.515
+  },
+  "team2": {
+    "name": "Royal Challengers Bengaluru",
+    "implied_probability": 0.485
+  },
+  "volume_usd": 47474.00842999997,
+  "liquidity_flag": "moderate"
+}

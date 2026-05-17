@@ -323,7 +323,7 @@ in this pipeline.
 anchoring on home advantage and the must-win motivation narrative. PBKS collapsed to ~3/3 in
 the powerplay (Arya 0, Prabhsimran 2, Iyer 1) and lost by 23 runs. The "desperation = intensity"
 narrative predicted improved performance; the actual outcome was the opposite — a top-order
-capitulation consistent with confidence erosion under compounding pressure. Entry 7 (5 consecutive
+capitulation consistent with confidence erosion under compounding pressure. Entry 7 (6 consecutive
 validations that low-pressure teams perform well) provides the inverse evidence: pressure-free
 teams play with liberation, while desperate teams on losing streaks face compounding psychological
 weight. When the market prices "must-win" as a positive factor for a team on an extended losing

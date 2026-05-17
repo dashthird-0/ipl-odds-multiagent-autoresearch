@@ -223,13 +223,40 @@
       "winner": "Kolkata Knight Riders",
       "brier_score": 0.3249,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_010_pbks_vs_rcb",
+      "date": "2026-05-17",
+      "teams": [
+        "Punjab Kings",
+        "Royal Challengers Bengaluru"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_12",
+        "entry_13",
+        "entry_14",
+        "entry_7",
+        "entry_8"
+      ],
+      "reference_team": "Punjab Kings",
+      "other_team": "Royal Challengers Bengaluru",
+      "prediction": 0.48,
+      "band": [
+        0.44,
+        0.52
+      ],
+      "outcome": 0,
+      "winner": "Royal Challengers Bengaluru",
+      "brier_score": 0.2304,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 9,
-    "mean_brier": 0.2476,
-    "rolling_brier_5": 0.2628,
-    "band_coverage_rate": 0.8889,
-    "vs_coinflip": -0.0024
+    "n_matches": 10,
+    "mean_brier": 0.2458,
+    "rolling_brier_5": 0.2684,
+    "band_coverage_rate": 0.9,
+    "vs_coinflip": -0.0042
   }
 }

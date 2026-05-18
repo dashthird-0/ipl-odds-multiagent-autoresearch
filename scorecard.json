@@ -277,13 +277,48 @@
       "winner": "Delhi Capitals",
       "brier_score": 0.3136,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_012_csk_vs_srh",
+      "date": "2026-05-18",
+      "teams": [
+        "Chennai Super Kings",
+        "Sunrisers Hyderabad"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_10",
+        "entry_11",
+        "entry_12",
+        "entry_14",
+        "entry_15",
+        "entry_16",
+        "entry_17",
+        "entry_20",
+        "entry_21",
+        "entry_23",
+        "entry_6",
+        "entry_7",
+        "entry_9"
+      ],
+      "reference_team": "Chennai Super Kings",
+      "other_team": "Sunrisers Hyderabad",
+      "prediction": 0.54,
+      "band": [
+        0.47,
+        0.61
+      ],
+      "outcome": 0,
+      "winner": "Yes",
+      "brier_score": 0.2916,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 11,
-    "mean_brier": 0.252,
-    "rolling_brier_5": 0.2888,
-    "band_coverage_rate": 0.9091,
-    "vs_coinflip": 0.002
+    "n_matches": 12,
+    "mean_brier": 0.2553,
+    "rolling_brier_5": 0.2821,
+    "band_coverage_rate": 0.9167,
+    "vs_coinflip": 0.0053
   }
 }

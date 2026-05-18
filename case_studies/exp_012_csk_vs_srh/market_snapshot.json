@@ -1,0 +1,19 @@
+{
+  "match": "Chennai Super Kings vs Sunrisers Hyderabad",
+  "venue": "MA Chidambaram Stadium",
+  "date": "2026-05-18",
+  "snapshot_timestamp": "2026-05-18T13:30:02.180024+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2285341",
+  "condition_id": "0xe37c731237014e9edc1094cf9bfcc069af83ce1628a29d3f2d570740443bbf43",
+  "team1": {
+    "name": "Chennai Super Kings",
+    "implied_probability": 0.966
+  },
+  "team2": {
+    "name": "Sunrisers Hyderabad",
+    "implied_probability": 0.034
+  },
+  "volume_usd": 25.273989999999998,
+  "liquidity_flag": "thin"
+}

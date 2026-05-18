@@ -421,3 +421,22 @@ systematic biases (home-team favoritism, status-quo anchoring near 50/50) to com
 unchallenged. The contrarian paragraph should be REQUIRED whenever Entry 17 applies.
 
 **Status:** tentative | **Applications:** 0
+
+## Entry 25 — from Exp 12: CSK vs SRH (2026-05-18), Grade: B-
+
+**When** the Skeptic recommends a range for an adjustment (e.g., -2 to -4pp) and the analytical
+evidence within that range consistently points in one direction, **recommend the end of the range
+the evidence favors** rather than presenting a neutral range that defaults to the midpoint —
+because memos systematically default to midpoints when no directional guidance is given.
+**Because:** In Exp 12, the Skeptic recommended -2 to -4pp for CSK's bat-first penalty at Chepauk.
+The evidence unanimously favored the upper end: (a) 4/6 chase wins in 2026 (67% rate); (b) 67-80%
+humidity with multi-source dew agreement; (c) Gaikwad's "dry surface" was the sole countervailing
+signal against multiple data points. The Skeptic presented the range without flagging which end the
+evidence supported. The memo defaulted to the midpoint (-3pp); retrospectively -4 to -5pp would
+have been more accurate (a -5pp penalty would have produced 51% CSK — essentially a coin-flip,
+better reflecting the match's actual competitiveness). This is a general pattern, not specific to
+toss/conditions: whenever the Skeptic's own analysis within a recommended range is directionally
+consistent, the Skeptic should explicitly recommend the evidence-favored end. Neutral range
+presentation + memo midpoint-defaulting = systematic underweighting of directionally clear signals.
+
+**Status:** tentative | **Applications:** 0

@@ -128,8 +128,13 @@ Evidence packets are built once, before first ball, and never modified after tha
 | [GT vs SRH](case_studies/exp_005_gt_vs_srh/) | 2026-05-12 | GT 49-61% | GT won by 82 runs | 0.203 | A- |
 | [RCB vs KKR](case_studies/exp_006_rcb_vs_kkr/) | 2026-05-13 | RCB 46-62% | RCB won by 6 wickets | 0.212 | B+ |
 | [PBKS vs MI](case_studies/exp_007_pbks_vs_mi/) | 2026-05-14 | PBKS 53-61% | MI won by 6 wickets | 0.325 | C+ |
+| [LSG vs CSK](case_studies/exp_008_lsg_vs_csk/) | 2026-05-15 | CSK 45-55% | LSG won by 7 wickets | 0.250 | B+ |
+| [KKR vs GT](case_studies/exp_009_kkr_vs_gt/) | 2026-05-16 | GT 51-63% | KKR won by 29 runs | 0.325 | B |
+| [PBKS vs RCB](case_studies/exp_010_pbks_vs_rcb/) | 2026-05-17 | RCB 48-56% | RCB won by 23 runs | 0.230 | B+ |
+| [DC vs RR](case_studies/exp_011_dc_vs_rr/) | 2026-05-17 | RR 48-64% | DC won by 5 wickets | 0.314 | C+ |
+| [CSK vs SRH](case_studies/exp_012_csk_vs_srh/) | 2026-05-18 | CSK 47-61% | SRH won | 0.292 | B- |
 
-**Running Brier: 0.236** across 7 matches (0.25 = coin flip). Band coverage: 86% (6/7).
+**Running Brier: 0.255** across 12 matches (0.25 = coin flip). Band coverage: 92% (11/12).
 
 Live through IPL 2026. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
 

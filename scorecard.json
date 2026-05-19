@@ -312,13 +312,45 @@
       "winner": "Sunrisers Hyderabad",
       "brier_score": 0.2916,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_013_rr_vs_lsg",
+      "date": "2026-05-19",
+      "teams": [
+        "Rajasthan Royals",
+        "Lucknow Super Giants"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_11",
+        "entry_12",
+        "entry_16",
+        "entry_20",
+        "entry_21",
+        "entry_22",
+        "entry_25",
+        "entry_7",
+        "entry_8",
+        "entry_9"
+      ],
+      "reference_team": "Lucknow Super Giants",
+      "other_team": "Rajasthan Royals",
+      "prediction": 0.41999999999999993,
+      "band": [
+        0.37,
+        0.47
+      ],
+      "outcome": 0,
+      "winner": "Rajasthan Royals",
+      "brier_score": 0.1764,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 12,
-    "mean_brier": 0.2553,
-    "rolling_brier_5": 0.2821,
-    "band_coverage_rate": 0.9167,
-    "vs_coinflip": 0.0053
+    "n_matches": 13,
+    "mean_brier": 0.2492,
+    "rolling_brier_5": 0.2674,
+    "band_coverage_rate": 0.9231,
+    "vs_coinflip": -0.0008
   }
 }

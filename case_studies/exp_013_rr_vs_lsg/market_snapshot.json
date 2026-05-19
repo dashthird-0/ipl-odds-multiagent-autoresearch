@@ -1,0 +1,19 @@
+{
+  "match": "Rajasthan Royals vs Lucknow Super Giants",
+  "venue": "Sawai Mansingh Stadium",
+  "date": "2026-05-19",
+  "snapshot_timestamp": "2026-05-19T13:30:02.391891+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2288459",
+  "condition_id": "0xc955fa16119ff4452af13fd86628b0b9e381a02e15a991f6d43863a262b3ce42",
+  "team1": {
+    "name": "Rajasthan Royals",
+    "implied_probability": 0.585
+  },
+  "team2": {
+    "name": "Lucknow Super Giants",
+    "implied_probability": 0.415
+  },
+  "volume_usd": 129249.01736400012,
+  "liquidity_flag": "deep"
+}

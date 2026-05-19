@@ -1,0 +1,38 @@
+# Pre-Match Memo: Rajasthan Royals vs Lucknow Super Giants
+## Sawai Mansingh Stadium, Jaipur, 2026-05-19
+
+**Anchor price:** 58.5% (Rajasthan Royals) / 41.5% (Lucknow Super Giants) — source: Polymarket, snapshot 2026-05-19T13:30:02Z, market ID 2288459, volume $129,249, liquidity: deep
+**Model band:** 53-63% (Rajasthan Royals) / 37-47% (Lucknow Super Giants)
+**Directional view:** Rajasthan Royals slightly favored, but less convincingly than market implies
+**Confidence:** Medium
+
+## Key Reasoning
+
+1. **RR have superior squad quality but their Jaipur home advantage is absent (Stats Analyst: table 3rd vs 9th; Skeptic Entry 1).** RR sit 3rd (12 pts, 6W-4L) vs LSG 9th (6 pts, 3W-6L). However, RR have lost both 2026 home matches at Sawai Mansingh (Apr 25: posted 228, lost to SRH by 5 wickets; May 1: posted 225, lost to DC by 7 wickets). Per reflection log Entry 1 — written about this EXACT venue after the first of these losses — the home advantage structural prior must be discounted to 0pp when the same team's same-season results at the same venue contradict it. RR's 0-2 at Jaipur in 2026 exceeds Entry 1's threshold. Additionally, LSG lead the venue-specific H2H 2-1 at Sawai Mansingh (Entry 21). Home advantage: 0pp.
+
+2. **RR's batting quality is the primary source of their edge, concentrated in the powerplay (News Analyst: powerplay RR 11.73, highest in IPL 2026; Stats Analyst: Sooryavanshi 404 runs SR 229.5, Jaiswal 312 runs SR 149.3).** The top-order batting firepower is genuine — Sooryavanshi is this season's most explosive opener by strike rate, and Jaiswal provides stability. However, the Skeptic correctly notes that RR have the second-lowest death-overs run-rate (9.78), suggesting their batting advantage is phase-specific. On a 220+ par ground, death-overs finishing matters enormously. Net batting quality uplift: +2-3pp for RR.
+
+3. **The toss is the largest single swing factor — this is a flat, dew-free road that heavily favors chasing (Pitch Report: Morgan/Morrison "flat as a pancake"; Weather: 14-15% humidity, dew impossible; Stats: 2/2 chase wins in 2026 at venue).** The pitch report is confirmed on-site evidence (Source Quality: confirmed). The weather data eliminates dew as a factor (Entry 9 applies — humidity 14-15%, dew-point gap 31-37C). However, the structural advantage of chasing on a flat pitch is separate from dew: batting second provides full information for target calibration. In both 2026 Jaipur matches, the chasing team successfully hunted 225+ totals. Pre-toss, this is a 0pp adjustment (unknown who wins toss), but the POST-toss swing is estimated at +3-5pp for the chasing team.
+
+4. **LSG's elimination from playoffs carries zero predictive weight (Skeptic: Entry 7, 8/8 validations; Entry 20, must-win not a positive predictor).** Entry 7 is the pipeline's highest-confidence rule with 8 consecutive validations and 0 counter-examples. Eliminated teams have won repeatedly as underdogs (Marsh's 90(38) in a dead rubber, KKR's 247/2 as a 10th-placed team, MI beating PBKS while missing Pandya and SKY). Pant's framing — "all about pride and figuring out what works" — is consistent with the pattern: pressure-free teams play with liberation. Conversely, Parag's comment ("if we do not qualify, it's our fault") hints at frustration that could cut either way under pressure. Motivation adjustment: 0pp for both teams.
+
+5. **The Skeptic's contrarian case for LSG is substantive and accepted in part (Skeptic: anchoring check and Entry 22 analysis).** The Skeptic constructed a coherent LSG case: venue H2H 2-1 at Jaipur, RR's 0-2 home record, Marsh/Pant/Markram top order capable of big chases, LSG's uncapped bowling unit (40 wickets, 8.92 economy — best in IPL 2026), Prince Yadav's 16 wickets at 7.83 economy. The Skeptic's stress-tested base-rate estimate of ~57% RR (down from the initial 60%) is accepted as more honest than the market's 58.5%. LSG should be closer to 43-47% than the market's 41.5%.
+
+## Main Uncertainty
+
+**The toss outcome.** On this flat, dew-free pitch where every 2026 match has been won by the chasing team, the toss determines a structural 5-8pp swing in win probability. If RR win the toss and field, they become genuine 58-63% favorites (combining batting quality with chasing advantage). If LSG win the toss and field, the match approaches a coin-flip (RR ~50-53%, with LSG's venue familiarity and RR's home losses further narrowing the gap). The pitch report experts explicitly state: "If you win the toss, you'll be chasing." The toss is the single biggest unknown that could flip the directional view.
+
+## What Would Change This View
+
+- **If RR win the toss and field first:** RR band shifts to 58-63%. Their powerplay batting advantage (11.73 RR) deployed in a chase on a flat road is their optimal configuration.
+- **If LSG win the toss and field first:** RR band shifts to 50-55%. LSG chasing on this surface, with Marsh, Pant, and Markram, against RR's second-worst death bowling (9.78 RR) creates a near-coin-flip scenario.
+- **If Jadeja is ruled out at toss:** Reduce RR by 2-3pp. Jadeja's spin bowling (7.88 economy, key Marsh matchup) and lower-order batting are difficult to replace. His absence vs DC coincided with a 7-wicket loss at this venue.
+- **If a team bats first and posts below 200:** On this 220+ par surface, a below-200 total would create a heavy chase advantage (estimated 70%+ for the chasing team).
+
+## Evidence Quality Note
+
+**Overall: Mixed-to-Strong.** The strongest evidence is: (a) the on-site pitch report from Morgan/Morrison (confirmed — flat, no live grass); (b) the weather data eliminating dew (confirmed — 14-15% humidity, physically impossible for dew); (c) the 2026 venue scoring data showing 225+ first innings and 100% chase wins (confirmed via Cricsheet for 2/3 matches, third unverified but consistent). The weakest evidence is: (a) predicted playing XIs (speculative — per Entry 12, no detailed tactical matchups built on these); (b) historical venue splits from 2013-2019 (stale — average of 159 is 65+ runs below 2026 reality, discarded per Entry 11). Unresolved: Jadeja fitness (probable return, not confirmed), Mohsin Khan status (unclear), impact substitutions (inherently unpredictable per Entry 16).
+
+## Band Justification
+
+The band of 53-63% RR (37-47% LSG) is standard-to-wide (+/-5pp from the 58% midpoint). The Skeptic recommended +/-6pp (standard-to-wide) based on: (a) the toss being an unusually large swing factor on this flat pitch; (b) playing XIs being unconfirmed; (c) venue 2026 sample being small (2-3 matches); (d) era gap rendering historical venue stats unusable. The band is set at +/-5pp rather than +/-6pp because the pitch report and weather data are unusually strong evidence that reduces one axis of uncertainty (conditions are clearly known: flat, dry, high-scoring). The band's lower bound (53% RR) corresponds to the "LSG win toss and chase" scenario; the upper bound (63% RR) corresponds to "RR win toss and chase with powerplay superiority." The midpoint (58%) is marginally below the market's 58.5%, reflecting acceptance of the Skeptic's stress-tested base rate (~57%) while acknowledging that deep-liquidity market prices ($129k volume) contain information our model may miss. Per Entry 8, when the gap is <3pp and the analytical reasoning does not produce a strong contrarian case, moderate deference to the market is appropriate. However, per Entry 25, the evidence within the band consistently points toward the lower end: RR's home losses, LSG's venue H2H, and RR's recent form all pull toward 55-57% rather than 58-60%.

@@ -1,0 +1,19 @@
+{
+  "match": "Kolkata Knight Riders vs Mumbai Indians",
+  "venue": "Eden Gardens",
+  "date": "2026-05-20",
+  "snapshot_timestamp": "2026-05-20T13:30:02.516308+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2285358",
+  "condition_id": "0xf0e4579744c985549271ec9bf9847c9dca1f45a6c6f6e7f687646edaaef0cc05",
+  "team1": {
+    "name": "Kolkata Knight Riders",
+    "implied_probability": 0.895
+  },
+  "team2": {
+    "name": "Mumbai Indians",
+    "implied_probability": 0.105
+  },
+  "volume_usd": 451.1211,
+  "liquidity_flag": "thin"
+}

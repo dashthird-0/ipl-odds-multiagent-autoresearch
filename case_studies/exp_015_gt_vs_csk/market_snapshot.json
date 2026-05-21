@@ -1,0 +1,19 @@
+{
+  "match": "Gujarat Titans vs Chennai Super Kings",
+  "venue": "Narendra Modi Stadium",
+  "date": "2026-05-21",
+  "snapshot_timestamp": "2026-05-21T13:30:02.727963+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2293660",
+  "condition_id": "0x30f03c7010e1992b8fae839faeb728a2347c7ff47bd9a149df7f0c860945fbd6",
+  "team1": {
+    "name": "Gujarat Titans",
+    "implied_probability": 0.585
+  },
+  "team2": {
+    "name": "Chennai Super Kings",
+    "implied_probability": 0.415
+  },
+  "volume_usd": 20610.33416300002,
+  "liquidity_flag": "moderate"
+}

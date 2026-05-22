@@ -132,3 +132,56 @@ Mode: LIVE
 ### New Candidates Generated
 
 _Candidate generation requires Claude Code agent invocation (see below)._
+
+## Consolidation Run — 2026-05-22T21:04:42.218259+00:00
+
+Matches at time of run: 16
+Mean Brier: 0.2391
+Rolling Brier (last 5): 0.2108
+Band coverage rate: 0.9375
+vs Coin flip: -0.0109
+Mode: LIVE
+
+### Rule Performance
+
+| Rule | Applications | Avg Brier | Status |
+|------|-------------|-----------|--------|
+| entry_1 | 12 | 0.2404 | ready for validation |
+| entry_10 | 3 | 0.2602 | tentative |
+| entry_11 | 3 | 0.2643 | tentative |
+| entry_12 | 7 | 0.2513 | ready for validation |
+| entry_13 | 4 | 0.2256 | tentative |
+| entry_14 | 2 | 0.261 | tentative |
+| entry_15 | 2 | 0.2278 | tentative |
+| entry_16 | 5 | 0.2541 | ready for validation |
+| entry_17 | 4 | 0.2382 | tentative |
+| entry_18 | 1 | 0.164 | tentative |
+| entry_19 | 2 | 0.2388 | tentative |
+| entry_2 | 4 | 0.2188 | tentative |
+| entry_20 | 4 | 0.2011 | tentative |
+| entry_21 | 2 | 0.234 | tentative |
+| entry_22 | 2 | 0.1743 | tentative |
+| entry_23 | 1 | 0.2916 | tentative |
+| entry_24 | 2 | 0.1681 | tentative |
+| entry_25 | 2 | 0.1702 | tentative |
+| entry_27 | 1 | 0.25 | tentative |
+| entry_3 | 6 | 0.2426 | ready for validation |
+| entry_5 | 3 | 0.2204 | tentative |
+| entry_6 | 4 | 0.311 | tentative |
+| entry_7 | 10 | 0.2498 | ready for validation |
+| entry_8 | 5 | 0.2292 | ready for validation |
+| entry_9 | 8 | 0.2488 | ready for validation |
+
+### Actions Taken
+
+- KEPT (neutral): entry_1 (avg 0.2404 ≈ overall 0.2391)
+- KEPT (neutral): entry_3 (avg 0.2426 ≈ overall 0.2391)
+- KEPT (neutral): entry_8 (avg 0.2292 ≈ overall 0.2391)
+- KEPT (neutral): entry_9 (avg 0.2488 ≈ overall 0.2391)
+- KEPT (neutral): entry_12 (avg 0.2513 ≈ overall 0.2391)
+- KEPT (neutral): entry_7 (avg 0.2498 ≈ overall 0.2391)
+- KEPT (neutral): entry_16 (avg 0.2541 ≈ overall 0.2391)
+
+### New Candidates Generated
+
+_Candidate generation requires Claude Code agent invocation (see below)._

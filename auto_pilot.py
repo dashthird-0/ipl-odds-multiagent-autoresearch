@@ -331,6 +331,24 @@ def _gamma_fetch(params: str) -> list[dict]:
         return []
 
 
+def _pick_winner_market(event_markets: list[dict]) -> dict | None:
+    """Pick the match-winner market, skipping toss/completion/prop sub-markets."""
+    for mkt in event_markets:
+        outcomes = mkt.get("outcomes", "[]")
+        if isinstance(outcomes, str):
+            try:
+                outcomes = json.loads(outcomes)
+            except (json.JSONDecodeError, TypeError):
+                continue
+        if not outcomes or set(outcomes) <= {"Yes", "No", "Over", "Under"}:
+            continue
+        q = (mkt.get("question") or "").lower()
+        if "toss" in q:
+            continue
+        return mkt
+    return None
+
+
 def fetch_active_markets() -> list[dict]:
     events = _gamma_fetch("active=true&closed=false&order=id&ascending=false")
     markets = []
@@ -338,9 +356,8 @@ def fetch_active_markets() -> list[dict]:
         title = event.get("title", "")
         if any(kw in title for kw in PROP_MARKET_KEYWORDS):
             continue
-        for mkt in event.get("markets", []):
-            if not mkt.get("gameStartTime"):
-                continue
+        mkt = _pick_winner_market(event.get("markets", []))
+        if mkt and mkt.get("gameStartTime"):
             markets.append({
                 "event_title": title,
                 "market_id": mkt.get("id", ""),
@@ -351,7 +368,6 @@ def fetch_active_markets() -> list[dict]:
                 "volume": float(mkt.get("volume", "0") or "0"),
                 "accepting_orders": mkt.get("acceptingOrders", True),
             })
-            break
     return markets
 
 
@@ -362,7 +378,8 @@ def fetch_resolved_markets() -> list[dict]:
         title = event.get("title", "")
         if any(kw in title for kw in PROP_MARKET_KEYWORDS):
             continue
-        for mkt in event.get("markets", []):
+        mkt = _pick_winner_market(event.get("markets", []))
+        if mkt:
             markets.append({
                 "event_title": title,
                 "market_id": mkt.get("id", ""),
@@ -370,7 +387,6 @@ def fetch_resolved_markets() -> list[dict]:
                 "outcomes": mkt.get("outcomes", ""),
                 "outcome_prices": mkt.get("outcomePrices", ""),
             })
-            break
     return markets
 
 
@@ -382,6 +398,8 @@ def detect_winner(market: dict) -> str | None:
     if isinstance(prices, str):
         prices = json.loads(prices)
     if len(outcomes) != 2 or len(prices) != 2:
+        return None
+    if set(outcomes) <= {"Yes", "No", "Over", "Under"}:
         return None
     p0, p1 = float(prices[0]), float(prices[1])
     if p0 > 0.95:

@@ -79,6 +79,11 @@ def extract_prediction_from_memo(case_dir: Path, ref_team: str, team1: str, team
         r"\*{0,2}[Mm]odel [Bb]and:?\*{0,2}\s+([A-Z][A-Za-z ]+?)\s+(\d+)\s*[\-–—]\s*(\d+)\s*%",
         memo,
     )
+    # Format C: **Model band:** 53-66% KKR / 34-47% MI  or  34-49% CSK (equivalent: ...)
+    band_match_c = re.search(
+        r"\*{0,2}[Mm]odel [Bb]and:?\*{0,2}\s*(\d+)\s*[\-–—]\s*(\d+)\s*%\s+([A-Z]{2,5})",
+        memo,
+    )
 
     if band_match:
         band_low = int(band_match.group(1)) / 100
@@ -88,6 +93,10 @@ def extract_prediction_from_memo(case_dir: Path, ref_team: str, team1: str, team
         band_team_fragment = band_match_b.group(1).strip()
         band_low = int(band_match_b.group(2)) / 100
         band_high = int(band_match_b.group(3)) / 100
+    elif band_match_c:
+        band_low = int(band_match_c.group(1)) / 100
+        band_high = int(band_match_c.group(2)) / 100
+        band_team_fragment = band_match_c.group(3).strip()
     else:
         raise ValueError("Could not parse model band from memo")
 

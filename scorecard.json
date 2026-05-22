@@ -344,13 +344,77 @@
       "winner": "Rajasthan Royals",
       "brier_score": 0.1764,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_014_kkr_vs_mi",
+      "date": "2026-05-20",
+      "teams": [
+        "Kolkata Knight Riders",
+        "Mumbai Indians"
+      ],
+      "active_rules": [
+        "entry_10",
+        "entry_15",
+        "entry_16",
+        "entry_17",
+        "entry_18",
+        "entry_19",
+        "entry_20",
+        "entry_24",
+        "entry_25",
+        "entry_3",
+        "entry_5",
+        "entry_7"
+      ],
+      "reference_team": "Kolkata Knight Riders",
+      "other_team": "Mumbai Indians",
+      "prediction": 0.595,
+      "band": [
+        0.53,
+        0.66
+      ],
+      "outcome": 1,
+      "winner": "Kolkata Knight Riders",
+      "brier_score": 0.164,
+      "band_coverage": true
+    },
+    {
+      "case_id": "exp_015_gt_vs_csk",
+      "date": "2026-05-21",
+      "teams": [
+        "Gujarat Titans",
+        "Chennai Super Kings"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_12",
+        "entry_13",
+        "entry_17",
+        "entry_20",
+        "entry_22",
+        "entry_24",
+        "entry_5",
+        "entry_7",
+        "entry_9"
+      ],
+      "reference_team": "Chennai Super Kings",
+      "other_team": "Gujarat Titans",
+      "prediction": 0.41500000000000004,
+      "band": [
+        0.34,
+        0.49
+      ],
+      "outcome": 0,
+      "winner": "Gujarat Titans",
+      "brier_score": 0.1722,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 13,
-    "mean_brier": 0.2492,
-    "rolling_brier_5": 0.2674,
-    "band_coverage_rate": 0.9231,
-    "vs_coinflip": -0.0008
+    "n_matches": 15,
+    "mean_brier": 0.2384,
+    "rolling_brier_5": 0.2236,
+    "band_coverage_rate": 0.9333,
+    "vs_coinflip": -0.0116
   }
 }

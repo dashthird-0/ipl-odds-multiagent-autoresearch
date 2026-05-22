@@ -1,0 +1,19 @@
+{
+  "match": "Sunrisers Hyderabad vs Royal Challengers Bengaluru",
+  "venue": "Rajiv Gandhi International Cricket Stadium",
+  "date": "2026-05-22",
+  "snapshot_timestamp": "2026-05-22T13:30:01.987548+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2293672",
+  "condition_id": "0xf463018742b6d6c8b5353230a218575d90c954ddcb41abbec171499e4574f74c",
+  "team1": {
+    "name": "Sunrisers Hyderabad",
+    "implied_probability": 0.465
+  },
+  "team2": {
+    "name": "Royal Challengers Bengaluru",
+    "implied_probability": 0.535
+  },
+  "volume_usd": 77202.30857200002,
+  "liquidity_flag": "deep"
+}

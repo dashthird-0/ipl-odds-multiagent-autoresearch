@@ -434,13 +434,46 @@
       "winner": "Sunrisers Hyderabad",
       "brier_score": 0.25,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_017_lsg_vs_pbks",
+      "date": "2026-05-23",
+      "teams": [
+        "Lucknow Super Giants",
+        "Punjab Kings"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_13",
+        "entry_14",
+        "entry_16",
+        "entry_19",
+        "entry_20",
+        "entry_22",
+        "entry_25",
+        "entry_26",
+        "entry_7",
+        "entry_8",
+        "entry_9"
+      ],
+      "reference_team": "Lucknow Super Giants",
+      "other_team": "Punjab Kings",
+      "prediction": 0.45999999999999996,
+      "band": [
+        0.42,
+        0.5
+      ],
+      "outcome": 0,
+      "winner": "Punjab Kings",
+      "brier_score": 0.2116,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 16,
-    "mean_brier": 0.2391,
-    "rolling_brier_5": 0.2108,
-    "band_coverage_rate": 0.9375,
-    "vs_coinflip": -0.0109
+    "n_matches": 17,
+    "mean_brier": 0.2375,
+    "rolling_brier_5": 0.1948,
+    "band_coverage_rate": 0.9412,
+    "vs_coinflip": -0.0125
   }
 }

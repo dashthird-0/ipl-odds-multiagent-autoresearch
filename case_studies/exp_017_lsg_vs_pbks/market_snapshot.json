@@ -1,0 +1,19 @@
+{
+  "match": "Lucknow Super Giants vs Punjab Kings",
+  "venue": "BRSABV Ekana Cricket Stadium",
+  "date": "2026-05-23",
+  "snapshot_timestamp": "2026-05-23T13:30:02.005531+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2303708",
+  "condition_id": "0x69f3fc30d7436817564175f6b5a86f3a316c9ce6c6ee6fc7c0dfc834cfc87476",
+  "team1": {
+    "name": "Lucknow Super Giants",
+    "implied_probability": 0.395
+  },
+  "team2": {
+    "name": "Punjab Kings",
+    "implied_probability": 0.605
+  },
+  "volume_usd": 62690.074667000015,
+  "liquidity_flag": "deep"
+}

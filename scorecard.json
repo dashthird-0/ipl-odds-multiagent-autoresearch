@@ -467,13 +467,54 @@
       "winner": "Punjab Kings",
       "brier_score": 0.2116,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_018_mi_vs_rr",
+      "date": "2026-05-24",
+      "teams": [
+        "Mumbai Indians",
+        "Rajasthan Royals"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_11",
+        "entry_12",
+        "entry_13",
+        "entry_14",
+        "entry_15",
+        "entry_16",
+        "entry_18",
+        "entry_19",
+        "entry_2",
+        "entry_20",
+        "entry_22",
+        "entry_24",
+        "entry_25",
+        "entry_26",
+        "entry_27",
+        "entry_5",
+        "entry_7",
+        "entry_8",
+        "entry_9"
+      ],
+      "reference_team": "Mumbai Indians",
+      "other_team": "Rajasthan Royals",
+      "prediction": 0.45999999999999996,
+      "band": [
+        0.41000000000000003,
+        0.51
+      ],
+      "outcome": 0,
+      "winner": "Rajasthan Royals",
+      "brier_score": 0.2116,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 17,
-    "mean_brier": 0.2375,
-    "rolling_brier_5": 0.1948,
-    "band_coverage_rate": 0.9412,
-    "vs_coinflip": -0.0125
+    "n_matches": 18,
+    "mean_brier": 0.2361,
+    "rolling_brier_5": 0.2019,
+    "band_coverage_rate": 0.9444,
+    "vs_coinflip": -0.0139
   }
 }

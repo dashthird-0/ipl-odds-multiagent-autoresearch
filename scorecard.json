@@ -508,13 +508,45 @@
       "winner": "Rajasthan Royals",
       "brier_score": 0.2116,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_019_kkr_vs_dc",
+      "date": "2026-05-24",
+      "teams": [
+        "Kolkata Knight Riders",
+        "Delhi Capitals"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_10",
+        "entry_12",
+        "entry_17",
+        "entry_19",
+        "entry_23",
+        "entry_24",
+        "entry_27",
+        "entry_28",
+        "entry_7",
+        "entry_9"
+      ],
+      "reference_team": "Delhi Capitals",
+      "other_team": "Kolkata Knight Riders",
+      "prediction": 0.44999999999999996,
+      "band": [
+        0.37,
+        0.53
+      ],
+      "outcome": 1,
+      "winner": "Delhi Capitals",
+      "brier_score": 0.3025,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 18,
-    "mean_brier": 0.2361,
-    "rolling_brier_5": 0.2019,
-    "band_coverage_rate": 0.9444,
-    "vs_coinflip": -0.0139
+    "n_matches": 19,
+    "mean_brier": 0.2396,
+    "rolling_brier_5": 0.2296,
+    "band_coverage_rate": 0.9474,
+    "vs_coinflip": -0.0104
   }
 }

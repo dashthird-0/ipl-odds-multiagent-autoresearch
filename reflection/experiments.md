@@ -185,3 +185,63 @@ Mode: LIVE
 ### New Candidates Generated
 
 _Candidate generation requires Claude Code agent invocation (see below)._
+
+## Consolidation Run — 2026-05-24T21:12:29.394888+00:00
+
+Matches at time of run: 19
+Mean Brier: 0.2396
+Rolling Brier (last 5): 0.2296
+Band coverage rate: 0.9474
+vs Coin flip: -0.0104
+Mode: LIVE
+
+### Rule Performance
+
+| Rule | Applications | Avg Brier | Status |
+|------|-------------|-----------|--------|
+| entry_1 | 15 | 0.2407 | ready for validation |
+| entry_10 | 4 | 0.2708 | tentative |
+| entry_11 | 4 | 0.2511 | tentative |
+| entry_12 | 9 | 0.2526 | ready for validation |
+| entry_13 | 6 | 0.221 | ready for validation |
+| entry_14 | 4 | 0.2363 | tentative |
+| entry_15 | 3 | 0.2224 | tentative |
+| entry_16 | 7 | 0.242 | ready for validation |
+| entry_17 | 5 | 0.251 | ready for validation |
+| entry_18 | 2 | 0.1878 | tentative |
+| entry_19 | 5 | 0.2407 | ready for validation |
+| entry_2 | 5 | 0.2174 | ready for validation |
+| entry_20 | 6 | 0.2046 | ready for validation |
+| entry_21 | 2 | 0.234 | tentative |
+| entry_22 | 4 | 0.193 | tentative |
+| entry_23 | 2 | 0.2971 | tentative |
+| entry_24 | 4 | 0.2126 | tentative |
+| entry_25 | 4 | 0.1909 | tentative |
+| entry_26 | 2 | 0.2116 | tentative |
+| entry_27 | 3 | 0.2547 | tentative |
+| entry_28 | 1 | 0.3025 | tentative |
+| entry_3 | 6 | 0.2426 | ready for validation |
+| entry_5 | 4 | 0.2182 | tentative |
+| entry_6 | 4 | 0.311 | tentative |
+| entry_7 | 13 | 0.248 | ready for validation |
+| entry_8 | 7 | 0.2241 | ready for validation |
+| entry_9 | 11 | 0.2469 | ready for validation |
+
+### Actions Taken
+
+- KEPT (neutral): entry_1 (avg 0.2407 ≈ overall 0.2396)
+- VALIDATED: entry_2 (avg 0.2174 vs overall 0.2396)
+- KEPT (neutral): entry_3 (avg 0.2426 ≈ overall 0.2396)
+- KEPT (neutral): entry_8 (avg 0.2241 ≈ overall 0.2396)
+- KEPT (neutral): entry_9 (avg 0.2469 ≈ overall 0.2396)
+- KEPT (neutral): entry_12 (avg 0.2526 ≈ overall 0.2396)
+- KEPT (neutral): entry_7 (avg 0.248 ≈ overall 0.2396)
+- KEPT (neutral): entry_13 (avg 0.221 ≈ overall 0.2396)
+- KEPT (neutral): entry_16 (avg 0.242 ≈ overall 0.2396)
+- KEPT (neutral): entry_17 (avg 0.251 ≈ overall 0.2396)
+- KEPT (neutral): entry_19 (avg 0.2407 ≈ overall 0.2396)
+- VALIDATED: entry_20 (avg 0.2046 vs overall 0.2396)
+
+### New Candidates Generated
+
+_Candidate generation requires Claude Code agent invocation (see below)._

@@ -1,0 +1,19 @@
+{
+  "match": "Mumbai Indians vs Rajasthan Royals",
+  "venue": "Wankhede Stadium",
+  "date": "2026-05-24",
+  "snapshot_timestamp": "2026-05-24T09:30:02.590316+00:00",
+  "source": "polymarket_vps_archive",
+  "market_id": "2313434",
+  "condition_id": "0xfa98e1d817c0077e4045aedc60c18ad61814a6b8d8667e45bafcf32f8406d081",
+  "team1": {
+    "name": "Mumbai Indians",
+    "implied_probability": 0.495
+  },
+  "team2": {
+    "name": "Rajasthan Royals",
+    "implied_probability": 0.505
+  },
+  "volume_usd": 40995.48635,
+  "liquidity_flag": "moderate"
+}

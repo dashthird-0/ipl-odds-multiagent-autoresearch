@@ -1,0 +1,56 @@
+# Pre-Match Memo: Mumbai Indians vs Rajasthan Royals
+## Wankhede Stadium, Mumbai, 2026-05-24
+
+**Anchor price:** 49.5% (MI) / 50.5% (RR) -- source: Polymarket (market_id 2313434), moderate liquidity ($40,995), snapshot 2026-05-24T09:30:02Z
+**Model band:** 49-59% (RR)
+**Directional view:** RR slightly favored
+**Confidence:** Medium
+
+## Key Reasoning
+
+1. **RR hold a genuine season-quality advantage over MI.** RR's corrected record is 7W-6L (5th, 14 points) vs MI's 4W-9L (9th, 8 points, eliminated). RR's 53.8% win rate vs MI's 30.8% represents a material quality gap. Updated key performer stats reinforce this: Sooryavanshi 579 runs at SR 236.32 (first Indian to 50 sixes in an IPL season), Jurel 420 runs, Archer 18 wickets at 8.48 economy. This quality gap contributes +5pp for RR from a neutral baseline, set at the evidence-favored upper end of the 4-6pp range per Entry 25. -- source: News & Conditions Analyst (updated standings, RR official site player stats dated 2026-05-23); Skeptic (Challenge 1, corrected records); Source Quality Clerk (claims 18-20 confirmed via RR official site)
+
+2. **MI's home advantage at Wankhede is nullified by their 2026 record.** MI are 1W-4L at Wankhede in IPL 2026 -- losses to RCB, PBKS, CSK, and SRH at home, with only a win vs LSG. Per Entry 1 (eleventh application), when a team's same-season venue record directly contradicts the structural home advantage prior, discount to 0pp. MI's Wankhede record this season provides no home-ground benefit. -- source: Skeptic (Challenge 6, Entry 1 application); News & Conditions Analyst (MI home form, claim 38)
+
+3. **Parag/Jadeja injury uncertainty is directionally asymmetric and shifts the midpoint against RR (Skeptic Challenge 3, accepted).** Per Entry 27, both injuries can only weaken RR (if absent) or maintain the base case (if present) -- they cannot make RR stronger than the base case. The RR official site (May 23, confirmed by Source Quality Clerk as claim 17) lists Parag as "sidelined with injury," suggesting he is more likely out (~60% probability) than in. Jadeja's knee niggle has kept him out for 1-2 matches (~50% probability of absence). The expected midpoint shift is approximately -2.5pp against RR, already incorporated into the 54% estimate. If both play, RR rises to ~56-57%; if both are out, RR drops to ~50-51%. -- source: Skeptic (Challenge 3, Entry 27 application); News & Conditions Analyst (claims 8-13); Source Quality Clerk (claim 17 confirmed, claims 12-13 probable)
+
+4. **Motivation receives 0pp adjustment for both teams (Skeptic Challenge 2, accepted).** Entry 7 has been validated thirteen consecutive times with zero counter-examples across every motivation scenario: dead-rubber wins (Exp 4, 5, 7, 8, 9), must-win losses (Exp 10, 12), dead-rubber losses (Exp 13, 14, 15), must-win wins (Exp 17). MI's dead-rubber status and RR's must-win desperation each receive 0pp. The market's coin-flip pricing may embed a motivation premium for RR's desperation or a dead-rubber discount for MI -- both are empirically worthless. Fourteenth application. -- source: Skeptic (Challenge 2); Reflection Log (Entry 7, 13 validations, Entry 20 -- must-win is 1-for-3 as positive predictor)
+
+5. **On a flat Wankhede pitch (222 avg first-innings score in 2026), bowling quality gaps are amplified, not compressed (Skeptic Challenge 4, accepted).** Per Entry 2, high-scoring venues equalize batting upward but expose bowling weaknesses. RR's bowling (Archer 18 wickets at 8.48, Jadeja 7.88 economy if fit) is materially stronger than MI's non-Bumrah attack (Ghazanfar 9.78, Thakur 11.63, Pandya 10.74). The "batting paradise neutralizes differences" narrative is overstated -- RR retain a +1pp bowling quality advantage on this surface. MI's Bumrah compresses but does not eliminate the gap. -- source: Skeptic (Challenge 4, Entry 2 application); News & Conditions Analyst (pitch report, claim 21 -- 222 avg probable per Source Quality Clerk); Stats Analyst (bowler economies, updated via news sources)
+
+6. **H2H record is noise and receives 0pp (Skeptic Challenge 5, accepted).** MI lead 16-15 in 31 overall meetings (95% CI: 34-69%) and 4-3 at Wankhede in 7 meetings (95% CI: 20-88%). Both confidence intervals span coin-flip, rendering the historical record statistically meaningless. Per Entry 26 (second application in the pipeline), when the CI spans both sides of 50%, the adjustment is 0pp. -- source: Skeptic (Challenge 5, Entry 26 application); Stats Analyst (H2H data)
+
+## Main Uncertainty
+
+**Riyan Parag's and Ravindra Jadeja's fitness, resolved only at or near toss time (3:00 PM IST).** This is a single compound uncertainty because the two absences interact: Parag's absence alone (-1 to -2pp) is manageable (RR won vs LSG without him), but a combined absence of Parag AND Jadeja (-4 to -5pp) would strip RR of their captain, a 207-run batter, and their most economical bowler (7.88 economy), forcing bowling role-reassignment per Entry 15 that could cost 15-20 extra runs on a 222-average surface. The fitness resolution swings RR's probability from ~50-51% (both out) to ~56-57% (both play) -- a 6-7pp range driven by a single pre-toss information release.
+
+## What Would Change This View
+
+- **If both Parag and Jadeja are confirmed fit and in the starting XI:** Per Entry 5, once confirmed, discount injury by 75%. The midpoint would shift from ~54% to ~56-57% RR, strengthening the directional view.
+- **If both Parag and Jadeja are confirmed absent:** The midpoint drops to ~50-51% RR -- essentially the market's current coin-flip pricing, suggesting the market may already be pricing in a high dual-absence probability. The directional view would weaken to "no meaningful gap."
+- **If rain interrupts the match:** Pre-monsoon activity is strengthening (97% morning rain probability per Outlook India, but improving by match time). A no-result would give RR only 1 point, likely insufficient for qualification. Rain risk is non-zero and asymmetrically harmful to RR's playoff prospects.
+- **If MI's ceiling batters activate at Wankhede:** Rickelton (SR 185.4), Rohit as impact sub (career T20I SR 140+, 84 off 44 on May 4 at this venue), and Suryakumar (world-class ceiling) have all produced explosive innings at this ground. Per Entry 18, their international profiles indicate a probability of a ceiling performance higher than their depressed season averages suggest. MI posted 243/5 and chased 228 at Wankhede this season.
+
+## Evidence Quality Note
+
+Overall evidence quality is **Mixed-to-Strong** (Source Quality Clerk assessment). Approximately 8 of ~30 distinct claims are confirmed, 14 are probable, and the remainder are speculative. The strongest evidence clusters are: player availability (de Kock/Bawa confirmed out via dual-sourced official announcement; Rohit confirmed available via coaching staff press conference quote); situational context (MI eliminated and RR must-win, both confirmed via official team communications and dated news sources); and updated player stats (Sooryavanshi 579 runs, Jurel 420, Archer 18 wickets -- all from RR official site, dated May 23). The weakest areas are: predicted playing XIs (speculative, three materially different RR XIs across sources, MI sources disagree on Chahar vs Shardul -- per Entry 12, no detailed matchup analysis is built on these); Parag/Jadeja fitness (genuinely uncertain, not a sourcing failure -- the RR official site's "sidelined" language for Parag is the strongest signal); and venue statistics from the stats snapshot (2017-2019 data entirely discarded per Entry 11, replaced by 2026 news-sourced average of 222). The stats snapshot is severely stale: MI shown at 10 matches (3W-7L) vs actual 13 matches (4W-9L); RR shown at 10 matches (6W-4L) vs actual 13 matches (7W-6L). All standings, player stats, and venue data from the stats snapshot have been corrected using news-sourced data per Entry 13 (eighth occurrence of the venue/staleness bug).
+
+## Band Justification
+
+The model band of **49-59% RR** (equivalently, 41-51% MI) is a standard +/-5pp width, as recommended by the Skeptic. The midpoint is set at **54% RR / 46% MI**.
+
+**Why 54% RR and not 50.5% (market)?**
+
+The Skeptic's independently constructed base rate reached RR 54% through explicit factor-by-factor decomposition from a neutral 50/50 starting point: +5pp RR season quality, 0pp MI home advantage (Entry 1; MI 1W-4L at Wankhede), -2.5pp Parag/Jadeja injury asymmetry (Entry 27), +1pp RR bowling quality on flat pitch (Entry 2), -1.5pp MI form trajectory (Entry 14; 4W-9L systemic), 0pp motivation (Entry 7; 13 validations), 0pp H2H (Entry 26; noise), 0pp dew/toss (Entry 9; afternoon match). Total: ~54% RR. Entry 22 confirmed this was genuine independent construction, not market anchoring -- the 3.5pp gap from the market's 50.5% is a real divergence explained by specific, identifiable factors.
+
+**Why lean TO the base rate (per Entry 8)?**
+
+The 3.5pp gap triggers Entry 8. Per Entry 8's post-Exp 16 enforcement and Exp 17 calibration: when Entry 8 triggers AND Entry 22 confirms independent construction, the estimate must lean at least 2pp toward the base rate from the market. The Exp 17 calibration further specifies: lean TO the base rate, not PAST it. The base rate of 54% RR is the target. I set the midpoint at exactly 54% RR -- the independently constructed base rate. The market's coin-flip pricing likely reflects: (a) overweighting of Parag/Jadeja absence probability beyond what the evidence supports, (b) MI's brand and home-team appeal creating false symmetry in a 4W-9L vs 7W-6L matchup, and (c) MI's dead-rubber status being incorrectly treated as either a negative (0pp per Entry 7) or a positive for RR (0pp per Entry 7).
+
+**Why the contrarian case does not pull the midpoint below 54% (per Entry 24, Exp 17 calibration):**
+
+The Skeptic produced a contrarian MI case (Entry 24) establishing a floor at 46-48% MI (equivalently, 52-54% RR). Five factors support this floor: (1) dual Parag/Jadeja absence would pull RR to ~50-51%; (2) MI's Wankhede ceiling performances (243/5, chased 228); (3) RR's deteriorating trajectory (1W-2L in last 3 per Entry 19); (4) Rohit/Rickelton/SKY ceiling profiles per Entry 18; (5) Bumrah as an equalizer. Per the Exp 17 calibration of Entry 24, the contrarian case calibrates the BAND BOUNDS (lower bound 49% RR reflects the contrarian floor), not the midpoint. The midpoint remains at the base rate.
+
+**Why standard width (+/-5pp)?**
+
+The evidence mix includes high-confidence confirmations (MI eliminated, RR must-win, de Kock out, Rohit available as impact player, afternoon match with low dew, 222-run venue average) alongside significant binary unknowns (Parag fitness, Jadeja fitness, both teams' actual XIs per Entry 12, impact player selections per Entry 16, non-zero rain risk). Neither uniformly strong evidence (which would justify a narrow band) nor uniformly weak evidence (which would require a wide band) predominates. The binary fitness uncertainties are the primary drivers of band width: if both Parag and Jadeja are confirmed in the XI, the band would narrow and shift upward (54-59% RR); if both are confirmed out, it would shift downward (49-54% RR).

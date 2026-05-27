@@ -1,0 +1,21 @@
+{
+  "match": "Sunrisers Hyderabad vs Rajasthan Royals",
+  "venue": "Rajiv Gandhi International Cricket Stadium",
+  "date": "2026-05-27",
+  "snapshot_timestamp": "2026-05-27T13:38:30+00:00",
+  "source": "polymarket_live_api",
+  "market_id": "2350190",
+  "condition_id": "0xf208ab4de9f2e1fc46e5a36e1c99ff4c07109eebe21184352b8205d06290069b",
+  "team1": {
+    "name": "Sunrisers Hyderabad",
+    "implied_probability": 0.555
+  },
+  "team2": {
+    "name": "Rajasthan Royals",
+    "implied_probability": 0.445
+  },
+  "volume_usd": 68660.49,
+  "liquidity_usd": 65843.51,
+  "liquidity_flag": "deep",
+  "notes": "Live API fetch at evidence cutoff. Price moved from 0.535/0.465 (earlier snapshot) to 0.555/0.445. IPL Eliminator playoff match. Game start time 2026-05-27 14:00 UTC (7:30 PM IST)."
+}

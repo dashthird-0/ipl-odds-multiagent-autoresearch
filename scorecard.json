@@ -570,13 +570,47 @@
       "winner": "Royal Challengers Bengaluru",
       "brier_score": 0.2601,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_021_srh_vs_rr",
+      "date": "2026-05-27",
+      "teams": [
+        "Sunrisers Hyderabad",
+        "Rajasthan Royals"
+      ],
+      "active_rules": [
+        "entry_11",
+        "entry_12",
+        "entry_13",
+        "entry_16",
+        "entry_22",
+        "entry_23",
+        "entry_24",
+        "entry_25",
+        "entry_26",
+        "entry_5",
+        "entry_7",
+        "entry_8",
+        "entry_9"
+      ],
+      "reference_team": "Rajasthan Royals",
+      "other_team": "Sunrisers Hyderabad",
+      "prediction": 0.41999999999999993,
+      "band": [
+        0.37,
+        0.47
+      ],
+      "outcome": 1,
+      "winner": "Rajasthan Royals",
+      "brier_score": 0.3364,
+      "band_coverage": false
     }
   ],
   "aggregates": {
-    "n_matches": 20,
-    "mean_brier": 0.2406,
-    "rolling_brier_5": 0.2472,
-    "band_coverage_rate": 0.95,
-    "vs_coinflip": -0.0094
+    "n_matches": 21,
+    "mean_brier": 0.2451,
+    "rolling_brier_5": 0.2644,
+    "band_coverage_rate": 0.9048,
+    "vs_coinflip": -0.0049
   }
 }

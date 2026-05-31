@@ -1,0 +1,36 @@
+{
+  "match": "Royal Challengers Bengaluru vs Gujarat Titans",
+  "venue": "Narendra Modi Stadium, Ahmedabad",
+  "date": "2026-05-31",
+  "snapshot_timestamp": "2026-05-31T13:40:00+00:00",
+  "source": "polymarket",
+  "market_type": "match_winner",
+  "market_question": "Indian Premier League: Royal Challengers Bengaluru vs Gujarat Titans",
+  "team1": {
+    "name": "Royal Challengers Bengaluru",
+    "implied_probability": 0.575
+  },
+  "team2": {
+    "name": "Gujarat Titans",
+    "implied_probability": 0.425
+  },
+  "volume_usd": 109642.94,
+  "liquidity_usd": 102023.54,
+  "liquidity_flag": "deep",
+  "champion_market": {
+    "rcb_champion_yes": 0.56,
+    "rcb_champion_volume_usd": 145122.04,
+    "gt_champion_yes": 0.435,
+    "gt_champion_volume_usd": 233380.11,
+    "note": "Champion market directionally consistent with match market. Since this is the Final, champion probability approximately equals match-winner probability. RCB 56% champion vs 57.5% match winner; GT 43.5% champion vs 42.5% match winner."
+  },
+  "toss_market": {
+    "rcb_toss_yes": 0.995,
+    "note": "Toss already resolved -- RCB won. Market reflects confirmed outcome."
+  },
+  "completed_match_market": {
+    "completed_yes": 0.9705,
+    "note": "97.05% probability match is completed (no washout). Consistent with weather data showing 0% rain chance."
+  },
+  "notes": "Deep liquidity ($109K volume, $102K liquidity) in the match-winner market. Market is POST-TOSS -- the toss market shows 99.5% RCB confirming resolution. The 57.5% RCB price reflects post-toss conditions including RCB's bowling-first choice, the Q1 92-run margin, and GT's travel disruption."
+}

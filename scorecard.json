@@ -641,13 +641,43 @@
       "winner": "Gujarat Titans",
       "brier_score": 0.2025,
       "band_coverage": true
+    },
+    {
+      "case_id": "exp_023_rcb_vs_gt",
+      "date": "2026-05-31",
+      "teams": [
+        "Royal Challengers Bengaluru",
+        "Gujarat Titans"
+      ],
+      "active_rules": [
+        "entry_1",
+        "entry_12",
+        "entry_13",
+        "entry_22",
+        "entry_23",
+        "entry_26",
+        "entry_30",
+        "entry_8",
+        "entry_9"
+      ],
+      "reference_team": "Gujarat Titans",
+      "other_team": "Royal Challengers Bengaluru",
+      "prediction": 0.45999999999999996,
+      "band": [
+        0.41000000000000003,
+        0.51
+      ],
+      "outcome": 0,
+      "winner": "Royal Challengers Bengaluru",
+      "brier_score": 0.2116,
+      "band_coverage": true
     }
   ],
   "aggregates": {
-    "n_matches": 22,
-    "mean_brier": 0.2432,
+    "n_matches": 23,
+    "mean_brier": 0.2418,
     "rolling_brier_5": 0.2626,
-    "band_coverage_rate": 0.9091,
-    "vs_coinflip": -0.0068
+    "band_coverage_rate": 0.913,
+    "vs_coinflip": -0.0082
   }
 }

@@ -19,7 +19,9 @@ Thumbs.db
 *.env
 
 # Market snapshots (live on VPS, symlinked in)
+# Match both the local directory and the VPS symlink (trailing-slash only matches dirs)
 market_snapshots/
+market_snapshots
 
 # Auto-pilot runtime state
 auto_pilot_state.json

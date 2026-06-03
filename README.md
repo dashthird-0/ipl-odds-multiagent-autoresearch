@@ -133,10 +133,21 @@ Evidence packets are built once, before first ball, and never modified after tha
 | [PBKS vs RCB](case_studies/exp_010_pbks_vs_rcb/) | 2026-05-17 | RCB 48-56% | RCB won by 23 runs | 0.230 | B+ |
 | [DC vs RR](case_studies/exp_011_dc_vs_rr/) | 2026-05-17 | RR 48-64% | DC won by 5 wickets | 0.314 | C+ |
 | [CSK vs SRH](case_studies/exp_012_csk_vs_srh/) | 2026-05-18 | CSK 47-61% | SRH won | 0.292 | B- |
+| [RR vs LSG](case_studies/exp_013_rr_vs_lsg/) | 2026-05-19 | RR 53-63% | RR won | 0.176 | B+ |
+| [KKR vs MI](case_studies/exp_014_kkr_vs_mi/) | 2026-05-20 | KKR 53-66% | KKR won | 0.164 | B+ |
+| [GT vs CSK](case_studies/exp_015_gt_vs_csk/) | 2026-05-21 | GT 51-66% | GT won | 0.172 | B+ |
+| [SRH vs RCB](case_studies/exp_016_srh_vs_rcb/) | 2026-05-22 | RCB 42-58% | SRH won | 0.250 | B- |
+| [LSG vs PBKS](case_studies/exp_017_lsg_vs_pbks/) | 2026-05-23 | PBKS 50-58% | PBKS won | 0.212 | B+ |
+| [MI vs RR](case_studies/exp_018_mi_vs_rr/) | 2026-05-24 | RR 49-59% | RR won | 0.212 | A- |
+| [KKR vs DC](case_studies/exp_019_kkr_vs_dc/) | 2026-05-24 | KKR 47-63% | DC won | 0.302 | B- |
+| [RCB vs GT](case_studies/exp_020_rcb_vs_gt/) | 2026-05-26 | GT 43-59% | RCB won | 0.260 | C+ |
+| [SRH vs RR](case_studies/exp_021_srh_vs_rr/) | 2026-05-27 | SRH 53-63% | RR won | 0.336 | B- |
+| [GT vs RR](case_studies/exp_022_gt_vs_rr/) | 2026-05-29 | GT 47-63% | GT won | 0.203 | B+ |
+| [RCB vs GT](case_studies/exp_023_rcb_vs_gt/) | 2026-05-31 | RCB 49-59% | RCB won | 0.212 | B |
 
-**Running Brier: 0.255** across 12 matches (0.25 = coin flip). Band coverage: 92% (11/12).
+**Final Brier: 0.242** across 23 matches (0.25 = coin flip), beating the coin-flip baseline by 0.008. Band coverage: 91% (21/23). The first 12 matches averaged 0.255; the last 11 averaged 0.227, so calibration improved as the rule library matured.
 
-Live through IPL 2026. Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md).
+Season complete (IPL 2026, May 9 - May 31). Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md). The rule library ([`reflection/learning_log.md`](reflection/learning_log.md)) ended with 32 rules: 3 validated, 2 deprecated, the rest tentative.
 
 ## Frozen Rules of the Game
 

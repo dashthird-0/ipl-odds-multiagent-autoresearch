@@ -64,7 +64,7 @@ I want to be explicit about why this matters. Most multi-agent systems that clai
 
 At small N (15-22 matches over IPL 2026), some rule decisions will be wrong. Those mistakes show up in `experiments.md` as part of the result.
 
-This is the first time I'm running a system like this with fully autonomous rule mutation. End-of-season blog post will cover what worked and what didn't.
+This is the first time I'm running a system like this with fully autonomous rule mutation. The [end-of-season write-up](docs/season_review_2026.md) covers what worked and what didn't.
 
 ## How This Differs from Council and Debate Patterns
 
@@ -148,6 +148,16 @@ Evidence packets are built once, before first ball, and never modified after tha
 **Final Brier: 0.242** across 23 matches (0.25 = coin flip), beating the coin-flip baseline by 0.008. Band coverage: 91% (21/23). The first 12 matches averaged 0.255; the last 11 averaged 0.227, so calibration improved as the rule library matured.
 
 Season complete (IPL 2026, May 9 - May 31). Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md). The rule library ([`reflection/learning_log.md`](reflection/learning_log.md)) ended with 32 rules: 3 validated, 2 deprecated, the rest tentative.
+
+## Season Review
+
+Full write-up: [docs/season_review_2026.md](docs/season_review_2026.md). The short version:
+
+**Against the market.** Scored with the same Brier function on the same matches, the model and Polymarket were indistinguishable on the 17 liquid markets (0.237 vs 0.241), and the deep market edged the model on the 9 with the most money down (0.244 vs 0.253). No free lunch: the system matched the market's calibration and found nothing the deep market missed. T20 variance capped both.
+
+**What the loop learned.** 32 rules generated, 3 validated, 2 deprecated, the rest tentative. Most never cleared the 5-application bar at 23 matches. The most telling case was a rule that was correct about cricket (segment venue scoring by era, where 2015 and 2026 first-innings averages differ by 30-69 runs) but got pruned anyway, because the matches it touched scored worse than average and Brier is the only thing the ratchet reads.
+
+**Next.** A reasoning-validity gate, so correct rules stop getting cut for unlucky matches, and more volume than a 23-match season gives. Details in the write-up.
 
 ## Frozen Rules of the Game
 

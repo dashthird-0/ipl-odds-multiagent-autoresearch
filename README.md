@@ -1,12 +1,33 @@
-# ipl-odds-multiagent-autoresearch
+# Can an AI system teach itself to predict cricket?
 
-ipl-odds-multiagent-autoresearch is a self-updating IPL forecasting research system. It produces a pre-match forecast before each IPL match, grades the forecast against the actual outcome, and rewrites its own reasoning rules across the season without any human intervention. The rule library mutates based on Brier score performance alone. Whether that mutation improves calibration over the season is the experiment.
+Seven AI agents forecast every IPL 2026 match, graded their own work, and rewrote their own playbook. No human in the loop. This repo is the full record of what they did and how it went.
 
-It's built on [Claude Code](https://claude.ai/code) with seven specialist subagents. The multi-agent part is table stakes at this point; the interesting piece is the autoresearch loop on top.
+## The experiment
 
-The architecture is general (any domain with public prediction markets), but right now it's pointed at IPL 2026 with [Polymarket](https://polymarket.com/) as the calibration anchor.
+I wanted to know if an AI system could get better at something on its own, without me correcting it.
 
-## How It Works
+So I picked something hard to call: IPL cricket. Before every match of the 2026 season, seven AI agents read the team news, dug through 1,219 past matches, and checked what the prediction market thought. Then they wrote a forecast. After the match, the system graded its own forecast and rewrote the rules it uses to reason. Every match, for a full season. I fixed bugs and watched. I never wrote or changed a forecast.
+
+It runs on [Claude Code](https://claude.ai/code). The multi-agent forecasting is the ordinary part. The part I cared about is the loop on top, where the system scores itself and edits its own rulebook with nobody approving the changes.
+
+## What happened
+
+It came out slightly better than a coin flip, and it drew level with the prediction market without beating it.
+
+To keep score I used the method weather forecasters are judged by. You lose more points the more confident you are when you turn out wrong. Lower is better, and a coin flip scores 0.25. The system averaged 0.242 across 23 matches. Better than guessing, but only just.
+
+The result I found more interesting: on the matches that had real money behind them, the system matched the market almost exactly and found nothing the market had missed. T20 cricket is close to a coin flip, and a system that teaches itself runs into the same wall the market does.
+
+| Question | Answer |
+|---|---|
+| Beat a coin flip? | Yes, barely (0.242 vs 0.25) |
+| Matched the prediction market? | Yes (0.237 vs 0.241 on liquid markets) |
+| Beat the market? | No |
+| Ran a full season with no human in the loop? | Yes |
+
+The full write-up is in [docs/season_review_2026.md](docs/season_review_2026.md): how it scored, whether it beat the market, what the self-editing loop actually learned, and what I would change next. Everything below is the machinery, for anyone who wants it.
+
+## How it works
 
 ```
   ┌──────────────────────────────────────────────────────────┐
@@ -38,43 +59,50 @@ The architecture is general (any domain with public prediction markets), but rig
           (informed by updated rules)
 ```
 
-1. **Before the match:** Seven agents produce a pre-match forecast. Market Reader fetches Polymarket prices. Stats Analyst queries 1,219 IPL matches from [Cricsheet](https://cricsheet.org/). News Analyst searches for team news, pitch reports, weather. Source Quality Clerk audits every source. Base-Rate Skeptic pushes back on narrative overreach. Fair Value Synthesizer writes the forecast.
+1. **Before the match:** Seven agents produce a forecast. Market Reader fetches Polymarket prices. Stats Analyst queries 1,219 IPL matches from [Cricsheet](https://cricsheet.org/). News Analyst searches for team news, pitch reports, and weather. Source Quality Clerk checks every source. Base-Rate Skeptic pushes back on narrative overreach. Fair Value Synthesizer writes the forecast.
 
-2. **After the match:** Post-Match Grader evaluates the reasoning (not just whether we got it right) and proposes rules for the Reflection Log.
+2. **After the match:** Post-Match Grader scores the reasoning, not just whether the pick was right, and proposes rules for the Reflection Log.
 
-3. **Every 3 matches:** Consolidation runs automatically. It prunes rules that worsen calibration, strengthens rules that improve it, and generates new candidates from cross-match patterns.
+3. **Every 3 matches:** Consolidation runs on its own. It prunes rules that hurt calibration, keeps rules that help, and generates new candidates from patterns across matches.
 
-The forecast pipeline alone is a standard multi-agent system. The loop on top is what makes it self-improving.
+The agents don't debate. They hand off through files. Stats Analyst writes JSON, News Analyst writes markdown, the Skeptic reads both and writes its review, the Synthesizer reads everything and writes the forecast. It's a pipeline, not a conversation.
 
-## The Autoresearch Loop
+## The self-improving part
 
-The Reflection Log (`reflection/learning_log.md`) is the system's mutable knowledge. Rules are pattern-level ("When X, do Y because Z"), not match-specific facts. Each rule tracks how many times it's been applied and whether it's tentative, validated, or deprecated.
+The Reflection Log ([`reflection/learning_log.md`](reflection/learning_log.md)) is the system's mutable memory. Rules are patterns ("when X, do Y because Z"), not match facts. Each rule tracks how many times it has been applied and whether it is tentative, validated, or deprecated.
 
-The ratchet metric is **Brier score**: `(prediction - outcome)²`, lower is better, 0.25 = coin flip. Rules need 5+ applications before consolidation can act on them. This prevents overfitting to small samples.
+The score that drives everything is the same weather-forecaster score from above (the Brier score: prediction minus outcome, squared). Rules need 5 or more applications before consolidation can act on them, so a short hot streak can't validate a rule.
 
-The frozen rules of the game (`reflection/program.md`) define what the loop can and cannot touch. Consolidation can rewrite the Reflection Log but cannot modify `program.md`, agent definitions, or the scoring function. Mutable surface, immutable program. That's what makes it safe to run without supervision.
+The frozen rules of the game ([`reflection/program.md`](reflection/program.md)) set what the loop can and can't touch. Consolidation can rewrite the Reflection Log. It cannot touch `program.md`, the agent definitions, or the scoring function. Mutable memory, immutable rules. That is what makes it safe to leave running.
 
-Important limitation: Brier is the only ratchet metric. The system may reward correct forecasts for the wrong reasons, and bad reasoning that produces a well-calibrated number can still strengthen a rule. Reasoning-quality failures are logged but don't drive rule mutation in v1. Keeping the ratchet simple makes the experiment auditable. Will evaluate adding a reasoning-validity gate as v2.
+There is no human approval step. After consolidation, rule changes go straight into the Reflection Log. Most systems that claim self-improvement keep a person filtering out the bad rule changes, and that person is where the discipline actually comes from. Here the discipline comes from two things only: the frozen `program.md` and the automatic score. At 23 matches, some of the rule decisions were wrong, and those are in [`reflection/experiments.md`](reflection/experiments.md) as part of the result.
 
-## No Human in the Loop
+One honest limitation: the score is the only thing that prunes rules. The system can keep a well-scored rule for bad reasons, or cut a sound rule because the matches it touched happened to go the other way. That happened this season. A fix for it is the main next step below.
 
-There's no human approval gate on rule changes. After consolidation, updates go straight to the Reflection Log. Git tracks every mutation and `experiments.md` logs the numbers behind each decision, but nobody reviews the changes before they take effect.
+None of this is cricket-specific. It works for any domain with a public prediction market to grade against. Cricket is the hard test case I picked.
 
-I want to be explicit about why this matters. Most multi-agent systems that claim self-improvement have a human reviewer filtering out bad rule mutations. The system looks disciplined, but the discipline is coming from the human, not the mechanism. Here, the discipline comes from two things: the pre-committed rules in `program.md` (frozen at season start) and the Brier score (computed automatically). That's it.
+## See it yourself
 
-At small N (15-22 matches over IPL 2026), some rule decisions will be wrong. Those mistakes show up in `experiments.md` as part of the result.
+Every match is a self-contained evidence packet, built once before the first ball and never touched again:
+- `evidence_cutoff.md` - what was knowable before the first ball
+- `market_snapshot.json` - frozen Polymarket state, captured pre-toss
+- `stats_snapshot.json` - the Cricsheet query results
+- `sources_fetched.md` - every external source, with URL and date
+- the full agent outputs (news, source quality, skeptic review, the forecast, the grade)
 
-This is the first time I'm running a system like this with fully autonomous rule mutation. The [end-of-season write-up](docs/season_review_2026.md) covers what worked and what didn't.
+Anyone can open a case study folder and see exactly what the agents could and couldn't know. Start with [exp_014_kkr_vs_mi](case_studies/exp_014_kkr_vs_mi/), the best-scored match of the season, or browse the [full list](case_studies/). More on why the packet is frozen: [docs/evidence_discipline.md](docs/evidence_discipline.md).
 
-## How This Differs from Council and Debate Patterns
+Forecasts come out as probability bands, not single numbers:
 
-Council and debate patterns (CrewAI, multi-agent debate papers) are typically single-shot: agents debate, produce a decision, done. This project is different in two ways.
+```
+Anchor price:      GT 51.5% (Polymarket, $112K volume)
+Model band:        GT 48-56%
+Directional view:  Slight GT lean, effectively a coin flip
+Confidence:        Medium
+Main uncertainty:  First-time captain, reconfigured bowling attack
+```
 
-The agents don't debate. They hand off through files. Stats Analyst writes query results to JSON. News Analyst writes structured markdown. Skeptic reads both and writes its review. Synthesizer reads everything and writes the forecast. It's a pipeline, not a conversation.
-
-More importantly, it's not single-shot. After each match, the Grader scores the forecast. Every few matches, consolidation rewrites the rule library based on what's actually working. Council patterns don't have this layer.
-
-## Run It Yourself
+Run it yourself:
 
 ```bash
 # Build evidence + run agents for an upcoming match
@@ -92,32 +120,14 @@ python3 auto_pilot.py --status     # check state machine
 python3 auto_pilot.py --dry-run    # preview without acting
 ```
 
-The auto-pilot runs on a VPS. It discovers matches from Polymarket, triggers at toss + 15 minutes (post-toss, pre-first-ball), detects results from market resolution, auto-grades, and runs consolidation. See `auto_pilot.py` for the trigger logic and state machine.
+The auto-pilot ran on a VPS. It discovered matches from Polymarket, triggered post-toss and pre-first-ball, detected results from market resolution, auto-graded, and ran consolidation. See `auto_pilot.py` for the trigger logic and state machine.
 
-## Output Format
+## Full results
 
-Forecasts output probability bands, not point estimates:
+Final score: 0.242 average Brier across 23 matches (0.25 is a coin flip), so it beat the baseline by 0.008. The band held 91% of the time (21 of 23 results landed inside the model's range). The first 12 matches averaged 0.255 and the last 11 averaged 0.227, so it calibrated a little better as the rulebook matured.
 
-```
-Anchor price:      GT 51.5% (Polymarket, $112K volume)
-Model band:        GT 48-56%
-Directional view:  Slight GT lean, effectively a coin flip
-Confidence:        Medium
-Main uncertainty:  First-time captain, reconfigured bowling attack
-```
-
-## Frozen Evidence Discipline
-
-Every case study is a self-contained evidence packet:
-- `evidence_cutoff.md` - what was knowable before first ball
-- `market_snapshot.json` - frozen Polymarket state (VPS-captured pre-toss)
-- `stats_snapshot.json` - Cricsheet query results
-- `sources_fetched.md` - every external source, with URL and date
-- Full agent outputs (news, source quality, skeptic review, pre-match forecast (memo.md), grade)
-
-Evidence packets are built once, before first ball, and never modified after that. The agents run against the frozen packet, not against live web search at forecast-generation time. Anyone reading the case study folder can verify exactly what the agents could and couldn't see. See [docs/evidence_discipline.md](docs/evidence_discipline.md).
-
-## Status
+<details>
+<summary>Match-by-match table (all 23 matches)</summary>
 
 | Match | Date | Forecast | Result | Brier | Grade |
 |-------|------|-----------|--------|-------|-------|
@@ -145,60 +155,58 @@ Evidence packets are built once, before first ball, and never modified after tha
 | [GT vs RR](case_studies/exp_022_gt_vs_rr/) | 2026-05-29 | GT 47-63% | GT won | 0.203 | B+ |
 | [RCB vs GT](case_studies/exp_023_rcb_vs_gt/) | 2026-05-31 | RCB 49-59% | RCB won | 0.212 | B |
 
-**Final Brier: 0.242** across 23 matches (0.25 = coin flip), beating the coin-flip baseline by 0.008. Band coverage: 91% (21/23). The first 12 matches averaged 0.255; the last 11 averaged 0.227, so calibration improved as the rule library matured.
+</details>
 
-Season complete (IPL 2026, May 9 - May 31). Scorecard: [`scorecard.json`](scorecard.json). Experiment log: [`reflection/experiments.md`](reflection/experiments.md). The rule library ([`reflection/learning_log.md`](reflection/learning_log.md)) ended with 32 rules: 3 validated, 2 deprecated, the rest tentative.
+Machine-readable scorecard: [`scorecard.json`](scorecard.json). Consolidation audit trail: [`reflection/experiments.md`](reflection/experiments.md). The rulebook ended with 32 rules: 3 validated, 2 deprecated, the rest tentative.
 
-## Season Review
+## What's next
 
-Full write-up: [docs/season_review_2026.md](docs/season_review_2026.md). The short version:
+**A reasoning check.** Right now the score is the only thing that prunes rules, which means a sound rule can get cut because its matches went the wrong way. A second signal that grades whether a rule's logic held, separate from whether the match won, would fix that. This is the main v2 item.
 
-**Against the market.** Scored with the same Brier function on the same matches, the model and Polymarket were indistinguishable on the 17 liquid markets (0.237 vs 0.241), and the deep market edged the model on the 9 with the most money down (0.244 vs 0.253). No free lunch: the system matched the market's calibration and found nothing the deep market missed. T20 variance capped both.
+**More matches.** The deep-market comparison only had 9 matches with real liquidity, and most rules never reached the 5-application bar. A higher-volume market or a longer season is the cheapest way to get real answers on which rules work.
 
-**What the loop learned.** 32 rules generated, 3 validated, 2 deprecated, the rest tentative. Most never cleared the 5-application bar at 23 matches. The most telling case was a rule that was correct about cricket (segment venue scoring by era, where 2015 and 2026 first-innings averages differ by 30-69 runs) but got pruned anyway, because the matches it touched scored worse than average and Brier is the only thing the ratchet reads.
+**Running it again.** The auto-pilot is wound down for now. `python3 auto_pilot.py --install` restarts the 5-minute loop for the next season.
 
-**Next.** A reasoning-validity gate, so correct rules stop getting cut for unlucky matches, and more volume than a 23-match season gives. Details in the write-up.
-
-## Frozen Rules of the Game
+## Frozen rules of the game
 
 [`reflection/program.md`](reflection/program.md) is frozen at season start. It defines:
-- Brier score as the sole ratchet metric
-- Alphabetically-first team as reference (removes scoring ambiguity)
-- 5-application threshold before rules can be validated
+- Brier score as the sole score that mutates rules
+- Alphabetically-first team as the reference (removes scoring ambiguity)
+- 5-application threshold before a rule can be validated
 - Forward-only constraint (no retrospective matches)
 - Post-toss, pre-first-ball evidence cutoff
 - 8 frozen search query templates for news gathering
-- What consolidation can and cannot modify
+- what consolidation can and cannot modify
 
 No agent and no consolidation step can change this file.
 
-## Data Sources
+## Data sources
 
 - **[Cricsheet](https://cricsheet.org/)** - 1,219 IPL matches, ball-by-ball, CC0 license
 - **[Polymarket](https://polymarket.com/)** - public Gamma API for market-implied probabilities (no auth)
-- **Web search** - team news, pitch reports, weather. The search queries are frozen in `program.md`, but the returned source set varies per match. The Source Quality Clerk audits each source's reliability and timestamp after the fact.
+- **Web search** - team news, pitch reports, weather. The search queries are frozen in `program.md`, but the returned source set varies per match. The Source Quality Clerk rates each source's reliability and timestamp after the fact.
 
 ## FAQ
 
 **"T20 is a super high variance game. Is it even practical to model it?"**
-Yes, and that's the point. We might get to the end of the season and realize this is useless. But I'm genuinely curious if a self-improving AI system can learn to model T20 madness, or is it just noise all the way down.
+That was the point. I might get to the end of the season and find it's useless. But I was genuinely curious whether a self-improving AI system could learn to model T20 madness, or whether it's noise all the way down.
 
 **"Isn't it too early to claim the model is better than prediction markets?"**
-Of course. Sample is too low to make any conclusions. Treating these as interesting early reads.
+Yes, and I don't claim that. The sample is too small to conclude anything. These are early reads.
 
 **"Why Polymarket? Why not Cricbuzz or Cricinfo?"**
-A prediction market with $50-100K in real money on each match is a harder benchmark than an expert panel. Also, Cricbuzz and Cricinfo don't publish these probabilities in a reliable way.
+A prediction market with $50-100K in real money on each match is a harder benchmark than an expert panel. Cricbuzz and Cricinfo also don't publish these probabilities in a reliable way.
 
 **"You say zero human inputs but I see commits in the repo?"**
-Code changes and bug fixes are human driven. The forecasts, grades, rules, and scoring run autonomously on a VPS cron. No human reviews the memo before the match or approves rule changes after grading. Git history shows which commits are mine (code) vs the auto-pilot's (output).
+Code changes and bug fixes are mine. The forecasts, grades, rules, and scoring ran on their own on a VPS cron. No human reviewed a forecast before a match or approved a rule change after grading. Git history shows which commits are mine (code) and which are the auto-pilot's (output).
 
-## What This Is Not
+## What this is not
 
-- Does not claim to beat market prices
-- Does not place, recommend, or automate trades
-- Does not interact with any trading frontend
+- It does not claim to beat market prices.
+- It does not place, recommend, or automate trades.
+- It does not interact with any trading frontend.
 
-Polymarket's trading frontend is geo-restricted in India. This project does not interact with that interface. The public data API is queried for research purposes only, to study how multi-agent reasoning calibrates against public market prices. See [docs/legality_note.md](docs/legality_note.md).
+Polymarket's trading frontend is geo-restricted in India. This project does not interact with that interface. The public data API is queried for research only, to study how multi-agent reasoning calibrates against public market prices. See [docs/legality_note.md](docs/legality_note.md).
 
 ## License
 
